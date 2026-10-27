@@ -18,6 +18,18 @@ public class TerrainSlabsNeoForgeClient {
         registerRenderLayers();
         registerBlockColorProviders();
         registerItemColorProviders();
+        if(Boolean.getBoolean("wildslabs.clientSmoke")){
+            net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(new java.util.function.Consumer<net.neoforged.neoforge.client.event.ClientTickEvent.Post>(){
+                private int readyTicks;
+                public void accept(net.neoforged.neoforge.client.event.ClientTickEvent.Post tick){
+                    var client=Minecraft.getInstance();
+                    if(client.screen instanceof net.minecraft.client.gui.screens.TitleScreen&&client.getOverlay()==null&&++readyTicks>=20){
+                        org.slf4j.LoggerFactory.getLogger("WildSlabsTests").info("Client smoke passed: title screen and resources loaded");
+                        client.stop();
+                    }
+                }
+            });
+        }
     }
 
     @SuppressWarnings("deprecation")

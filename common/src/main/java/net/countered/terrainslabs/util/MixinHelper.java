@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class MixinHelper {
 
     public static boolean wildslabs$isStateValidOnTop(BlockState state) {
-        return SlabHelper.isValidOntop(state);
+        return SlabHelper.isValidOntop(state) || net.countered.terrainslabs.api.SlabAttachments.isLight(state);
     }
 
     public static BlockState withCopiedSlabProperties(BlockState existing, Block newSlab) {

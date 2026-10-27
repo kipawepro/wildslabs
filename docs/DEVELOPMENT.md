@@ -61,6 +61,9 @@ The additional integration flag enables the test registry and ticker in producti
 A normal server launched with `-Dwildslabs.worldgenSmoke=true` samples two chunks in each registered dimension,
 writes `worldgen-smoke.json`, and stops. Use a dedicated disposable world and a fixed seed for this test.
 
+`./gradlew :neoforge:runClient -PclientSmoke` checks client startup and resource loading, then exits automatically
+after reaching the title screen. It does not join a world or assess shaders and resource packs.
+
 ## Settings
 
 | Setting | Default | Purpose |

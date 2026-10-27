@@ -1,6 +1,6 @@
 # Compatibility
 
-WildSlabs 0.1.0-alpha.4 targets Minecraft 1.21.1, NeoForge 21.1.265 or newer in the 21.1 branch, and Java 21. All integrations are optional.
+WildSlabs 0.1.0-alpha.5 targets Minecraft 1.21.1, NeoForge 21.1.265 or newer in the 21.1 branch, and Java 21. All integrations are optional.
 
 ## Supported behavior
 
@@ -10,6 +10,9 @@ WildSlabs 0.1.0-alpha.4 targets Minecraft 1.21.1, NeoForge 21.1.265 or newer in 
 - Terrain generation runs once at the end of every registered biome except the void, including modded dimensions.
 - Seeded gaps and waterway protection remain enabled by default. Aquatic vegetation and rooted columns are preserved during terrain generation.
 - Existing recognized soil slabs from other mods can support vegetation without becoming additional world-generation targets.
+- Optional slabs are registered only when their required mod is loaded, so absent integrations have no block/item IDs, command entries, or creative items.
+- All WildSlabs terrain slabs use their native source block's drops, whether generated or player-placed. Tool enchantments and native farmland/path soil drops are retained. A double slab uses one full block's native drops.
+- Standing torches, soul torches, redstone torches, and lanterns support slab surfaces, including vanilla slabs. Hanging lanterns follow upper slab undersides. Models, selection, collision, and vanilla torch particles follow the surface height.
 
 Terralith, Tectonic, and Lithostitched integration uses their generated terrain and biome settings; they do not need duplicate terrain blocks. Twilight Forest, Ecologics, and several Let's Do modules likewise use existing materials and plant compatibility rather than receiving a slab for every decorative block.
 
@@ -59,13 +62,15 @@ Special full blocks retain their native behavior instead of being replaced by or
 
 ## Verification
 
-The production pack passed all 23 required GameTests on NeoForge 21.1.265. Tests exercised all 140 active profiles,
+The alpha.5 production pack passed all 27 required GameTests on NeoForge 21.1.265. Tests exercised all 140 active profiles,
 the final terrain feature in 488 biomes, 14 native hoe conversions, 27 native bone meal handlers, native vegetation
 states from the installed plant mods, flower quantities, waterway protection, and geometry offsets.
-The standalone production JAR also passed all 23 required tests without any optional mods installed;
-checks for absent optional profiles and integrations skip their mod-specific cases.
+Alpha.5 adds regression checks for absent optional registries and commands, native block drops, actual light item placement,
+neighbor updates, and hanging lantern targeting. All 27 tests also passed without optional mods installed;
+the absent-mod registry and command checks cover all 140 optional profiles in that configuration.
+The development client reached the title screen and completed resource loading with the lighting mixins enabled.
 
-A normal dedicated server also generated and inspected two chunks per dimension with seed `9247205`.
+A normal dedicated server running alpha.4 also generated and inspected two chunks per dimension with seed `9247205`.
 
 | Dimension | Generated terrain slabs in sampled chunks |
 | --- | ---: |

@@ -9,6 +9,9 @@ architectury {
 
 loom {
     runs {
+        client {
+            if (project.hasProperty('clientSmoke')) vmArg '-Dwildslabs.clientSmoke=true'
+        }
         gameTestServer {
             server()
             name 'WildSlabs Game Tests'

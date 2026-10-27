@@ -5,11 +5,6 @@ import net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab;
 import net.minecraft.world.level.block.state.BlockState;
 
 public final class CompatSurfaceSlab extends CustomSlab implements ISoilSlab,net.minecraft.world.level.block.BonemealableBlock {
-    @Override
-    protected java.util.List<net.minecraft.world.item.ItemStack> getDrops(net.minecraft.world.level.block.state.BlockState state,net.minecraft.world.level.storage.loot.LootParams.Builder parameters){
-        var nativeDrops=CompatDrops.nativeDrops(state,parameters);
-        return nativeDrops==null?super.getDrops(state,parameters):nativeDrops;
-    }
 
     private final CompatSlabs.Profile profile;
     public CompatSurfaceSlab(Properties properties, CompatSlabs.Profile profile) { super(properties); this.profile = profile; }

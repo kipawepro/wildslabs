@@ -24,10 +24,15 @@ public abstract class MixinBlockStateBase {
 
     @Inject(method = "getOffset", at = @At("RETURN"), cancellable = true)
     private void wildslabs$getOffset(BlockGetter level, BlockPos pos, CallbackInfoReturnable<Vec3> cir) {
+        BlockState state = (BlockState) (Object) this;
+        if (net.countered.terrainslabs.api.SlabAttachments.isLight(state)) {
+            Vec3 offset = cir.getReturnValue();
+            cir.setReturnValue(new Vec3(offset.x,offset.y+net.countered.terrainslabs.api.SlabAttachments.offsetY(state,level,pos),offset.z));
+            return;
+        }
         if (level instanceof ServerLevel) {
             return;
         }
-        BlockState state = (BlockState) (Object) this;
 
         if (!SlabHelper.isValidOntop(level, pos, state)) return;
 
@@ -48,10 +53,14 @@ public abstract class MixinBlockStateBase {
             at = @At("RETURN"),
             cancellable = true)
     private void wildslabs$smartShapeOffset(BlockGetter level, BlockPos pos, CollisionContext context, CallbackInfoReturnable<VoxelShape> cir) {
+        BlockState state = (BlockState) (Object) this;
+        if (net.countered.terrainslabs.api.SlabAttachments.isLight(state)) {
+            cir.setReturnValue(cir.getReturnValue().move(0,net.countered.terrainslabs.api.SlabAttachments.offsetY(state,level,pos),0));
+            return;
+        }
         if (level instanceof ServerLevel) {
             return;
         }
-        BlockState state = (BlockState) (Object) this;
 
         if (!SlabHelper.isValidOntop(level, pos, state)) return;
 
@@ -72,6 +81,12 @@ public abstract class MixinBlockStateBase {
                 }
             }
         }
+    }
+
+    @Inject(method="getCollisionShape(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/phys/shapes/VoxelShape;",at=@At("HEAD"),cancellable=true)
+    private void wildslabs$lightCollision(BlockGetter level,BlockPos pos,CallbackInfoReturnable<VoxelShape> result){
+        BlockState state=(BlockState)(Object)this;
+        if(net.countered.terrainslabs.api.SlabAttachments.isLight(state))result.setReturnValue(state.getCollisionShape(level,pos,CollisionContext.empty()));
     }
 
     @Inject(method = "getFaceOcclusionShape", at = @At("RETURN"), cancellable = true)

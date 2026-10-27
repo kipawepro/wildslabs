@@ -24,6 +24,115 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 @PrefixGameTestTemplate(false)
 public final class WildSlabsGameTests {
     @GameTest(template="test_empty")
+    public static void optionalSlabsRequireTheirMods(GameTestHelper helper) throws java.io.IOException {
+        try(var stream=WildSlabsGameTests.class.getResourceAsStream("/wildslabs-compat.json")){
+            var profiles=new com.google.gson.Gson().fromJson(new java.io.InputStreamReader(stream,java.nio.charset.StandardCharsets.UTF_8),net.countered.terrainslabs.neoforge.compat.CompatSlabs.Profile[].class);
+            for(var profile:profiles){
+                var source=net.minecraft.resources.ResourceLocation.parse(profile.source());
+                var id=net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("wildslabs",source.getNamespace()+"/"+source.getPath()+"_slab");
+                boolean expected=net.neoforged.fml.ModList.get().isLoaded(profile.requiredMod());
+                helper.assertTrue(net.minecraft.core.registries.BuiltInRegistries.BLOCK.containsKey(id)==expected,"Optional block registered without its mod: "+id);
+                helper.assertTrue(net.minecraft.core.registries.BuiltInRegistries.ITEM.containsKey(id)==expected,"Optional item registered without its mod: "+id);
+                if(!expected){
+                    var parsed=helper.getLevel().getServer().getCommands().getDispatcher().parse("give @s "+id,helper.getLevel().getServer().createCommandSourceStack());
+                    helper.assertTrue(!parsed.getExceptions().isEmpty()||parsed.getReader().canRead(),"Command accepted an absent optional item: "+id);
+                }
+            }
+        }
+        helper.succeed();
+    }
+
+    private static java.util.Map<String,Integer> dropCounts(java.util.List<ItemStack> stacks){
+        var counts=new java.util.TreeMap<String,Integer>();
+        for(var stack:stacks)counts.merge(net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(stack.getItem()).toString(),stack.getCount(),Integer::sum);
+        return counts;
+    }
+
+    @GameTest(template="test_empty")
+    public static void slabsDropTheirNativeBlocks(GameTestHelper helper){
+        var level=helper.getLevel();
+        var pos=helper.absolutePos(new BlockPos(2,2,2));
+        var silk=new ItemStack(Items.DIAMOND_PICKAXE);
+        silk.enchant(level.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.ENCHANTMENT).getOrThrow(net.minecraft.world.item.enchantment.Enchantments.SILK_TOUCH),1);
+        var fortune=new ItemStack(Items.DIAMOND_PICKAXE);
+        fortune.enchant(level.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.ENCHANTMENT).getOrThrow(net.minecraft.world.item.enchantment.Enchantments.FORTUNE),3);
+        var sources=new java.util.LinkedHashMap<net.minecraft.world.level.block.Block,net.minecraft.world.level.block.Block>(net.countered.terrainslabs.block.ModSlabsMap.getMappings());
+        sources.put(Blocks.FARMLAND,ModBlocksRegistry.FARMLAND_SLAB.get());
+        for(var entry:net.countered.terrainslabs.neoforge.compat.CompatSlabs.entries())sources.put(net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(entry.source()),entry.slab().get());
+        for(var entry:sources.entrySet()){
+            for(var tool:java.util.List.of(new ItemStack(Items.DIAMOND_PICKAXE),silk,fortune)){
+                for(var type:SlabType.values())for(boolean generated:new boolean[]{false,true}){
+                    var state=entry.getValue().defaultBlockState().setValue(CustomSlab.TYPE,type).setValue(CustomSlab.GENERATED,generated);
+                    var drops=net.minecraft.world.level.block.Block.getDrops(state,level,pos,null,null,tool);
+                    helper.assertTrue(drops.stream().noneMatch(s->net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(s.getItem()).getNamespace().equals("wildslabs")),"Breaking a slab returned a slab: "+entry.getKey());
+                    if(java.util.List.of(Blocks.STONE,Blocks.DEEPSLATE,Blocks.DIRT,Blocks.GRASS_BLOCK,Blocks.FARMLAND,Blocks.DIRT_PATH,Blocks.CLAY,Blocks.ICE).contains(entry.getKey())
+                            ||entry.getValue() instanceof net.countered.terrainslabs.neoforge.compat.CompatFarmlandSlab
+                            ||entry.getValue() instanceof net.countered.terrainslabs.neoforge.compat.CompatPathSlab){
+                        var expected=net.minecraft.world.level.block.Block.getDrops(entry.getKey().defaultBlockState(),level,pos,null,null,tool);
+                        helper.assertTrue(dropCounts(drops).equals(dropCounts(expected)),"Slab drops differ from the native block: "+entry.getKey()+", "+type+", generated="+generated);
+                    }
+                }
+            }
+        }
+        helper.succeed();
+    }
+
+    @GameTest(template="test_empty")
+    public static void lightsStandOnSlabs(GameTestHelper helper){
+        var level=helper.getLevel();
+        var pos=helper.absolutePos(new BlockPos(2,2,2));
+        var player=FakePlayerFactory.getMinecraft(level);
+        player.setXRot(90);
+        for(var support:new net.minecraft.world.level.block.Block[]{ModBlocksRegistry.CUSTOM_STONE_SLAB.get(),ModBlocksRegistry.GRASS_SLAB.get(),Blocks.OAK_SLAB}){
+            for(var type:SlabType.values()){
+                var soil=support.defaultBlockState().setValue(CustomSlab.TYPE,type);
+                for(var item:java.util.List.of(Items.TORCH,Items.SOUL_TORCH,Items.REDSTONE_TORCH,Items.LANTERN,Items.SOUL_LANTERN)){
+                    level.setBlock(pos.above(),Blocks.AIR.defaultBlockState(),18);
+                    level.setBlock(pos,soil,18);
+                    var stack=new ItemStack(item);
+                    player.setItemInHand(InteractionHand.MAIN_HAND,stack);
+                    var context=new UseOnContext(level,player,InteractionHand.MAIN_HAND,stack,new BlockHitResult(Vec3.atCenterOf(pos),Direction.UP,pos,false));
+                    item.useOn(context);
+                    var placed=level.getBlockState(pos.above());
+                    helper.assertTrue(net.countered.terrainslabs.api.SlabAttachments.isLight(placed)&&placed.canSurvive(level,pos.above()),"Light could not be placed on "+support+", "+type+": "+item);
+                    double offset=type==SlabType.BOTTOM?-0.5:0;
+                    helper.assertTrue(placed.getOffset(renderingView(level),pos.above()).y==offset,"Light model floats above its slab");
+                    helper.assertTrue(placed.getShape(level,pos.above()).min(Direction.Axis.Y)==offset,"Light selection shape did not follow its slab");
+                    if(placed.getBlock() instanceof net.minecraft.world.level.block.LanternBlock)helper.assertTrue(placed.getCollisionShape(level,pos.above()).min(Direction.Axis.Y)==offset,"Lantern collision did not follow its slab");
+                    helper.assertTrue(placed.updateShape(Direction.DOWN,soil,level,pos.above(),pos).is(placed.getBlock()),"Neighbor update broke a supported light");
+                    level.setBlockAndUpdate(pos,Blocks.AIR.defaultBlockState());
+                    helper.assertTrue(level.getBlockState(pos.above()).isAir(),"Light survived removal of its slab");
+                }
+            }
+        }
+        helper.succeed();
+    }
+
+    @GameTest(template="test_empty")
+    public static void lanternsHangUnderTopSlabs(GameTestHelper helper){
+        var level=helper.getLevel();
+        var pos=helper.absolutePos(new BlockPos(2,2,2));
+        var player=FakePlayerFactory.getMinecraft(level);
+        player.setXRot(-90);
+        level.setBlock(pos.below(),Blocks.AIR.defaultBlockState(),18);
+        level.setBlock(pos,Blocks.AIR.defaultBlockState(),18);
+        var support=Blocks.OAK_SLAB.defaultBlockState().setValue(CustomSlab.TYPE,SlabType.TOP);
+        level.setBlock(pos.above(),support,18);
+        var stack=new ItemStack(Items.LANTERN);
+        player.setItemInHand(InteractionHand.MAIN_HAND,stack);
+        Items.LANTERN.useOn(new UseOnContext(level,player,InteractionHand.MAIN_HAND,stack,new BlockHitResult(Vec3.atCenterOf(pos.above()),Direction.DOWN,pos.above(),false)));
+        var lantern=level.getBlockState(pos);
+        helper.assertTrue(lantern.is(Blocks.LANTERN)&&lantern.getValue(net.minecraft.world.level.block.LanternBlock.HANGING),"Lantern could not hang from a top slab");
+        helper.assertTrue(lantern.getOffset(renderingView(level),pos).y==0.5,"Hanging lantern did not meet its slab underside");
+        helper.assertTrue(lantern.getShape(level,pos).max(Direction.Axis.Y)==1.125,"Hanging selection shape was not shifted");
+        var hit=level.clip(new net.minecraft.world.level.ClipContext(new Vec3(pos.getX()-1,pos.getY()+1.1,pos.getZ()+0.5),new Vec3(pos.getX()+2,pos.getY()+1.1,pos.getZ()+0.5),net.minecraft.world.level.ClipContext.Block.OUTLINE,net.minecraft.world.level.ClipContext.Fluid.NONE,player));
+        helper.assertTrue(hit.getBlockPos().equals(pos),"Shifted hanging lantern could not be targeted");
+        level.setBlockAndUpdate(pos.above(),Blocks.AIR.defaultBlockState());
+        helper.assertTrue(level.getBlockState(pos).isAir(),"Hanging lantern survived removal of its slab");
+        helper.succeed();
+    }
+
+    @GameTest(template="test_empty")
     public static void moddedCultivatedSoilsRetainTheirBase(GameTestHelper helper){
         var level=helper.getLevel();
         var pos=helper.absolutePos(new BlockPos(2,2,2));

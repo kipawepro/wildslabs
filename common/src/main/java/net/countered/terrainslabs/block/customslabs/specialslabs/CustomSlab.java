@@ -11,6 +11,11 @@ import net.minecraft.world.level.block.state.properties.SlabType;
 
 public class CustomSlab extends SlabBlock {
     @Override
+    protected java.util.List<net.minecraft.world.item.ItemStack> getDrops(BlockState state,net.minecraft.world.level.storage.loot.LootParams.Builder parameters){
+        var source=net.countered.terrainslabs.generation.VegetationSupport.sourceStateForSlab(state);
+        return source==null?super.getDrops(state,parameters):source.getDrops(parameters.withParameter(net.minecraft.world.level.storage.loot.parameters.LootContextParams.BLOCK_STATE,source));
+    }
+    @Override
     protected net.minecraft.world.ItemInteractionResult useItemOn(net.minecraft.world.item.ItemStack stack,BlockState state,net.minecraft.world.level.Level level,net.minecraft.core.BlockPos pos,net.minecraft.world.entity.player.Player player,net.minecraft.world.InteractionHand hand,net.minecraft.world.phys.BlockHitResult hit){
         return net.countered.terrainslabs.platform.PlatformConfigHooks.useSourceItem(stack,state,level,pos,player,hand,hit);
     }

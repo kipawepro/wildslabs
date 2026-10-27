@@ -3,7 +3,9 @@
   "package": "net.countered.terrainslabs.mixin",
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
-  "client": [],
+  "client": [
+    "ontop.render.MixinTorchParticles"
+  ],
   "mixins": [
     "feature.MixinDiskFeature",
     "feature.MixinOreFeature",
@@ -19,7 +21,8 @@
     "shovel.MixinHoeItem",
     "ontop.place.MixinPlantSurvival",
     "ontop.place.MixinSoilProbeLevel",
-    "ontop.place.BushBlockAccessor"
+    "ontop.place.BushBlockAccessor",
+    "ontop.place.MixinSlabLightSupport"
   ],
   "injectors": {
     "defaultRequire": 1

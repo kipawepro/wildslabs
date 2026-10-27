@@ -44,6 +44,14 @@ public interface MixinRaytrace {
 
                     double f = blockHitResultAbove == null ? Double.MAX_VALUE : from.distanceToSqr(blockHitResultAbove.getLocation());
 
+                    BlockPos belowPos = blockPos.below();
+                    BlockState belowState = this.getBlockState(belowPos);
+                    if(net.countered.terrainslabs.api.SlabAttachments.isHanging(belowState)){
+                        VoxelShape belowShape=clipContext.getBlockShape(belowState,(BlockGetter)this,belowPos);
+                        BlockHitResult belowHit=this.clipWithInteractionOverride(from,to,belowPos,belowShape,belowState);
+                        if(belowHit!=null&&from.distanceToSqr(belowHit.getLocation())<=Math.min(f,Math.min(d,e)))return belowHit;
+                    }
+
                     if (f <= d && f <= e) {
                         return blockHitResultAbove;
                     }
