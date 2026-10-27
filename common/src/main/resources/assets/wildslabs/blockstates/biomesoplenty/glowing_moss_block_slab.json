@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wildslabs:block/biomesoplenty/glowing_moss_block_slab_bottom"
+    },
+    "type=top": {
+      "model": "wildslabs:block/biomesoplenty/glowing_moss_block_slab_top"
+    },
+    "type=double": {
+      "model": "wildslabs:block/biomesoplenty/glowing_moss_block_slab_double"
+    }
+  }
+}

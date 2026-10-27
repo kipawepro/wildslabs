@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wildslabs:block/biomesoplenty/algal_end_stone_slab_bottom"
+    },
+    "type=top": {
+      "model": "wildslabs:block/biomesoplenty/algal_end_stone_slab_top"
+    },
+    "type=double": {
+      "model": "wildslabs:block/biomesoplenty/algal_end_stone_slab_double"
+    }
+  }
+}

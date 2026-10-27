@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "wildslabs:biomesoplenty/origin_grass_block_slab",
+      "required": false
+    }
+  ]
+}

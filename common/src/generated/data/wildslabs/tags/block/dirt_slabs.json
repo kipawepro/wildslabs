@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    "wildslabs:dirt_slab",
+    "wildslabs:grass_slab",
+    "wildslabs:mud_slab",
+    "wildslabs:coarse_slab",
+    "wildslabs:mycelium_slab",
+    "wildslabs:podzol_slab",
+    "wildslabs:rooted_dirt_slab",
+    "wildslabs:moss_slab",
+    {
+      "id": "wildslabs:biomesoplenty/origin_grass_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomesoplenty/mossy_black_sand_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomesoplenty/flesh_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomesoplenty/glowing_moss_block_slab",
+      "required": false
+    }
+  ]
+}

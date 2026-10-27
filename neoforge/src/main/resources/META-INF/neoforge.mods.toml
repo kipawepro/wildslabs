@@ -1,0 +1,41 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "All Rights Reserved (WildSlabs additions); MIT (inherited Terrain Slabs code)"
+issueTrackerURL = "https://github.com/kipawepro/wildslabs/issues"
+
+[[mods]]
+modId = "wildslabs"
+version = "${version}"
+displayName = "WildSlabs"
+authors = "HexaMC, Countered (original terrain engine)"
+displayURL = "https://github.com/kipawepro/wildslabs"
+description = '''
+Standalone terrain smoothing with plantable slabs, hydrated farmland and optional biome-mod integrations.
+'''
+
+
+[[dependencies.wildslabs]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.215,21.2)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.21.2)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "architectury"
+type = "required"
+versionRange = "[13.0.8,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "wildslabs.mixins.json"
+[[mixins]]
+config = "wildslabs.neoforge.mixins.json"

@@ -1,0 +1,27 @@
+{
+  "required": true,
+  "package": "net.countered.terrainslabs.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "client": [],
+  "mixins": [
+    "feature.MixinDiskFeature",
+    "feature.MixinOreFeature",
+    "feature.WorldGenRegionMixin",
+    "ontop.place.MixinBushBlock",
+    "ontop.place.MixinSeagrassBlock",
+    "ontop.place.MixinSnowLayer",
+    "ontop.render.MixinBlockStateBase",
+    "ontop.render.target.MixinRaytrace",
+    "shovel.MixinShovelItem",
+    "shovel.ShovelItemAccessor",
+    "ontop.place.MixinCropSoil",
+    "shovel.MixinHoeItem",
+    "ontop.place.MixinPlantSurvival",
+    "ontop.place.MixinSoilProbeLevel",
+    "ontop.place.BushBlockAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

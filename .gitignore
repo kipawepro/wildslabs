@@ -1,0 +1,9 @@
+.gradle/
+.idea/
+**/build/
+**/run/
+**/run-gametest/
+dist/
+*.log
+.DS_Store
+Thumbs.db

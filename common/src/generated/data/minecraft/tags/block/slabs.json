@@ -1,0 +1,108 @@
+{
+  "replace": false,
+  "values": [
+    "wildslabs:dirt_slab",
+    "wildslabs:mud_slab",
+    "wildslabs:coarse_slab",
+    "wildslabs:snow_slab",
+    "wildslabs:packed_ice_slab",
+    "wildslabs:deepslate_slab",
+    "wildslabs:clay_slab",
+    "wildslabs:moss_slab",
+    "wildslabs:calcite_slab",
+    "wildslabs:smooth_basalt_slab",
+    "wildslabs:light_blue_terracotta_slab",
+    "wildslabs:cyan_terracotta_slab",
+    "wildslabs:terrain_cobblestone_slab",
+    "wildslabs:terrain_mossy_cobblestone_slab",
+    "wildslabs:terrain_cobbled_deepslate_slab",
+    "wildslabs:ice_slab",
+    "wildslabs:rooted_dirt_slab",
+    "wildslabs:packed_mud_slab",
+    "wildslabs:blue_ice_slab",
+    "wildslabs:black_terracotta_slab",
+    "wildslabs:terrain_prismarine_slab",
+    "wildslabs:grass_slab",
+    "wildslabs:mycelium_slab",
+    "wildslabs:podzol_slab",
+    "wildslabs:path_slab",
+    "wildslabs:gravel_slab",
+    "wildslabs:sand_slab",
+    "wildslabs:red_sand_slab",
+    "wildslabs:terracotta_slab",
+    "wildslabs:red_terracotta_slab",
+    "wildslabs:orange_terracotta_slab",
+    "wildslabs:light_gray_terracotta_slab",
+    "wildslabs:white_terracotta_slab",
+    "wildslabs:brown_terracotta_slab",
+    "wildslabs:yellow_terracotta_slab",
+    "wildslabs:terrain_tuff_slab",
+    "wildslabs:terrain_stone_slab",
+    "wildslabs:terrain_sandstone_slab",
+    "wildslabs:terrain_red_sandstone_slab",
+    "wildslabs:terrain_diorite_slab",
+    "wildslabs:terrain_andesite_slab",
+    "wildslabs:terrain_granite_slab",
+    "wildslabs:soul_sand_slab",
+    "wildslabs:soul_soil_slab",
+    "wildslabs:netherrack_slab",
+    "wildslabs:crimson_nylium_slab",
+    "wildslabs:warped_nylium_slab",
+    "wildslabs:basalt_slab",
+    "wildslabs:terrain_blackstone_slab",
+    "wildslabs:endstone_slab",
+    "wildslabs:farmland_slab",
+    {
+      "id": "wildslabs:biomesoplenty/white_sand_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomesoplenty/orange_sand_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomesoplenty/black_sand_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomesoplenty/white_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomesoplenty/orange_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomesoplenty/black_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomesoplenty/origin_grass_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomesoplenty/mossy_black_sand_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomesoplenty/dried_salt_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomesoplenty/brimstone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomesoplenty/flesh_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomesoplenty/glowing_moss_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomesoplenty/algal_end_stone_slab",
+      "required": false
+    }
+  ]
+}

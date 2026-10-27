@@ -1,0 +1,6 @@
+{
+  "parent": "wildslabs:block/ontop/tinted_cross",
+  "textures": {
+    "cross": "minecraft:block/fern"
+  }
+}

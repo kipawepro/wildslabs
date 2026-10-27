@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "layers=1": {
+      "model": "wildslabs:block/ontop/snow_on_top2"
+    },
+    "layers=2": {
+      "model": "wildslabs:block/ontop/snow_on_top4"
+    },
+    "layers=3": {
+      "model": "wildslabs:block/ontop/snow_on_top6"
+    },
+    "layers=4": {
+      "model": "wildslabs:block/ontop/snow_on_top8"
+    },
+    "layers=5": {
+      "model": "wildslabs:block/ontop/snow_on_top10"
+    },
+    "layers=6": {
+      "model": "wildslabs:block/ontop/snow_on_top12"
+    },
+    "layers=7": {
+      "model": "wildslabs:block/ontop/snow_on_top14"
+    },
+    "layers=8": {
+      "model": "wildslabs:block/ontop/snow_on_top_block"
+    }
+  }
+}

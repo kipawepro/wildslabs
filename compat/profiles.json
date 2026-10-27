@@ -1,0 +1,15 @@
+[
+  {"source":"biomesoplenty:white_sand","kind":"sand","name":"White Sand Slab","textures":{"top":"biomesoplenty:block/white_sand","side":"biomesoplenty:block/white_sand","bottom":"biomesoplenty:block/white_sand"}},
+  {"source":"biomesoplenty:orange_sand","kind":"sand","name":"Orange Sand Slab","textures":{"top":"biomesoplenty:block/orange_sand","side":"biomesoplenty:block/orange_sand","bottom":"biomesoplenty:block/orange_sand"}},
+  {"source":"biomesoplenty:black_sand","kind":"sand","name":"Black Sand Slab","textures":{"top":"biomesoplenty:block/black_sand","side":"biomesoplenty:block/black_sand","bottom":"biomesoplenty:block/black_sand"}},
+  {"source":"biomesoplenty:white_sandstone","kind":"stone","name":"White Sandstone Slab","textures":{"top":"biomesoplenty:block/white_sandstone_top","side":"biomesoplenty:block/white_sandstone","bottom":"biomesoplenty:block/white_sandstone_bottom"}},
+  {"source":"biomesoplenty:orange_sandstone","kind":"stone","name":"Orange Sandstone Slab","textures":{"top":"biomesoplenty:block/orange_sandstone_top","side":"biomesoplenty:block/orange_sandstone","bottom":"biomesoplenty:block/orange_sandstone_bottom"}},
+  {"source":"biomesoplenty:black_sandstone","kind":"stone","name":"Black Sandstone Slab","textures":{"top":"biomesoplenty:block/black_sandstone_top","side":"biomesoplenty:block/black_sandstone","bottom":"biomesoplenty:block/black_sandstone_bottom"}},
+  {"source":"biomesoplenty:origin_grass_block","kind":"grass","name":"Origin Grass Slab","textures":{"top":"biomesoplenty:block/origin_grass_block_top","side":"biomesoplenty:block/origin_grass_block_side","bottom":"minecraft:block/dirt"}},
+  {"source":"biomesoplenty:mossy_black_sand","kind":"soil","name":"Mossy Black Sand Slab","betterGrass":true,"tinted":true,"textures":{"top":"biomesoplenty:block/mossy_black_sand_top","side":"biomesoplenty:block/mossy_black_sand","overlay":"biomesoplenty:block/mossy_black_sand_side","bottom":"biomesoplenty:block/black_sand"}},
+  {"source":"biomesoplenty:dried_salt","kind":"stone","name":"Dried Salt Slab","textures":{"top":"biomesoplenty:block/dried_salt","side":"biomesoplenty:block/dried_salt","bottom":"biomesoplenty:block/dried_salt"}},
+  {"source":"biomesoplenty:brimstone","kind":"stone","name":"Brimstone Slab","textures":{"top":"biomesoplenty:block/brimstone","side":"biomesoplenty:block/brimstone","bottom":"biomesoplenty:block/brimstone"}},
+  {"source":"biomesoplenty:flesh","kind":"soil","name":"Flesh Slab","textures":{"top":"biomesoplenty:block/flesh","side":"biomesoplenty:block/flesh","bottom":"biomesoplenty:block/flesh"}},
+  {"source":"biomesoplenty:glowing_moss_block","kind":"soil","name":"Glowing Moss Slab","textures":{"top":"biomesoplenty:block/glowing_moss_block","side":"biomesoplenty:block/glowing_moss_block","bottom":"biomesoplenty:block/glowing_moss_block"}},
+  {"source":"biomesoplenty:algal_end_stone","kind":"stone","name":"Algal End Stone Slab","textures":{"top":"biomesoplenty:block/algal_end_stone","side":"biomesoplenty:block/algal_end_stone_side","bottom":"minecraft:block/end_stone"}}
+]

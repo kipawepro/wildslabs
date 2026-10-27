@@ -1,0 +1,6 @@
+{
+  "parent": "wildslabs:block/ontop/cross",
+  "textures": {
+    "cross": "minecraft:block/dead_bush"
+  }
+}

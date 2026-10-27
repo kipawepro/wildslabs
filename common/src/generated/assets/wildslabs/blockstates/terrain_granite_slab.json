@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wildslabs:block/terrain_granite_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/granite"
+    },
+    "type=top": {
+      "model": "wildslabs:block/terrain_granite_slab_top"
+    }
+  }
+}

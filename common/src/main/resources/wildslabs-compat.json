@@ -1,0 +1,54 @@
+[
+  {
+    "source": "biomesoplenty:white_sand",
+    "kind": "sand"
+  },
+  {
+    "source": "biomesoplenty:orange_sand",
+    "kind": "sand"
+  },
+  {
+    "source": "biomesoplenty:black_sand",
+    "kind": "sand"
+  },
+  {
+    "source": "biomesoplenty:white_sandstone",
+    "kind": "stone"
+  },
+  {
+    "source": "biomesoplenty:orange_sandstone",
+    "kind": "stone"
+  },
+  {
+    "source": "biomesoplenty:black_sandstone",
+    "kind": "stone"
+  },
+  {
+    "source": "biomesoplenty:origin_grass_block",
+    "kind": "grass"
+  },
+  {
+    "source": "biomesoplenty:mossy_black_sand",
+    "kind": "soil"
+  },
+  {
+    "source": "biomesoplenty:dried_salt",
+    "kind": "stone"
+  },
+  {
+    "source": "biomesoplenty:brimstone",
+    "kind": "stone"
+  },
+  {
+    "source": "biomesoplenty:flesh",
+    "kind": "soil"
+  },
+  {
+    "source": "biomesoplenty:glowing_moss_block",
+    "kind": "soil"
+  },
+  {
+    "source": "biomesoplenty:algal_end_stone",
+    "kind": "stone"
+  }
+]

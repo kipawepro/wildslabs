@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "biomesoplenty"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "biomesoplenty:brimstone"
+    }
+  },
+  "result": {
+    "id": "wildslabs:biomesoplenty/brimstone_slab",
+    "count": 6
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_nether",
+  "features": "wildslabs:slab_feature_placed",
+  "step": "top_layer_modification"
+}

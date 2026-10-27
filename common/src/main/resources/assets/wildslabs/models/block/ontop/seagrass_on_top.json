@@ -1,0 +1,6 @@
+{
+  "parent": "wildslabs:block/ontop/template_seagrass",
+  "textures": {
+    "texture": "minecraft:block/seagrass"
+  }
+}

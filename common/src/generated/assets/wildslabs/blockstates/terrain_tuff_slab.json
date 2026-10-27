@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wildslabs:block/terrain_tuff_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/tuff"
+    },
+    "type=top": {
+      "model": "wildslabs:block/terrain_tuff_slab_top"
+    }
+  }
+}
