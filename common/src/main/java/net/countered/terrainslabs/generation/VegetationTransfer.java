@@ -12,6 +12,7 @@ public final class VegetationTransfer {
     private VegetationTransfer() {}
 
     public static boolean canMove(BlockState state, WorldGenLevel level, BlockPos pos) {
+        if(state.is(net.countered.terrainslabs.block.ModBlockTags.PRESERVED_BLOCKS))return false;
         if (state.getBlock() instanceof SnowLayerBlock) return PlatformConfigHooks.isSnowOnSlabsEnabled();
         return PlatformConfigHooks.isVegetationOnSlabsEnabled() && VegetationSupport.isCandidate(state)
                 && state.getCollisionShape(level, pos).isEmpty();

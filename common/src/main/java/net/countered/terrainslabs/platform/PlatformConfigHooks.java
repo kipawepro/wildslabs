@@ -4,6 +4,10 @@ import dev.architectury.injectables.annotations.ExpectPlatform;
 
 public class PlatformConfigHooks {
     @ExpectPlatform
+    public static net.minecraft.world.ItemInteractionResult useSourceItem(net.minecraft.world.item.ItemStack stack,net.minecraft.world.level.block.state.BlockState state,net.minecraft.world.level.Level level,net.minecraft.core.BlockPos pos,net.minecraft.world.entity.player.Player player,net.minecraft.world.InteractionHand hand,net.minecraft.world.phys.BlockHitResult hit){throw new AssertionError();}
+    @ExpectPlatform
+    public static net.minecraft.world.level.block.Block getToolTarget(net.minecraft.world.level.block.state.BlockState state, net.minecraft.world.item.context.UseOnContext context, boolean hoe) { throw new AssertionError(); }
+    @ExpectPlatform
     public static boolean isWaterwayProtectionEnabled() { throw new AssertionError(); }
     @ExpectPlatform
     public static long getTerrainSeedOffset() { throw new AssertionError(); }

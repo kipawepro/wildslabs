@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wildslabs:block/regions_unexplored/ash_slab_bottom"
+    },
+    "type=top": {
+      "model": "wildslabs:block/regions_unexplored/ash_slab_top"
+    },
+    "type=double": {
+      "model": "wildslabs:block/regions_unexplored/ash_slab_double"
+    }
+  }
+}

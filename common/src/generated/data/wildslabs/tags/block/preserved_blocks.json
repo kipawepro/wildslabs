@@ -1,0 +1,65 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "regions_unexplored:ashen_dirt",
+      "required": false
+    },
+    {
+      "id": "bloomingnature:sand",
+      "required": false
+    },
+    {
+      "id": "bloomingnature:quicksand",
+      "required": false
+    },
+    {
+      "id": "biomeswevegone:quicksand",
+      "required": false
+    },
+    {
+      "id": "biomeswevegone:red_quicksand",
+      "required": false
+    },
+    {
+      "id": "aether:quicksoil",
+      "required": false
+    },
+    {
+      "id": "aether:icestone",
+      "required": false
+    },
+    {
+      "id": "aether:cold_aercloud",
+      "required": false
+    },
+    {
+      "id": "aether:blue_aercloud",
+      "required": false
+    },
+    {
+      "id": "aether:golden_aercloud",
+      "required": false
+    },
+    {
+      "id": "aether:pink_aercloud",
+      "required": false
+    },
+    {
+      "id": "twilightforest:uberous_soil",
+      "required": false
+    },
+    {
+      "id": "spawn:unstable_heliostone",
+      "required": false
+    },
+    {
+      "id": "farm_and_charm:fertilized_soil",
+      "required": false
+    },
+    {
+      "id": "farm_and_charm:fertilized_farmland",
+      "required": false
+    }
+  ]
+}

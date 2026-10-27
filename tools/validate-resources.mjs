@@ -21,8 +21,9 @@ const generated=path.join(root,'common/src/generated');
 for(const p of profiles) {
   const id=p.source.replace(':','/')+'_slab';
   for(const kind of ['recipe','loot_table/blocks']) {
+    if(kind==='recipe'&&['farmland','path'].includes(p.kind))continue;
     const data=JSON.parse(fs.readFileSync(path.join(generated,`data/wildslabs/${kind}/${id}.json`),'utf8'));
-    assert.equal(data['neoforge:conditions'][0].modid,p.source.split(':')[0],'Optional data needs a mod load condition');
+    assert.equal(data['neoforge:conditions'][0].modid,p.modId??p.source.split(':')[0],'Optional data needs a mod load condition');
   }
   for(const type of ['bottom','top','double']) assert(fs.existsSync(path.join(dirs[0],`assets/wildslabs/models/block/${id}_${type}.json`)));
 }

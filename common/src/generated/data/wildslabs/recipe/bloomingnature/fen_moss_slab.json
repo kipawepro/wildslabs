@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "bloomingnature"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "bloomingnature:fen_moss"
+    }
+  },
+  "result": {
+    "id": "wildslabs:bloomingnature/fen_moss_slab",
+    "count": 6
+  }
+}

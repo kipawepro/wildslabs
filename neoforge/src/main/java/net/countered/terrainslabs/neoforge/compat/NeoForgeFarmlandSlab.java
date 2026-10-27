@@ -12,8 +12,9 @@ import net.minecraft.world.level.block.AttachedStemBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.util.TriState;
 
-public final class NeoForgeFarmlandSlab extends FarmlandSlab {
+public class NeoForgeFarmlandSlab extends FarmlandSlab {
     public NeoForgeFarmlandSlab() { super(Properties.ofFullCopy(Blocks.FARMLAND)); }
+    public NeoForgeFarmlandSlab(Properties properties) { super(properties); }
 
     @Override
     public TriState canSustainPlant(BlockState state, BlockGetter level, BlockPos pos, Direction facing, BlockState plant) {

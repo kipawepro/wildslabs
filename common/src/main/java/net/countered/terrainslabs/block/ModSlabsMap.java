@@ -13,6 +13,7 @@ public class ModSlabsMap {
 
     private static final Map<Block, Block> SLAB_MAP = new HashMap<>();
     private static final Map<Block, Block> SOURCE_MAP = new HashMap<>();
+    private static final Map<Block, Block> INTERACTION_MAP = new HashMap<>();
 
     private static final java.util.Set<Block> ADDON_SOIL_SLABS = new java.util.HashSet<>();
 
@@ -75,6 +76,8 @@ public class ModSlabsMap {
         SLAB_MAP.put(Blocks.END_STONE, ModBlocksRegistry.ENDSTONE_SLAB.get());
         SLAB_MAP.forEach((source, slab) -> SOURCE_MAP.put(slab, source));
         SOURCE_MAP.put(ModBlocksRegistry.FARMLAND_SLAB.get(), Blocks.FARMLAND);
+        INTERACTION_MAP.putAll(SLAB_MAP);
+        INTERACTION_MAP.put(Blocks.FARMLAND, ModBlocksRegistry.FARMLAND_SLAB.get());
     }
 
     public static @Nullable Block getSlabForBlock(Block block) {
@@ -82,13 +85,23 @@ public class ModSlabsMap {
     }
 
     public static @Nullable Block getSourceForSlab(Block slab) { return SOURCE_MAP.get(slab); }
+    public static void registerSourceAlias(Block slab,Block source) { SOURCE_MAP.putIfAbsent(slab,source); }
+
+    public static @Nullable Block getInteractionSlab(Block source) { return INTERACTION_MAP.get(source); }
+
+    public static void registerInteraction(Block source, Block slab) {
+        SOURCE_MAP.put(slab, source);
+        INTERACTION_MAP.put(source, slab);
+    }
 
     public static boolean register(Block source, Block slab) {
+        INTERACTION_MAP.put(source, slab);
         SOURCE_MAP.put(slab, source);
         return SLAB_MAP.put(source, slab) == null;
     }
 
     public static boolean registerSoilSlab(Block source, Block slab) {
+        INTERACTION_MAP.put(source, slab);
         SOURCE_MAP.put(slab, source);
         boolean isNew = SLAB_MAP.put(source, slab) == null;
         ADDON_SOIL_SLABS.add(slab);

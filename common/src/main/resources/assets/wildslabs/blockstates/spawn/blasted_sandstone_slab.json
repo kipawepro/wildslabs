@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wildslabs:block/spawn/blasted_sandstone_slab_bottom"
+    },
+    "type=top": {
+      "model": "wildslabs:block/spawn/blasted_sandstone_slab_top"
+    },
+    "type=double": {
+      "model": "wildslabs:block/spawn/blasted_sandstone_slab_double"
+    }
+  }
+}

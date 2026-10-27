@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "biomeswevegone"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "biomeswevegone:blue_sand"
+    }
+  },
+  "result": {
+    "id": "wildslabs:biomeswevegone/blue_sand_slab",
+    "count": 6
+  }
+}

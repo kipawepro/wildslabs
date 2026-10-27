@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "biomeswevegone"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "biomeswevegone:overgrown_dacite"
+    }
+  },
+  "result": {
+    "id": "wildslabs:biomeswevegone/overgrown_dacite_slab",
+    "count": 6
+  }
+}

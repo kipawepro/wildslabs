@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wildslabs:block/natures_spirit/chert_slab_bottom"
+    },
+    "type=top": {
+      "model": "wildslabs:block/natures_spirit/chert_slab_top"
+    },
+    "type=double": {
+      "model": "wildslabs:block/natures_spirit/chert_slab_double"
+    }
+  }
+}

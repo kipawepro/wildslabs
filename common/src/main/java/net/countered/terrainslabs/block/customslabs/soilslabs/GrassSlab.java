@@ -144,7 +144,7 @@ public class GrassSlab extends CustomSlab implements ISoilSlab, net.minecraft.wo
 
                 for (int i = 0; i < 4; i++) {
                     BlockPos blockPos = pos.offset(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
-                    if (level.getBlockState(blockPos).is(ModBlocksRegistry.DIRT_SLAB.get()) && canPropagate(blockState, level, blockPos)) {
+                    if (level.getBlockState(blockPos).is(baseSlabBlock().getBlock()) && canPropagate(blockState, level, blockPos)) {
                         BlockState target = level.getBlockState(blockPos);
                         if (!target.getValue(WATERLOGGED)) {
                             level.setBlockAndUpdate(blockPos, net.countered.terrainslabs.util.MixinHelper.withCopiedSlabProperties(target, this)

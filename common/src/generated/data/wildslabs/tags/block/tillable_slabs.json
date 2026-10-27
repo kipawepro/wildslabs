@@ -4,6 +4,30 @@
     {
       "id": "wildslabs:biomesoplenty/origin_grass_block_slab",
       "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/peat_grass_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/silt_grass_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/alpha_grass_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/lush_grass_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:aether/aether_grass_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:aether/enchanted_aether_grass_block_slab",
+      "required": false
     }
   ]
 }

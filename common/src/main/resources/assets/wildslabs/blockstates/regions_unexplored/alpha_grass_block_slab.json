@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "type=bottom,snowy=false": {
+      "model": "wildslabs:block/regions_unexplored/alpha_grass_block_slab_bottom"
+    },
+    "type=bottom,snowy=true": {
+      "model": "wildslabs:block/regions_unexplored/alpha_grass_block_slab_bottom_snow"
+    },
+    "type=top,snowy=false": {
+      "model": "wildslabs:block/regions_unexplored/alpha_grass_block_slab_top"
+    },
+    "type=top,snowy=true": {
+      "model": "wildslabs:block/regions_unexplored/alpha_grass_block_slab_top_snow"
+    },
+    "type=double,snowy=false": {
+      "model": "wildslabs:block/regions_unexplored/alpha_grass_block_slab_double"
+    },
+    "type=double,snowy=true": {
+      "model": "wildslabs:block/regions_unexplored/alpha_grass_block_slab_double_snow"
+    }
+  }
+}

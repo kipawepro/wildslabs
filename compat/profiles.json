@@ -1,15 +1,1527 @@
 [
-  {"source":"biomesoplenty:white_sand","kind":"sand","name":"White Sand Slab","textures":{"top":"biomesoplenty:block/white_sand","side":"biomesoplenty:block/white_sand","bottom":"biomesoplenty:block/white_sand"}},
-  {"source":"biomesoplenty:orange_sand","kind":"sand","name":"Orange Sand Slab","textures":{"top":"biomesoplenty:block/orange_sand","side":"biomesoplenty:block/orange_sand","bottom":"biomesoplenty:block/orange_sand"}},
-  {"source":"biomesoplenty:black_sand","kind":"sand","name":"Black Sand Slab","textures":{"top":"biomesoplenty:block/black_sand","side":"biomesoplenty:block/black_sand","bottom":"biomesoplenty:block/black_sand"}},
-  {"source":"biomesoplenty:white_sandstone","kind":"stone","name":"White Sandstone Slab","textures":{"top":"biomesoplenty:block/white_sandstone_top","side":"biomesoplenty:block/white_sandstone","bottom":"biomesoplenty:block/white_sandstone_bottom"}},
-  {"source":"biomesoplenty:orange_sandstone","kind":"stone","name":"Orange Sandstone Slab","textures":{"top":"biomesoplenty:block/orange_sandstone_top","side":"biomesoplenty:block/orange_sandstone","bottom":"biomesoplenty:block/orange_sandstone_bottom"}},
-  {"source":"biomesoplenty:black_sandstone","kind":"stone","name":"Black Sandstone Slab","textures":{"top":"biomesoplenty:block/black_sandstone_top","side":"biomesoplenty:block/black_sandstone","bottom":"biomesoplenty:block/black_sandstone_bottom"}},
-  {"source":"biomesoplenty:origin_grass_block","kind":"grass","name":"Origin Grass Slab","textures":{"top":"biomesoplenty:block/origin_grass_block_top","side":"biomesoplenty:block/origin_grass_block_side","bottom":"minecraft:block/dirt"}},
-  {"source":"biomesoplenty:mossy_black_sand","kind":"soil","name":"Mossy Black Sand Slab","betterGrass":true,"tinted":true,"textures":{"top":"biomesoplenty:block/mossy_black_sand_top","side":"biomesoplenty:block/mossy_black_sand","overlay":"biomesoplenty:block/mossy_black_sand_side","bottom":"biomesoplenty:block/black_sand"}},
-  {"source":"biomesoplenty:dried_salt","kind":"stone","name":"Dried Salt Slab","textures":{"top":"biomesoplenty:block/dried_salt","side":"biomesoplenty:block/dried_salt","bottom":"biomesoplenty:block/dried_salt"}},
-  {"source":"biomesoplenty:brimstone","kind":"stone","name":"Brimstone Slab","textures":{"top":"biomesoplenty:block/brimstone","side":"biomesoplenty:block/brimstone","bottom":"biomesoplenty:block/brimstone"}},
-  {"source":"biomesoplenty:flesh","kind":"soil","name":"Flesh Slab","textures":{"top":"biomesoplenty:block/flesh","side":"biomesoplenty:block/flesh","bottom":"biomesoplenty:block/flesh"}},
-  {"source":"biomesoplenty:glowing_moss_block","kind":"soil","name":"Glowing Moss Slab","textures":{"top":"biomesoplenty:block/glowing_moss_block","side":"biomesoplenty:block/glowing_moss_block","bottom":"biomesoplenty:block/glowing_moss_block"}},
-  {"source":"biomesoplenty:algal_end_stone","kind":"stone","name":"Algal End Stone Slab","textures":{"top":"biomesoplenty:block/algal_end_stone","side":"biomesoplenty:block/algal_end_stone_side","bottom":"minecraft:block/end_stone"}}
+  {
+    "source": "biomesoplenty:white_sand",
+    "kind": "sand",
+    "name": "White Sand Slab",
+    "textures": {
+      "top": "biomesoplenty:block/white_sand",
+      "side": "biomesoplenty:block/white_sand",
+      "bottom": "biomesoplenty:block/white_sand"
+    }
+  },
+  {
+    "source": "biomesoplenty:orange_sand",
+    "kind": "sand",
+    "name": "Orange Sand Slab",
+    "textures": {
+      "top": "biomesoplenty:block/orange_sand",
+      "side": "biomesoplenty:block/orange_sand",
+      "bottom": "biomesoplenty:block/orange_sand"
+    }
+  },
+  {
+    "source": "biomesoplenty:black_sand",
+    "kind": "sand",
+    "name": "Black Sand Slab",
+    "textures": {
+      "top": "biomesoplenty:block/black_sand",
+      "side": "biomesoplenty:block/black_sand",
+      "bottom": "biomesoplenty:block/black_sand"
+    }
+  },
+  {
+    "source": "biomesoplenty:white_sandstone",
+    "kind": "stone",
+    "name": "White Sandstone Slab",
+    "textures": {
+      "top": "biomesoplenty:block/white_sandstone_top",
+      "side": "biomesoplenty:block/white_sandstone",
+      "bottom": "biomesoplenty:block/white_sandstone_bottom"
+    }
+  },
+  {
+    "source": "biomesoplenty:orange_sandstone",
+    "kind": "stone",
+    "name": "Orange Sandstone Slab",
+    "textures": {
+      "top": "biomesoplenty:block/orange_sandstone_top",
+      "side": "biomesoplenty:block/orange_sandstone",
+      "bottom": "biomesoplenty:block/orange_sandstone_bottom"
+    }
+  },
+  {
+    "source": "biomesoplenty:black_sandstone",
+    "kind": "stone",
+    "name": "Black Sandstone Slab",
+    "textures": {
+      "top": "biomesoplenty:block/black_sandstone_top",
+      "side": "biomesoplenty:block/black_sandstone",
+      "bottom": "biomesoplenty:block/black_sandstone_bottom"
+    }
+  },
+  {
+    "source": "biomesoplenty:origin_grass_block",
+    "kind": "grass",
+    "name": "Origin Grass Slab",
+    "textures": {
+      "top": "biomesoplenty:block/origin_grass_block_top",
+      "side": "biomesoplenty:block/origin_grass_block_side",
+      "bottom": "minecraft:block/dirt"
+    }
+  },
+  {
+    "source": "biomesoplenty:mossy_black_sand",
+    "kind": "soil",
+    "name": "Mossy Black Sand Slab",
+    "betterGrass": true,
+    "tinted": true,
+    "textures": {
+      "top": "biomesoplenty:block/mossy_black_sand_top",
+      "side": "biomesoplenty:block/mossy_black_sand",
+      "overlay": "biomesoplenty:block/mossy_black_sand_side",
+      "bottom": "biomesoplenty:block/black_sand"
+    }
+  },
+  {
+    "source": "biomesoplenty:dried_salt",
+    "kind": "stone",
+    "name": "Dried Salt Slab",
+    "textures": {
+      "top": "biomesoplenty:block/dried_salt",
+      "side": "biomesoplenty:block/dried_salt",
+      "bottom": "biomesoplenty:block/dried_salt"
+    }
+  },
+  {
+    "source": "biomesoplenty:brimstone",
+    "kind": "stone",
+    "name": "Brimstone Slab",
+    "textures": {
+      "top": "biomesoplenty:block/brimstone",
+      "side": "biomesoplenty:block/brimstone",
+      "bottom": "biomesoplenty:block/brimstone"
+    }
+  },
+  {
+    "source": "biomesoplenty:flesh",
+    "kind": "soil",
+    "name": "Flesh Slab",
+    "textures": {
+      "top": "biomesoplenty:block/flesh",
+      "side": "biomesoplenty:block/flesh",
+      "bottom": "biomesoplenty:block/flesh"
+    }
+  },
+  {
+    "source": "biomesoplenty:glowing_moss_block",
+    "kind": "soil",
+    "name": "Glowing Moss Slab",
+    "textures": {
+      "top": "biomesoplenty:block/glowing_moss_block",
+      "side": "biomesoplenty:block/glowing_moss_block",
+      "bottom": "biomesoplenty:block/glowing_moss_block"
+    }
+  },
+  {
+    "source": "biomesoplenty:algal_end_stone",
+    "kind": "stone",
+    "name": "Algal End Stone Slab",
+    "textures": {
+      "top": "biomesoplenty:block/algal_end_stone",
+      "side": "biomesoplenty:block/algal_end_stone_side",
+      "bottom": "minecraft:block/end_stone"
+    }
+  },
+  {
+    "source": "regions_unexplored:peat_dirt",
+    "kind": "soil",
+    "name": "Peat Dirt Slab",
+    "textures": {
+      "top": "regions_unexplored:block/peat_dirt",
+      "side": "regions_unexplored:block/peat_dirt",
+      "bottom": "regions_unexplored:block/peat_dirt"
+    }
+  },
+  {
+    "source": "regions_unexplored:peat_coarse_dirt",
+    "kind": "soil",
+    "name": "Peat Coarse Dirt Slab",
+    "textures": {
+      "top": "regions_unexplored:block/peat_coarse_dirt",
+      "side": "regions_unexplored:block/peat_coarse_dirt",
+      "bottom": "regions_unexplored:block/peat_coarse_dirt"
+    }
+  },
+  {
+    "source": "regions_unexplored:peat_mud",
+    "kind": "soil",
+    "name": "Peat Mud Slab",
+    "textures": {
+      "top": "regions_unexplored:block/peat_mud",
+      "side": "regions_unexplored:block/peat_mud",
+      "bottom": "regions_unexplored:block/peat_mud"
+    }
+  },
+  {
+    "source": "regions_unexplored:peat_grass_block",
+    "kind": "grass",
+    "name": "Peat Grass Block Slab",
+    "textures": {
+      "top": "regions_unexplored:block/ru_grass_block_top",
+      "side": "regions_unexplored:block/peat_grass_block_side",
+      "bottom": "regions_unexplored:block/peat_dirt",
+      "overlay": "regions_unexplored:block/ru_grass_block_side_overlay"
+    },
+    "base": "regions_unexplored:peat_dirt",
+    "tinted": true,
+    "betterGrass": true,
+    "snowTextures": {
+      "top": "regions_unexplored:block/ru_grass_block_top",
+      "side": "regions_unexplored:block/peat_grass_block_snow",
+      "bottom": "regions_unexplored:block/peat_dirt"
+    }
+  },
+  {
+    "source": "regions_unexplored:peat_podzol",
+    "kind": "surface",
+    "name": "Peat Podzol Slab",
+    "textures": {
+      "top": "regions_unexplored:block/peat_podzol_top",
+      "side": "regions_unexplored:block/peat_podzol_side",
+      "bottom": "regions_unexplored:block/peat_dirt"
+    },
+    "base": "regions_unexplored:peat_dirt",
+    "betterGrass": true
+  },
+  {
+    "source": "regions_unexplored:peat_farmland",
+    "kind": "farmland",
+    "name": "Peat Farmland Slab",
+    "textures": {
+      "top": "regions_unexplored:block/peat_farmland",
+      "side": "regions_unexplored:block/peat_dirt",
+      "bottom": "regions_unexplored:block/peat_dirt"
+    },
+    "base": "regions_unexplored:peat_dirt",
+    "wetTop": "regions_unexplored:block/peat_farmland_moist"
+  },
+  {
+    "source": "regions_unexplored:peat_dirt_path",
+    "kind": "path",
+    "name": "Peat Dirt Path Slab",
+    "textures": {
+      "top": "minecraft:block/dirt_path_top",
+      "side": "regions_unexplored:block/peat_dirt_path_side",
+      "bottom": "regions_unexplored:block/peat_dirt"
+    },
+    "base": "regions_unexplored:peat_dirt"
+  },
+  {
+    "source": "regions_unexplored:silt_dirt",
+    "kind": "soil",
+    "name": "Silt Dirt Slab",
+    "textures": {
+      "top": "regions_unexplored:block/silt_dirt",
+      "side": "regions_unexplored:block/silt_dirt",
+      "bottom": "regions_unexplored:block/silt_dirt"
+    }
+  },
+  {
+    "source": "regions_unexplored:silt_coarse_dirt",
+    "kind": "soil",
+    "name": "Silt Coarse Dirt Slab",
+    "textures": {
+      "top": "regions_unexplored:block/silt_coarse_dirt",
+      "side": "regions_unexplored:block/silt_coarse_dirt",
+      "bottom": "regions_unexplored:block/silt_coarse_dirt"
+    }
+  },
+  {
+    "source": "regions_unexplored:silt_mud",
+    "kind": "soil",
+    "name": "Silt Mud Slab",
+    "textures": {
+      "top": "regions_unexplored:block/silt_mud",
+      "side": "regions_unexplored:block/silt_mud",
+      "bottom": "regions_unexplored:block/silt_mud"
+    }
+  },
+  {
+    "source": "regions_unexplored:silt_grass_block",
+    "kind": "grass",
+    "name": "Silt Grass Block Slab",
+    "textures": {
+      "top": "regions_unexplored:block/ru_grass_block_top",
+      "side": "regions_unexplored:block/silt_grass_block_side",
+      "bottom": "regions_unexplored:block/silt_dirt",
+      "overlay": "regions_unexplored:block/ru_grass_block_side_overlay_medium"
+    },
+    "base": "regions_unexplored:silt_dirt",
+    "tinted": true,
+    "betterGrass": true,
+    "snowTextures": {
+      "top": "regions_unexplored:block/ru_grass_block_top",
+      "side": "regions_unexplored:block/silt_grass_block_snow",
+      "bottom": "regions_unexplored:block/silt_dirt"
+    }
+  },
+  {
+    "source": "regions_unexplored:silt_podzol",
+    "kind": "surface",
+    "name": "Silt Podzol Slab",
+    "textures": {
+      "top": "regions_unexplored:block/silt_podzol_top",
+      "side": "regions_unexplored:block/silt_podzol_side",
+      "bottom": "regions_unexplored:block/silt_dirt"
+    },
+    "base": "regions_unexplored:silt_dirt",
+    "betterGrass": true
+  },
+  {
+    "source": "regions_unexplored:silt_farmland",
+    "kind": "farmland",
+    "name": "Silt Farmland Slab",
+    "textures": {
+      "top": "regions_unexplored:block/silt_farmland",
+      "side": "regions_unexplored:block/silt_dirt",
+      "bottom": "regions_unexplored:block/silt_dirt"
+    },
+    "base": "regions_unexplored:silt_dirt",
+    "wetTop": "regions_unexplored:block/silt_farmland_moist"
+  },
+  {
+    "source": "regions_unexplored:silt_dirt_path",
+    "kind": "path",
+    "name": "Silt Dirt Path Slab",
+    "textures": {
+      "top": "minecraft:block/dirt_path_top",
+      "side": "regions_unexplored:block/silt_dirt_path_side",
+      "bottom": "regions_unexplored:block/silt_dirt"
+    },
+    "base": "regions_unexplored:silt_dirt"
+  },
+  {
+    "source": "regions_unexplored:chalk",
+    "kind": "stone",
+    "name": "Chalk Slab",
+    "textures": {
+      "top": "regions_unexplored:block/chalk",
+      "side": "regions_unexplored:block/chalk",
+      "bottom": "regions_unexplored:block/chalk"
+    }
+  },
+  {
+    "source": "regions_unexplored:argillite",
+    "kind": "stone",
+    "name": "Argillite Slab",
+    "textures": {
+      "top": "regions_unexplored:block/argillite",
+      "side": "regions_unexplored:block/argillite",
+      "bottom": "regions_unexplored:block/argillite"
+    }
+  },
+  {
+    "source": "regions_unexplored:mossy_stone",
+    "kind": "stone",
+    "name": "Mossy Stone Slab",
+    "textures": {
+      "top": "regions_unexplored:block/mossy_stone",
+      "side": "regions_unexplored:block/mossy_stone",
+      "bottom": "regions_unexplored:block/mossy_stone"
+    }
+  },
+  {
+    "source": "regions_unexplored:ash",
+    "kind": "soil",
+    "name": "Ash Slab",
+    "textures": {
+      "top": "regions_unexplored:block/ash",
+      "side": "regions_unexplored:block/ash",
+      "bottom": "regions_unexplored:block/ash"
+    }
+  },
+  {
+    "source": "regions_unexplored:volcanic_ash",
+    "kind": "soil",
+    "name": "Volcanic Ash Slab",
+    "textures": {
+      "top": "regions_unexplored:block/volcanic_ash",
+      "side": "regions_unexplored:block/volcanic_ash",
+      "bottom": "regions_unexplored:block/volcanic_ash"
+    }
+  },
+  {
+    "source": "regions_unexplored:alpha_grass_block",
+    "kind": "grass",
+    "name": "Alpha Grass Block Slab",
+    "textures": {
+      "top": "regions_unexplored:block/alpha_grass_block_top",
+      "side": "regions_unexplored:block/alpha_grass_side",
+      "bottom": "minecraft:block/dirt"
+    },
+    "base": "minecraft:dirt",
+    "betterGrass": true,
+    "snowTextures": {
+      "top": "regions_unexplored:block/ru_grass_block_top",
+      "side": "regions_unexplored:block/alpha_grass_side_snow",
+      "bottom": "minecraft:block/dirt"
+    }
+  },
+  {
+    "source": "regions_unexplored:stone_grass_block",
+    "kind": "surface",
+    "name": "Stone Grass Block Slab",
+    "textures": {
+      "top": "regions_unexplored:block/ru_grass_block_top",
+      "side": "regions_unexplored:block/stone_grass_block_side",
+      "bottom": "minecraft:block/stone",
+      "overlay": "regions_unexplored:block/ru_grass_block_side_overlay_short"
+    },
+    "base": "minecraft:stone",
+    "tinted": true,
+    "betterGrass": true
+  },
+  {
+    "source": "regions_unexplored:deepslate_grass_block",
+    "kind": "surface",
+    "name": "Deepslate Grass Block Slab",
+    "textures": {
+      "top": "regions_unexplored:block/ru_grass_block_top",
+      "side": "regions_unexplored:block/deepslate_grass_block_side",
+      "bottom": "minecraft:block/deepslate",
+      "overlay": "regions_unexplored:block/ru_grass_block_side_overlay_short"
+    },
+    "base": "minecraft:deepslate",
+    "tinted": true,
+    "betterGrass": true
+  },
+  {
+    "source": "regions_unexplored:argillite_grass_block",
+    "kind": "surface",
+    "name": "Argillite Grass Block Slab",
+    "textures": {
+      "top": "regions_unexplored:block/ru_grass_block_top",
+      "side": "regions_unexplored:block/argillite_grass_block_side",
+      "bottom": "regions_unexplored:block/argillite",
+      "overlay": "regions_unexplored:block/ru_grass_block_side_overlay_short"
+    },
+    "base": "regions_unexplored:argillite",
+    "tinted": true,
+    "betterGrass": true
+  },
+  {
+    "source": "regions_unexplored:chalk_grass_block",
+    "kind": "surface",
+    "name": "Chalk Grass Block Slab",
+    "textures": {
+      "top": "regions_unexplored:block/ru_grass_block_top",
+      "side": "regions_unexplored:block/chalk_grass_side",
+      "bottom": "regions_unexplored:block/chalk",
+      "overlay": "regions_unexplored:block/ru_grass_block_side_overlay"
+    },
+    "base": "regions_unexplored:chalk",
+    "tinted": true,
+    "betterGrass": true
+  },
+  {
+    "source": "regions_unexplored:prismoss",
+    "kind": "surface",
+    "name": "Prismoss Slab",
+    "textures": {
+      "top": "regions_unexplored:block/prismoss_overlay_top",
+      "side": "regions_unexplored:block/viridescent_nylium_side",
+      "bottom": "minecraft:block/stone",
+      "overlay": "regions_unexplored:block/prismoss_overlay_side"
+    },
+    "base": "minecraft:stone",
+    "tinted": true,
+    "betterGrass": true
+  },
+  {
+    "source": "regions_unexplored:deepslate_prismoss",
+    "kind": "surface",
+    "name": "Deepslate Prismoss Slab",
+    "textures": {
+      "top": "regions_unexplored:block/prismoss_overlay_top",
+      "side": "regions_unexplored:block/deepslate_prismoss_side",
+      "bottom": "minecraft:block/deepslate",
+      "overlay": "regions_unexplored:block/prismoss_overlay_side"
+    },
+    "base": "minecraft:deepslate",
+    "tinted": true,
+    "betterGrass": true
+  },
+  {
+    "source": "regions_unexplored:viridescent_nylium",
+    "kind": "surface",
+    "name": "Viridescent Nylium Slab",
+    "textures": {
+      "top": "regions_unexplored:block/viridescent_nylium_top",
+      "side": "regions_unexplored:block/viridescent_nylium_side",
+      "bottom": "minecraft:block/stone"
+    },
+    "base": "minecraft:stone",
+    "betterGrass": true
+  },
+  {
+    "source": "regions_unexplored:deepslate_viridescent_nylium",
+    "kind": "surface",
+    "name": "Deepslate Viridescent Nylium Slab",
+    "textures": {
+      "top": "regions_unexplored:block/viridescent_nylium_top",
+      "side": "regions_unexplored:block/deepslate_viridescent_nylium_side",
+      "bottom": "minecraft:block/deepslate_top"
+    },
+    "base": "minecraft:deepslate",
+    "betterGrass": true
+  },
+  {
+    "source": "regions_unexplored:glistering_nylium",
+    "kind": "surface",
+    "name": "Glistering Nylium Slab",
+    "textures": {
+      "top": "regions_unexplored:block/glistering_wart",
+      "side": "regions_unexplored:block/glistering_nylium_side",
+      "bottom": "minecraft:block/netherrack"
+    },
+    "base": "minecraft:netherrack",
+    "betterGrass": true
+  },
+  {
+    "source": "regions_unexplored:brimsprout_nylium",
+    "kind": "surface",
+    "name": "Brimsprout Nylium Slab",
+    "textures": {
+      "top": "regions_unexplored:block/brimsprout_nylium_top",
+      "side": "regions_unexplored:block/brimsprout_nylium_side",
+      "bottom": "minecraft:block/netherrack"
+    },
+    "base": "minecraft:netherrack",
+    "betterGrass": true
+  },
+  {
+    "source": "regions_unexplored:mycotoxic_nylium",
+    "kind": "surface",
+    "name": "Mycotoxic Nylium Slab",
+    "textures": {
+      "top": "regions_unexplored:block/mycotoxic_nylium_top",
+      "side": "regions_unexplored:block/mycotoxic_nylium_side",
+      "bottom": "minecraft:block/netherrack"
+    },
+    "base": "minecraft:netherrack",
+    "betterGrass": true
+  },
+  {
+    "source": "regions_unexplored:cobalt_nylium",
+    "kind": "surface",
+    "name": "Cobalt Nylium Slab",
+    "textures": {
+      "top": "regions_unexplored:block/cobalt_nylium_top",
+      "side": "regions_unexplored:block/cobalt_nylium_side",
+      "bottom": "minecraft:block/blackstone"
+    },
+    "base": "minecraft:blackstone",
+    "betterGrass": true
+  },
+  {
+    "source": "biomeswevegone:lush_dirt",
+    "kind": "soil",
+    "name": "Lush Dirt Slab",
+    "textures": {
+      "top": "biomeswevegone:block/lush_dirt",
+      "side": "biomeswevegone:block/lush_dirt",
+      "bottom": "biomeswevegone:block/lush_dirt"
+    }
+  },
+  {
+    "source": "biomeswevegone:sandy_dirt",
+    "kind": "soil",
+    "name": "Sandy Dirt Slab",
+    "textures": {
+      "top": "biomeswevegone:block/sandy_dirt",
+      "side": "biomeswevegone:block/sandy_dirt",
+      "bottom": "biomeswevegone:block/sandy_dirt"
+    }
+  },
+  {
+    "source": "biomeswevegone:pale_mud",
+    "kind": "soil",
+    "name": "Pale Mud Slab",
+    "textures": {
+      "top": "biomeswevegone:block/pale_mud",
+      "side": "biomeswevegone:block/pale_mud",
+      "bottom": "biomeswevegone:block/pale_mud"
+    }
+  },
+  {
+    "source": "biomeswevegone:packed_pale_mud",
+    "kind": "soil",
+    "name": "Packed Pale Mud Slab",
+    "textures": {
+      "top": "biomeswevegone:block/packed_pale_mud",
+      "side": "biomeswevegone:block/packed_pale_mud",
+      "bottom": "biomeswevegone:block/packed_pale_mud"
+    }
+  },
+  {
+    "source": "biomeswevegone:peat",
+    "kind": "soil",
+    "name": "Peat Slab",
+    "textures": {
+      "top": "biomeswevegone:block/peat",
+      "side": "biomeswevegone:block/peat",
+      "bottom": "biomeswevegone:block/peat"
+    }
+  },
+  {
+    "source": "biomeswevegone:lush_grass_block",
+    "kind": "grass",
+    "name": "Lush Grass Block Slab",
+    "textures": {
+      "top": "biomeswevegone:block/lush_grass_block_top",
+      "side": "biomeswevegone:block/lush_grass_block_side",
+      "bottom": "biomeswevegone:block/lush_dirt",
+      "overlay": "biomeswevegone:block/lush_grass_block_side_overlay"
+    },
+    "base": "biomeswevegone:lush_dirt",
+    "tinted": true,
+    "betterGrass": true,
+    "snowTextures": {
+      "top": "biomeswevegone:block/lush_grass_block_top",
+      "side": "biomeswevegone:block/lush_grass_block_snow_side",
+      "bottom": "biomeswevegone:block/lush_dirt"
+    }
+  },
+  {
+    "source": "biomeswevegone:lush_farmland",
+    "kind": "farmland",
+    "name": "Lush Farmland Slab",
+    "textures": {
+      "top": "biomeswevegone:block/lush_farmland",
+      "side": "biomeswevegone:block/lush_dirt",
+      "bottom": "biomeswevegone:block/lush_dirt"
+    },
+    "base": "biomeswevegone:lush_dirt",
+    "wetTop": "biomeswevegone:block/lush_farmland_moist"
+  },
+  {
+    "source": "biomeswevegone:lush_dirt_path",
+    "kind": "path",
+    "name": "Lush Dirt Path Slab",
+    "textures": {
+      "top": "minecraft:block/dirt_path_top",
+      "side": "biomeswevegone:block/lush_dirt_path_side",
+      "bottom": "biomeswevegone:block/lush_dirt"
+    },
+    "base": "biomeswevegone:lush_dirt"
+  },
+  {
+    "source": "biomeswevegone:sandy_farmland",
+    "kind": "farmland",
+    "name": "Sandy Farmland Slab",
+    "textures": {
+      "top": "biomeswevegone:block/sandy_farmland",
+      "side": "biomeswevegone:block/sandy_dirt",
+      "bottom": "biomeswevegone:block/sandy_dirt"
+    },
+    "base": "biomeswevegone:sandy_dirt",
+    "wetTop": "biomeswevegone:block/sandy_farmland_moist"
+  },
+  {
+    "source": "biomeswevegone:sandy_dirt_path",
+    "kind": "path",
+    "name": "Sandy Dirt Path Slab",
+    "textures": {
+      "top": "minecraft:block/dirt_path_top",
+      "side": "biomeswevegone:block/sandy_dirt_path_side",
+      "bottom": "biomeswevegone:block/sandy_dirt"
+    },
+    "base": "biomeswevegone:sandy_dirt"
+  },
+  {
+    "source": "biomeswevegone:dacite",
+    "kind": "stone",
+    "name": "Dacite Slab",
+    "textures": {
+      "top": "biomeswevegone:block/dacite",
+      "side": "biomeswevegone:block/dacite",
+      "bottom": "biomeswevegone:block/dacite"
+    }
+  },
+  {
+    "source": "biomeswevegone:white_dacite",
+    "kind": "stone",
+    "name": "White Dacite Slab",
+    "textures": {
+      "top": "biomeswevegone:block/white_dacite",
+      "side": "biomeswevegone:block/white_dacite",
+      "bottom": "biomeswevegone:block/white_dacite"
+    }
+  },
+  {
+    "source": "biomeswevegone:red_rock",
+    "kind": "stone",
+    "name": "Red Rock Slab",
+    "textures": {
+      "top": "biomeswevegone:block/red_rock",
+      "side": "biomeswevegone:block/red_rock",
+      "bottom": "biomeswevegone:block/red_rock"
+    }
+  },
+  {
+    "source": "biomeswevegone:rocky_stone",
+    "kind": "stone",
+    "name": "Rocky Stone Slab",
+    "textures": {
+      "top": "biomeswevegone:block/rocky_stone",
+      "side": "biomeswevegone:block/rocky_stone",
+      "bottom": "biomeswevegone:block/rocky_stone"
+    }
+  },
+  {
+    "source": "biomeswevegone:mossy_stone",
+    "kind": "stone",
+    "name": "Mossy Stone Slab",
+    "textures": {
+      "top": "biomeswevegone:block/mossy_stone",
+      "side": "biomeswevegone:block/mossy_stone",
+      "bottom": "biomeswevegone:block/mossy_stone"
+    }
+  },
+  {
+    "source": "biomeswevegone:black_sand",
+    "kind": "sand",
+    "name": "Black Sand Slab",
+    "textures": {
+      "top": "biomeswevegone:block/black_sand",
+      "side": "biomeswevegone:block/black_sand",
+      "bottom": "biomeswevegone:block/black_sand"
+    }
+  },
+  {
+    "source": "biomeswevegone:black_sandstone",
+    "kind": "stone",
+    "name": "Black Sandstone Slab",
+    "textures": {
+      "top": "biomeswevegone:block/black_sandstone_top",
+      "side": "biomeswevegone:block/black_sandstone",
+      "bottom": "biomeswevegone:block/black_sandstone_bottom"
+    }
+  },
+  {
+    "source": "biomeswevegone:blue_sand",
+    "kind": "sand",
+    "name": "Blue Sand Slab",
+    "textures": {
+      "top": "biomeswevegone:block/blue_sand",
+      "side": "biomeswevegone:block/blue_sand",
+      "bottom": "biomeswevegone:block/blue_sand"
+    }
+  },
+  {
+    "source": "biomeswevegone:blue_sandstone",
+    "kind": "stone",
+    "name": "Blue Sandstone Slab",
+    "textures": {
+      "top": "biomeswevegone:block/blue_sandstone_top",
+      "side": "biomeswevegone:block/blue_sandstone",
+      "bottom": "biomeswevegone:block/blue_sandstone_bottom"
+    }
+  },
+  {
+    "source": "biomeswevegone:pink_sand",
+    "kind": "sand",
+    "name": "Pink Sand Slab",
+    "textures": {
+      "top": "biomeswevegone:block/pink_sand",
+      "side": "biomeswevegone:block/pink_sand",
+      "bottom": "biomeswevegone:block/pink_sand"
+    }
+  },
+  {
+    "source": "biomeswevegone:pink_sandstone",
+    "kind": "stone",
+    "name": "Pink Sandstone Slab",
+    "textures": {
+      "top": "biomeswevegone:block/pink_sandstone_top",
+      "side": "biomeswevegone:block/pink_sandstone",
+      "bottom": "biomeswevegone:block/pink_sandstone_bottom"
+    }
+  },
+  {
+    "source": "biomeswevegone:purple_sand",
+    "kind": "sand",
+    "name": "Purple Sand Slab",
+    "textures": {
+      "top": "biomeswevegone:block/purple_sand",
+      "side": "biomeswevegone:block/purple_sand",
+      "bottom": "biomeswevegone:block/purple_sand"
+    }
+  },
+  {
+    "source": "biomeswevegone:purple_sandstone",
+    "kind": "stone",
+    "name": "Purple Sandstone Slab",
+    "textures": {
+      "top": "biomeswevegone:block/purple_sandstone_top",
+      "side": "biomeswevegone:block/purple_sandstone",
+      "bottom": "biomeswevegone:block/purple_sandstone_bottom"
+    }
+  },
+  {
+    "source": "biomeswevegone:white_sand",
+    "kind": "sand",
+    "name": "White Sand Slab",
+    "textures": {
+      "top": "biomeswevegone:block/white_sand",
+      "side": "biomeswevegone:block/white_sand",
+      "bottom": "biomeswevegone:block/white_sand"
+    }
+  },
+  {
+    "source": "biomeswevegone:white_sandstone",
+    "kind": "stone",
+    "name": "White Sandstone Slab",
+    "textures": {
+      "top": "biomeswevegone:block/white_sandstone_top",
+      "side": "biomeswevegone:block/white_sandstone",
+      "bottom": "biomeswevegone:block/white_sandstone_bottom"
+    }
+  },
+  {
+    "source": "biomeswevegone:windswept_sand",
+    "kind": "sand",
+    "name": "Windswept Sand Slab",
+    "textures": {
+      "top": "biomeswevegone:block/windswept_sand",
+      "side": "biomeswevegone:block/windswept_sand",
+      "bottom": "biomeswevegone:block/windswept_sand"
+    }
+  },
+  {
+    "source": "biomeswevegone:windswept_sandstone",
+    "kind": "stone",
+    "name": "Windswept Sandstone Slab",
+    "textures": {
+      "top": "biomeswevegone:block/windswept_sandstone_top",
+      "side": "biomeswevegone:block/windswept_sandstone",
+      "bottom": "biomeswevegone:block/windswept_sandstone_bottom"
+    }
+  },
+  {
+    "source": "biomeswevegone:overgrown_stone",
+    "kind": "surface",
+    "name": "Overgrown Stone Slab",
+    "textures": {
+      "top": "biomeswevegone:block/overgrown_stone_top",
+      "side": "biomeswevegone:block/overgrown_stone_side",
+      "bottom": "minecraft:block/stone",
+      "overlay": "biomeswevegone:block/overgrown_stone_side_overlay"
+    },
+    "base": "minecraft:stone",
+    "tinted": true,
+    "betterGrass": true
+  },
+  {
+    "source": "biomeswevegone:overgrown_dacite",
+    "kind": "surface",
+    "name": "Overgrown Dacite Slab",
+    "textures": {
+      "top": "biomeswevegone:block/overgrown_dacite_top",
+      "side": "biomeswevegone:block/overgrown_dacite_side",
+      "bottom": "biomeswevegone:block/dacite",
+      "overlay": "biomeswevegone:block/overgrown_dacite_side_overlay"
+    },
+    "base": "biomeswevegone:dacite",
+    "tinted": true,
+    "betterGrass": true
+  },
+  {
+    "source": "biomeswevegone:white_overgrown_dacite",
+    "kind": "surface",
+    "name": "White Overgrown Dacite Slab",
+    "textures": {
+      "top": "biomeswevegone:block/white_overgrown_dacite_top",
+      "side": "biomeswevegone:block/white_overgrown_dacite_side",
+      "bottom": "biomeswevegone:block/white_dacite",
+      "overlay": "biomeswevegone:block/white_overgrown_dacite_side_overlay"
+    },
+    "base": "biomeswevegone:white_dacite",
+    "tinted": true,
+    "betterGrass": true
+  },
+  {
+    "source": "biomeswevegone:podzol_dacite",
+    "kind": "surface",
+    "name": "Podzol Dacite Slab",
+    "textures": {
+      "top": "minecraft:block/podzol_top",
+      "side": "biomeswevegone:block/podzol_dacite",
+      "bottom": "biomeswevegone:block/dacite"
+    },
+    "base": "biomeswevegone:dacite",
+    "betterGrass": true
+  },
+  {
+    "source": "biomeswevegone:white_podzol_dacite",
+    "kind": "surface",
+    "name": "White Podzol Dacite Slab",
+    "textures": {
+      "top": "minecraft:block/podzol_top",
+      "side": "biomeswevegone:block/white_podzol_dacite",
+      "bottom": "biomeswevegone:block/white_dacite"
+    },
+    "base": "biomeswevegone:white_dacite",
+    "betterGrass": true
+  },
+  {
+    "source": "natures_spirit:kaolin",
+    "kind": "stone",
+    "name": "Kaolin Slab",
+    "textures": {
+      "top": "natures_spirit:block/kaolin",
+      "side": "natures_spirit:block/kaolin",
+      "bottom": "natures_spirit:block/kaolin"
+    }
+  },
+  {
+    "source": "natures_spirit:chert",
+    "kind": "stone",
+    "name": "Chert Slab",
+    "textures": {
+      "top": "natures_spirit:block/chert_top",
+      "side": "natures_spirit:block/chert",
+      "bottom": "natures_spirit:block/chert_top"
+    }
+  },
+  {
+    "source": "natures_spirit:travertine",
+    "kind": "stone",
+    "name": "Travertine Slab",
+    "textures": {
+      "top": "natures_spirit:block/travertine",
+      "side": "natures_spirit:block/travertine",
+      "bottom": "natures_spirit:block/travertine"
+    }
+  },
+  {
+    "source": "natures_spirit:white_kaolin",
+    "kind": "stone",
+    "name": "White Kaolin Slab",
+    "textures": {
+      "top": "natures_spirit:block/white_kaolin",
+      "side": "natures_spirit:block/white_kaolin",
+      "bottom": "natures_spirit:block/white_kaolin"
+    }
+  },
+  {
+    "source": "natures_spirit:white_chalk",
+    "kind": "stone",
+    "name": "White Chalk Slab",
+    "textures": {
+      "top": "natures_spirit:block/white_chalk",
+      "side": "natures_spirit:block/white_chalk",
+      "bottom": "natures_spirit:block/white_chalk"
+    }
+  },
+  {
+    "source": "natures_spirit:light_gray_kaolin",
+    "kind": "stone",
+    "name": "Light Gray Kaolin Slab",
+    "textures": {
+      "top": "natures_spirit:block/light_gray_kaolin",
+      "side": "natures_spirit:block/light_gray_kaolin",
+      "bottom": "natures_spirit:block/light_gray_kaolin"
+    }
+  },
+  {
+    "source": "natures_spirit:light_gray_chalk",
+    "kind": "stone",
+    "name": "Light Gray Chalk Slab",
+    "textures": {
+      "top": "natures_spirit:block/light_gray_chalk",
+      "side": "natures_spirit:block/light_gray_chalk",
+      "bottom": "natures_spirit:block/light_gray_chalk"
+    }
+  },
+  {
+    "source": "natures_spirit:gray_kaolin",
+    "kind": "stone",
+    "name": "Gray Kaolin Slab",
+    "textures": {
+      "top": "natures_spirit:block/gray_kaolin",
+      "side": "natures_spirit:block/gray_kaolin",
+      "bottom": "natures_spirit:block/gray_kaolin"
+    }
+  },
+  {
+    "source": "natures_spirit:gray_chalk",
+    "kind": "stone",
+    "name": "Gray Chalk Slab",
+    "textures": {
+      "top": "natures_spirit:block/gray_chalk",
+      "side": "natures_spirit:block/gray_chalk",
+      "bottom": "natures_spirit:block/gray_chalk"
+    }
+  },
+  {
+    "source": "natures_spirit:black_kaolin",
+    "kind": "stone",
+    "name": "Black Kaolin Slab",
+    "textures": {
+      "top": "natures_spirit:block/black_kaolin",
+      "side": "natures_spirit:block/black_kaolin",
+      "bottom": "natures_spirit:block/black_kaolin"
+    }
+  },
+  {
+    "source": "natures_spirit:black_chalk",
+    "kind": "stone",
+    "name": "Black Chalk Slab",
+    "textures": {
+      "top": "natures_spirit:block/black_chalk",
+      "side": "natures_spirit:block/black_chalk",
+      "bottom": "natures_spirit:block/black_chalk"
+    }
+  },
+  {
+    "source": "natures_spirit:brown_kaolin",
+    "kind": "stone",
+    "name": "Brown Kaolin Slab",
+    "textures": {
+      "top": "natures_spirit:block/brown_kaolin",
+      "side": "natures_spirit:block/brown_kaolin",
+      "bottom": "natures_spirit:block/brown_kaolin"
+    }
+  },
+  {
+    "source": "natures_spirit:brown_chalk",
+    "kind": "stone",
+    "name": "Brown Chalk Slab",
+    "textures": {
+      "top": "natures_spirit:block/brown_chalk",
+      "side": "natures_spirit:block/brown_chalk",
+      "bottom": "natures_spirit:block/brown_chalk"
+    }
+  },
+  {
+    "source": "natures_spirit:red_kaolin",
+    "kind": "stone",
+    "name": "Red Kaolin Slab",
+    "textures": {
+      "top": "natures_spirit:block/red_kaolin",
+      "side": "natures_spirit:block/red_kaolin",
+      "bottom": "natures_spirit:block/red_kaolin"
+    }
+  },
+  {
+    "source": "natures_spirit:red_chalk",
+    "kind": "stone",
+    "name": "Red Chalk Slab",
+    "textures": {
+      "top": "natures_spirit:block/red_chalk",
+      "side": "natures_spirit:block/red_chalk",
+      "bottom": "natures_spirit:block/red_chalk"
+    }
+  },
+  {
+    "source": "natures_spirit:orange_kaolin",
+    "kind": "stone",
+    "name": "Orange Kaolin Slab",
+    "textures": {
+      "top": "natures_spirit:block/orange_kaolin",
+      "side": "natures_spirit:block/orange_kaolin",
+      "bottom": "natures_spirit:block/orange_kaolin"
+    }
+  },
+  {
+    "source": "natures_spirit:orange_chalk",
+    "kind": "stone",
+    "name": "Orange Chalk Slab",
+    "textures": {
+      "top": "natures_spirit:block/orange_chalk",
+      "side": "natures_spirit:block/orange_chalk",
+      "bottom": "natures_spirit:block/orange_chalk"
+    }
+  },
+  {
+    "source": "natures_spirit:yellow_kaolin",
+    "kind": "stone",
+    "name": "Yellow Kaolin Slab",
+    "textures": {
+      "top": "natures_spirit:block/yellow_kaolin",
+      "side": "natures_spirit:block/yellow_kaolin",
+      "bottom": "natures_spirit:block/yellow_kaolin"
+    }
+  },
+  {
+    "source": "natures_spirit:yellow_chalk",
+    "kind": "stone",
+    "name": "Yellow Chalk Slab",
+    "textures": {
+      "top": "natures_spirit:block/yellow_chalk",
+      "side": "natures_spirit:block/yellow_chalk",
+      "bottom": "natures_spirit:block/yellow_chalk"
+    }
+  },
+  {
+    "source": "natures_spirit:lime_kaolin",
+    "kind": "stone",
+    "name": "Lime Kaolin Slab",
+    "textures": {
+      "top": "natures_spirit:block/lime_kaolin",
+      "side": "natures_spirit:block/lime_kaolin",
+      "bottom": "natures_spirit:block/lime_kaolin"
+    }
+  },
+  {
+    "source": "natures_spirit:lime_chalk",
+    "kind": "stone",
+    "name": "Lime Chalk Slab",
+    "textures": {
+      "top": "natures_spirit:block/lime_chalk",
+      "side": "natures_spirit:block/lime_chalk",
+      "bottom": "natures_spirit:block/lime_chalk"
+    }
+  },
+  {
+    "source": "natures_spirit:green_kaolin",
+    "kind": "stone",
+    "name": "Green Kaolin Slab",
+    "textures": {
+      "top": "natures_spirit:block/green_kaolin",
+      "side": "natures_spirit:block/green_kaolin",
+      "bottom": "natures_spirit:block/green_kaolin"
+    }
+  },
+  {
+    "source": "natures_spirit:green_chalk",
+    "kind": "stone",
+    "name": "Green Chalk Slab",
+    "textures": {
+      "top": "natures_spirit:block/green_chalk",
+      "side": "natures_spirit:block/green_chalk",
+      "bottom": "natures_spirit:block/green_chalk"
+    }
+  },
+  {
+    "source": "natures_spirit:cyan_kaolin",
+    "kind": "stone",
+    "name": "Cyan Kaolin Slab",
+    "textures": {
+      "top": "natures_spirit:block/cyan_kaolin",
+      "side": "natures_spirit:block/cyan_kaolin",
+      "bottom": "natures_spirit:block/cyan_kaolin"
+    }
+  },
+  {
+    "source": "natures_spirit:cyan_chalk",
+    "kind": "stone",
+    "name": "Cyan Chalk Slab",
+    "textures": {
+      "top": "natures_spirit:block/cyan_chalk",
+      "side": "natures_spirit:block/cyan_chalk",
+      "bottom": "natures_spirit:block/cyan_chalk"
+    }
+  },
+  {
+    "source": "natures_spirit:light_blue_kaolin",
+    "kind": "stone",
+    "name": "Light Blue Kaolin Slab",
+    "textures": {
+      "top": "natures_spirit:block/light_blue_kaolin",
+      "side": "natures_spirit:block/light_blue_kaolin",
+      "bottom": "natures_spirit:block/light_blue_kaolin"
+    }
+  },
+  {
+    "source": "natures_spirit:light_blue_chalk",
+    "kind": "stone",
+    "name": "Light Blue Chalk Slab",
+    "textures": {
+      "top": "natures_spirit:block/light_blue_chalk",
+      "side": "natures_spirit:block/light_blue_chalk",
+      "bottom": "natures_spirit:block/light_blue_chalk"
+    }
+  },
+  {
+    "source": "natures_spirit:blue_kaolin",
+    "kind": "stone",
+    "name": "Blue Kaolin Slab",
+    "textures": {
+      "top": "natures_spirit:block/blue_kaolin",
+      "side": "natures_spirit:block/blue_kaolin",
+      "bottom": "natures_spirit:block/blue_kaolin"
+    }
+  },
+  {
+    "source": "natures_spirit:blue_chalk",
+    "kind": "stone",
+    "name": "Blue Chalk Slab",
+    "textures": {
+      "top": "natures_spirit:block/blue_chalk",
+      "side": "natures_spirit:block/blue_chalk",
+      "bottom": "natures_spirit:block/blue_chalk"
+    }
+  },
+  {
+    "source": "natures_spirit:purple_kaolin",
+    "kind": "stone",
+    "name": "Purple Kaolin Slab",
+    "textures": {
+      "top": "natures_spirit:block/purple_kaolin",
+      "side": "natures_spirit:block/purple_kaolin",
+      "bottom": "natures_spirit:block/purple_kaolin"
+    }
+  },
+  {
+    "source": "natures_spirit:purple_chalk",
+    "kind": "stone",
+    "name": "Purple Chalk Slab",
+    "textures": {
+      "top": "natures_spirit:block/purple_chalk",
+      "side": "natures_spirit:block/purple_chalk",
+      "bottom": "natures_spirit:block/purple_chalk"
+    }
+  },
+  {
+    "source": "natures_spirit:magenta_kaolin",
+    "kind": "stone",
+    "name": "Magenta Kaolin Slab",
+    "textures": {
+      "top": "natures_spirit:block/magenta_kaolin",
+      "side": "natures_spirit:block/magenta_kaolin",
+      "bottom": "natures_spirit:block/magenta_kaolin"
+    }
+  },
+  {
+    "source": "natures_spirit:magenta_chalk",
+    "kind": "stone",
+    "name": "Magenta Chalk Slab",
+    "textures": {
+      "top": "natures_spirit:block/magenta_chalk",
+      "side": "natures_spirit:block/magenta_chalk",
+      "bottom": "natures_spirit:block/magenta_chalk"
+    }
+  },
+  {
+    "source": "natures_spirit:pink_kaolin",
+    "kind": "stone",
+    "name": "Pink Kaolin Slab",
+    "textures": {
+      "top": "natures_spirit:block/pink_kaolin",
+      "side": "natures_spirit:block/pink_kaolin",
+      "bottom": "natures_spirit:block/pink_kaolin"
+    }
+  },
+  {
+    "source": "natures_spirit:pink_chalk",
+    "kind": "stone",
+    "name": "Pink Chalk Slab",
+    "textures": {
+      "top": "natures_spirit:block/pink_chalk",
+      "side": "natures_spirit:block/pink_chalk",
+      "bottom": "natures_spirit:block/pink_chalk"
+    }
+  },
+  {
+    "source": "natures_spirit:sandy_soil",
+    "kind": "soil",
+    "name": "Sandy Soil Slab",
+    "textures": {
+      "top": "natures_spirit:block/sandy_soil",
+      "side": "natures_spirit:block/sandy_soil",
+      "bottom": "natures_spirit:block/sandy_soil"
+    }
+  },
+  {
+    "source": "natures_spirit:red_moss_block",
+    "kind": "soil",
+    "name": "Red Moss Block Slab",
+    "textures": {
+      "top": "natures_spirit:block/red_moss_block",
+      "side": "natures_spirit:block/red_moss_block",
+      "bottom": "natures_spirit:block/red_moss_block"
+    }
+  },
+  {
+    "source": "natures_spirit:pink_sand",
+    "kind": "sand",
+    "name": "Pink Sand Slab",
+    "textures": {
+      "top": "natures_spirit:block/pink_sand",
+      "side": "natures_spirit:block/pink_sand",
+      "bottom": "natures_spirit:block/pink_sand"
+    }
+  },
+  {
+    "source": "natures_spirit:pink_sandstone",
+    "kind": "stone",
+    "name": "Pink Sandstone Slab",
+    "textures": {
+      "top": "natures_spirit:block/pink_sandstone_top",
+      "side": "natures_spirit:block/pink_sandstone",
+      "bottom": "natures_spirit:block/pink_sandstone_bottom"
+    }
+  },
+  {
+    "source": "aether:aether_dirt",
+    "kind": "soil",
+    "name": "Aether Dirt Slab",
+    "textures": {
+      "top": "aether:block/natural/aether_dirt",
+      "side": "aether:block/natural/aether_dirt",
+      "bottom": "aether:block/natural/aether_dirt"
+    }
+  },
+  {
+    "source": "aether:aether_grass_block",
+    "kind": "grass",
+    "name": "Aether Grass Block Slab",
+    "textures": {
+      "top": "aether:block/natural/aether_grass_block_top",
+      "side": "aether:block/natural/aether_grass_block_side",
+      "bottom": "aether:block/natural/aether_dirt"
+    },
+    "base": "aether:aether_dirt",
+    "betterGrass": true,
+    "snowTextures": {
+      "top": "aether:block/natural/enchanted_aether_grass_block_top",
+      "side": "aether:block/natural/aether_grass_block_snow",
+      "bottom": "aether:block/natural/aether_dirt"
+    }
+  },
+  {
+    "source": "aether:enchanted_aether_grass_block",
+    "kind": "grass",
+    "name": "Enchanted Aether Grass Block Slab",
+    "textures": {
+      "top": "aether:block/natural/enchanted_aether_grass_block_top",
+      "side": "aether:block/natural/enchanted_aether_grass_block_side",
+      "bottom": "aether:block/natural/aether_dirt"
+    },
+    "base": "aether:aether_dirt",
+    "betterGrass": true,
+    "snowTextures": {
+      "top": "aether:block/natural/enchanted_aether_grass_block_top",
+      "side": "aether:block/natural/aether_grass_block_snow",
+      "bottom": "aether:block/natural/aether_dirt"
+    }
+  },
+  {
+    "source": "aether:aether_farmland",
+    "kind": "farmland",
+    "name": "Aether Farmland Slab",
+    "textures": {
+      "top": "aether:block/construction/aether_farmland",
+      "side": "aether:block/natural/aether_dirt",
+      "bottom": "aether:block/natural/aether_dirt"
+    },
+    "base": "aether:aether_dirt",
+    "wetTop": "aether:block/construction/aether_farmland_moist"
+  },
+  {
+    "source": "aether:aether_dirt_path",
+    "kind": "path",
+    "name": "Aether Dirt Path Slab",
+    "textures": {
+      "top": "aether:block/construction/aether_dirt_path_top",
+      "side": "aether:block/construction/aether_dirt_path_side",
+      "bottom": "aether:block/natural/aether_dirt"
+    },
+    "base": "aether:aether_dirt"
+  },
+  {
+    "source": "aether:holystone",
+    "kind": "stone",
+    "name": "Holystone Slab",
+    "textures": {
+      "top": "aether:block/natural/holystone",
+      "side": "aether:block/natural/holystone",
+      "bottom": "aether:block/natural/holystone"
+    }
+  },
+  {
+    "source": "aether:mossy_holystone",
+    "kind": "stone",
+    "name": "Mossy Holystone Slab",
+    "textures": {
+      "top": "aether:block/natural/mossy_holystone",
+      "side": "aether:block/natural/mossy_holystone",
+      "bottom": "aether:block/natural/mossy_holystone"
+    }
+  },
+  {
+    "source": "promenade:asphalt",
+    "kind": "stone",
+    "name": "Asphalt Slab",
+    "textures": {
+      "top": "promenade:block/asphalt",
+      "side": "promenade:block/asphalt",
+      "bottom": "promenade:block/asphalt"
+    }
+  },
+  {
+    "source": "promenade:blunite",
+    "kind": "stone",
+    "name": "Blunite Slab",
+    "textures": {
+      "top": "promenade:block/blunite",
+      "side": "promenade:block/blunite",
+      "bottom": "promenade:block/blunite"
+    }
+  },
+  {
+    "source": "promenade:dark_amaranth_nylium",
+    "kind": "surface",
+    "name": "Dark Amaranth Nylium Slab",
+    "textures": {
+      "top": "promenade:block/dark_amaranth_nylium",
+      "side": "promenade:block/dark_amaranth_nylium_side",
+      "bottom": "minecraft:block/netherrack"
+    },
+    "base": "minecraft:netherrack",
+    "betterGrass": true
+  },
+  {
+    "source": "meadow:limestone",
+    "kind": "stone",
+    "name": "Limestone Slab",
+    "textures": {
+      "top": "meadow:block/limestone",
+      "side": "meadow:block/limestone",
+      "bottom": "meadow:block/limestone"
+    }
+  },
+  {
+    "source": "bloomingnature:laterit",
+    "kind": "stone",
+    "name": "Laterit Slab",
+    "textures": {
+      "top": "bloomingnature:block/laterit",
+      "side": "bloomingnature:block/laterit",
+      "bottom": "bloomingnature:block/laterit"
+    }
+  },
+  {
+    "source": "bloomingnature:marlstone",
+    "kind": "stone",
+    "name": "Marlstone Slab",
+    "textures": {
+      "top": "bloomingnature:block/marlstone",
+      "side": "bloomingnature:block/marlstone",
+      "bottom": "bloomingnature:block/marlstone"
+    }
+  },
+  {
+    "source": "bloomingnature:slate",
+    "kind": "stone",
+    "name": "Slate Slab",
+    "textures": {
+      "top": "bloomingnature:block/slate",
+      "side": "bloomingnature:block/slate",
+      "bottom": "bloomingnature:block/slate"
+    }
+  },
+  {
+    "source": "bloomingnature:travertin",
+    "kind": "stone",
+    "name": "Travertin Slab",
+    "textures": {
+      "top": "bloomingnature:block/travertin",
+      "side": "bloomingnature:block/travertin",
+      "bottom": "bloomingnature:block/travertin"
+    }
+  },
+  {
+    "source": "bloomingnature:forest_moss",
+    "kind": "soil",
+    "name": "Forest Moss Slab",
+    "textures": {
+      "top": "bloomingnature:block/forest_moss",
+      "side": "bloomingnature:block/forest_moss",
+      "bottom": "bloomingnature:block/forest_moss"
+    }
+  },
+  {
+    "source": "bloomingnature:fen_moss",
+    "kind": "soil",
+    "name": "Fen Moss Slab",
+    "textures": {
+      "top": "bloomingnature:block/fen_moss",
+      "side": "bloomingnature:block/fen_moss",
+      "bottom": "bloomingnature:block/fen_moss"
+    }
+  },
+  {
+    "source": "bloomingnature:marsh_block",
+    "kind": "soil",
+    "name": "Marsh Block Slab",
+    "textures": {
+      "top": "bloomingnature:block/marsh",
+      "side": "bloomingnature:block/marsh",
+      "bottom": "bloomingnature:block/marsh"
+    }
+  },
+  {
+    "source": "alpinewhispers:alpine_gneiss",
+    "kind": "stone",
+    "name": "Alpine Gneiss Slab",
+    "textures": {
+      "top": "alpinewhispers:block/alpine_gneiss",
+      "side": "alpinewhispers:block/alpine_gneiss",
+      "bottom": "alpinewhispers:block/alpine_gneiss"
+    }
+  },
+  {
+    "source": "alpinewhispers:frozen_dirt",
+    "kind": "soil",
+    "name": "Frozen Dirt Slab",
+    "textures": {
+      "top": "alpinewhispers:block/frozen_dirt",
+      "side": "alpinewhispers:block/frozen_dirt",
+      "bottom": "alpinewhispers:block/frozen_dirt"
+    }
+  },
+  {
+    "source": "spawn:reefstone",
+    "kind": "stone",
+    "name": "Reefstone Slab",
+    "textures": {
+      "top": "spawn:block/reefstone",
+      "side": "spawn:block/reefstone",
+      "bottom": "spawn:block/reefstone"
+    }
+  },
+  {
+    "source": "spawn:blasted_sand",
+    "kind": "sand",
+    "name": "Blasted Sand Slab",
+    "textures": {
+      "top": "spawn:block/blasted_sand",
+      "side": "spawn:block/blasted_sand",
+      "bottom": "spawn:block/blasted_sand"
+    }
+  },
+  {
+    "source": "spawn:blasted_sandstone",
+    "kind": "stone",
+    "name": "Blasted Sandstone Slab",
+    "textures": {
+      "top": "spawn:block/blasted_sandstone_top",
+      "side": "spawn:block/blasted_sandstone",
+      "bottom": "spawn:block/blasted_sandstone_bottom"
+    }
+  },
+  {
+    "source": "minecraft:pale_moss_block",
+    "kind": "soil",
+    "name": "Pale Moss Block Slab",
+    "textures": {
+      "top": "minecraft:block/pale_moss_block",
+      "side": "minecraft:block/pale_moss_block",
+      "bottom": "minecraft:block/pale_moss_block"
+    },
+    "modId": "vanillabackport"
+  }
 ]

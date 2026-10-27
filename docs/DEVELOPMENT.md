@@ -46,6 +46,21 @@ node tools/download-test-mods.mjs
 
 The download tool verifies SHA-512 hashes. Third-party mods are not part of this source distribution.
 
+For the complete compatibility snapshot, use `node tools/download-compat-mods.mjs`.
+This downloads the pinned files in `compat/test-mods.lock.json` to `build/compat-mods`.
+Use `--refresh` to resolve newer matching Modrinth builds; externally pinned artifacts retain their explicit version.
+
+Test the full pack on a standard NeoForge 21.1.265 server with the production JAR. The development remapper
+does not correctly remap a Vinery 1.5.6 inner-class shadow field, so that pack cannot be verified with the Loom development launcher.
+Do not install a separate Architectury JAR when using the bundled version. Accept the Minecraft EULA before starting a local test server.
+
+Production GameTests require `-Dneoforge.enableGameTest=true -Dneoforge.gameTestServer=true`
+and `-Dneoforge.enabledGameTestNamespaces=wildslabs -Dwildslabs.integrationTests=true`.
+The additional integration flag enables the test registry and ticker in production; it is disabled during normal gameplay.
+
+A normal server launched with `-Dwildslabs.worldgenSmoke=true` samples two chunks in each registered dimension,
+writes `worldgen-smoke.json`, and stops. Use a dedicated disposable world and a fixed seed for this test.
+
 ## Settings
 
 | Setting | Default | Purpose |

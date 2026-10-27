@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "spawn"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "spawn:blasted_sand"
+    }
+  },
+  "result": {
+    "id": "wildslabs:spawn/blasted_sand_slab",
+    "count": 6
+  }
+}

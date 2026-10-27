@@ -33,6 +33,10 @@ public abstract class MixinShovelItem {
         }
         Player player = context.getPlayer();
         BlockState pathState = ShovelItemAccessor.getFlattenables().get(blockState.getBlock());
+        if(blockState.getBlock() instanceof net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab){
+            var nativeTarget=net.countered.terrainslabs.platform.PlatformConfigHooks.getToolTarget(blockState,context,false);
+            if(nativeTarget!=null)pathState=nativeTarget.defaultBlockState();
+        }
 
         if (pathState != null && blockState.getBlock() instanceof SlabBlock && level.getBlockState(blockPos.above()).isAir()) {
             SlabType slabType = blockState.getValue(BlockStateProperties.SLAB_TYPE);

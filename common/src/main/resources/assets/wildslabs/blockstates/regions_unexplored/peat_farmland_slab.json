@@ -1,0 +1,76 @@
+{
+  "variants": {
+    "type=bottom,moisture=0": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_bottom"
+    },
+    "type=bottom,moisture=1": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_bottom_wet"
+    },
+    "type=bottom,moisture=2": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_bottom_wet"
+    },
+    "type=bottom,moisture=3": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_bottom_wet"
+    },
+    "type=bottom,moisture=4": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_bottom_wet"
+    },
+    "type=bottom,moisture=5": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_bottom_wet"
+    },
+    "type=bottom,moisture=6": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_bottom_wet"
+    },
+    "type=bottom,moisture=7": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_bottom_wet"
+    },
+    "type=top,moisture=0": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_top"
+    },
+    "type=top,moisture=1": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_top_wet"
+    },
+    "type=top,moisture=2": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_top_wet"
+    },
+    "type=top,moisture=3": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_top_wet"
+    },
+    "type=top,moisture=4": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_top_wet"
+    },
+    "type=top,moisture=5": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_top_wet"
+    },
+    "type=top,moisture=6": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_top_wet"
+    },
+    "type=top,moisture=7": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_top_wet"
+    },
+    "type=double,moisture=0": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_double"
+    },
+    "type=double,moisture=1": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_double_wet"
+    },
+    "type=double,moisture=2": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_double_wet"
+    },
+    "type=double,moisture=3": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_double_wet"
+    },
+    "type=double,moisture=4": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_double_wet"
+    },
+    "type=double,moisture=5": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_double_wet"
+    },
+    "type=double,moisture=6": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_double_wet"
+    },
+    "type=double,moisture=7": {
+      "model": "wildslabs:block/regions_unexplored/peat_farmland_slab_double_wet"
+    }
+  }
+}

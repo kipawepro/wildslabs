@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wildslabs:block/biomeswevegone/white_sand_slab_bottom"
+    },
+    "type=top": {
+      "model": "wildslabs:block/biomeswevegone/white_sand_slab_top"
+    },
+    "type=double": {
+      "model": "wildslabs:block/biomeswevegone/white_sand_slab_double"
+    }
+  }
+}

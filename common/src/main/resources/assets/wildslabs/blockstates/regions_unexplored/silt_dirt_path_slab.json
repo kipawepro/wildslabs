@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wildslabs:block/regions_unexplored/silt_dirt_path_slab_bottom"
+    },
+    "type=top": {
+      "model": "wildslabs:block/regions_unexplored/silt_dirt_path_slab_top"
+    },
+    "type=double": {
+      "model": "wildslabs:block/regions_unexplored/silt_dirt_path_slab_double"
+    }
+  }
+}

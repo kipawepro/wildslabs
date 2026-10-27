@@ -3,6 +3,17 @@ package net.countered.terrainslabs.platform.neoforge;
 import eu.midnightdust.lib.config.MidnightConfig;
 
 public class PlatformConfigHooksImpl extends MidnightConfig {
+    public static net.minecraft.world.ItemInteractionResult useSourceItem(net.minecraft.world.item.ItemStack stack,net.minecraft.world.level.block.state.BlockState state,net.minecraft.world.level.Level level,net.minecraft.core.BlockPos pos,net.minecraft.world.entity.player.Player player,net.minecraft.world.InteractionHand hand,net.minecraft.world.phys.BlockHitResult hit){
+        var source=net.countered.terrainslabs.generation.VegetationSupport.sourceStateForSlab(state);
+        if(source==null)return net.minecraft.world.ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        return net.countered.terrainslabs.generation.VegetationSupport.withSourceView(level,pos,()->source.useItemOn(stack,level,player,hand,hit));
+    }
+    public static net.minecraft.world.level.block.Block getToolTarget(net.minecraft.world.level.block.state.BlockState state, net.minecraft.world.item.context.UseOnContext context, boolean hoe) {
+        var source=net.countered.terrainslabs.block.ModSlabsMap.getSourceForSlab(state.getBlock());
+        if(source==null)return null;
+        var result=net.countered.terrainslabs.generation.VegetationSupport.withSourceView(context.getLevel(),context.getClickedPos(),()->source.defaultBlockState().getToolModifiedState(context,hoe?net.neoforged.neoforge.common.ItemAbilities.HOE_TILL:net.neoforged.neoforge.common.ItemAbilities.SHOVEL_FLATTEN,false));
+        return result==null?null:net.countered.terrainslabs.block.ModSlabsMap.getInteractionSlab(result.getBlock());
+    }
     public static net.minecraft.world.level.block.Block createFarmlandSlab() {
         return new net.countered.terrainslabs.neoforge.compat.NeoForgeFarmlandSlab();
     }

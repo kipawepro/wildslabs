@@ -50,5 +50,550 @@
   {
     "source": "biomesoplenty:algal_end_stone",
     "kind": "stone"
+  },
+  {
+    "source": "regions_unexplored:peat_dirt",
+    "kind": "soil"
+  },
+  {
+    "source": "regions_unexplored:peat_coarse_dirt",
+    "kind": "soil"
+  },
+  {
+    "source": "regions_unexplored:peat_mud",
+    "kind": "soil"
+  },
+  {
+    "source": "regions_unexplored:peat_grass_block",
+    "kind": "grass",
+    "base": "regions_unexplored:peat_dirt"
+  },
+  {
+    "source": "regions_unexplored:peat_podzol",
+    "kind": "surface",
+    "base": "regions_unexplored:peat_dirt"
+  },
+  {
+    "source": "regions_unexplored:peat_farmland",
+    "kind": "farmland",
+    "base": "regions_unexplored:peat_dirt"
+  },
+  {
+    "source": "regions_unexplored:peat_dirt_path",
+    "kind": "path",
+    "base": "regions_unexplored:peat_dirt"
+  },
+  {
+    "source": "regions_unexplored:silt_dirt",
+    "kind": "soil"
+  },
+  {
+    "source": "regions_unexplored:silt_coarse_dirt",
+    "kind": "soil"
+  },
+  {
+    "source": "regions_unexplored:silt_mud",
+    "kind": "soil"
+  },
+  {
+    "source": "regions_unexplored:silt_grass_block",
+    "kind": "grass",
+    "base": "regions_unexplored:silt_dirt"
+  },
+  {
+    "source": "regions_unexplored:silt_podzol",
+    "kind": "surface",
+    "base": "regions_unexplored:silt_dirt"
+  },
+  {
+    "source": "regions_unexplored:silt_farmland",
+    "kind": "farmland",
+    "base": "regions_unexplored:silt_dirt"
+  },
+  {
+    "source": "regions_unexplored:silt_dirt_path",
+    "kind": "path",
+    "base": "regions_unexplored:silt_dirt"
+  },
+  {
+    "source": "regions_unexplored:chalk",
+    "kind": "stone"
+  },
+  {
+    "source": "regions_unexplored:argillite",
+    "kind": "stone"
+  },
+  {
+    "source": "regions_unexplored:mossy_stone",
+    "kind": "stone"
+  },
+  {
+    "source": "regions_unexplored:ash",
+    "kind": "soil"
+  },
+  {
+    "source": "regions_unexplored:volcanic_ash",
+    "kind": "soil"
+  },
+  {
+    "source": "regions_unexplored:alpha_grass_block",
+    "kind": "grass",
+    "base": "minecraft:dirt"
+  },
+  {
+    "source": "regions_unexplored:stone_grass_block",
+    "kind": "surface",
+    "base": "minecraft:stone"
+  },
+  {
+    "source": "regions_unexplored:deepslate_grass_block",
+    "kind": "surface",
+    "base": "minecraft:deepslate"
+  },
+  {
+    "source": "regions_unexplored:argillite_grass_block",
+    "kind": "surface",
+    "base": "regions_unexplored:argillite"
+  },
+  {
+    "source": "regions_unexplored:chalk_grass_block",
+    "kind": "surface",
+    "base": "regions_unexplored:chalk"
+  },
+  {
+    "source": "regions_unexplored:prismoss",
+    "kind": "surface",
+    "base": "minecraft:stone"
+  },
+  {
+    "source": "regions_unexplored:deepslate_prismoss",
+    "kind": "surface",
+    "base": "minecraft:deepslate"
+  },
+  {
+    "source": "regions_unexplored:viridescent_nylium",
+    "kind": "surface",
+    "base": "minecraft:stone"
+  },
+  {
+    "source": "regions_unexplored:deepslate_viridescent_nylium",
+    "kind": "surface",
+    "base": "minecraft:deepslate"
+  },
+  {
+    "source": "regions_unexplored:glistering_nylium",
+    "kind": "surface",
+    "base": "minecraft:netherrack"
+  },
+  {
+    "source": "regions_unexplored:brimsprout_nylium",
+    "kind": "surface",
+    "base": "minecraft:netherrack"
+  },
+  {
+    "source": "regions_unexplored:mycotoxic_nylium",
+    "kind": "surface",
+    "base": "minecraft:netherrack"
+  },
+  {
+    "source": "regions_unexplored:cobalt_nylium",
+    "kind": "surface",
+    "base": "minecraft:blackstone"
+  },
+  {
+    "source": "biomeswevegone:lush_dirt",
+    "kind": "soil"
+  },
+  {
+    "source": "biomeswevegone:sandy_dirt",
+    "kind": "soil"
+  },
+  {
+    "source": "biomeswevegone:pale_mud",
+    "kind": "soil"
+  },
+  {
+    "source": "biomeswevegone:packed_pale_mud",
+    "kind": "soil"
+  },
+  {
+    "source": "biomeswevegone:peat",
+    "kind": "soil"
+  },
+  {
+    "source": "biomeswevegone:lush_grass_block",
+    "kind": "grass",
+    "base": "biomeswevegone:lush_dirt"
+  },
+  {
+    "source": "biomeswevegone:lush_farmland",
+    "kind": "farmland",
+    "base": "biomeswevegone:lush_dirt"
+  },
+  {
+    "source": "biomeswevegone:lush_dirt_path",
+    "kind": "path",
+    "base": "biomeswevegone:lush_dirt"
+  },
+  {
+    "source": "biomeswevegone:sandy_farmland",
+    "kind": "farmland",
+    "base": "biomeswevegone:sandy_dirt"
+  },
+  {
+    "source": "biomeswevegone:sandy_dirt_path",
+    "kind": "path",
+    "base": "biomeswevegone:sandy_dirt"
+  },
+  {
+    "source": "biomeswevegone:dacite",
+    "kind": "stone"
+  },
+  {
+    "source": "biomeswevegone:white_dacite",
+    "kind": "stone"
+  },
+  {
+    "source": "biomeswevegone:red_rock",
+    "kind": "stone"
+  },
+  {
+    "source": "biomeswevegone:rocky_stone",
+    "kind": "stone"
+  },
+  {
+    "source": "biomeswevegone:mossy_stone",
+    "kind": "stone"
+  },
+  {
+    "source": "biomeswevegone:black_sand",
+    "kind": "sand"
+  },
+  {
+    "source": "biomeswevegone:black_sandstone",
+    "kind": "stone"
+  },
+  {
+    "source": "biomeswevegone:blue_sand",
+    "kind": "sand"
+  },
+  {
+    "source": "biomeswevegone:blue_sandstone",
+    "kind": "stone"
+  },
+  {
+    "source": "biomeswevegone:pink_sand",
+    "kind": "sand"
+  },
+  {
+    "source": "biomeswevegone:pink_sandstone",
+    "kind": "stone"
+  },
+  {
+    "source": "biomeswevegone:purple_sand",
+    "kind": "sand"
+  },
+  {
+    "source": "biomeswevegone:purple_sandstone",
+    "kind": "stone"
+  },
+  {
+    "source": "biomeswevegone:white_sand",
+    "kind": "sand"
+  },
+  {
+    "source": "biomeswevegone:white_sandstone",
+    "kind": "stone"
+  },
+  {
+    "source": "biomeswevegone:windswept_sand",
+    "kind": "sand"
+  },
+  {
+    "source": "biomeswevegone:windswept_sandstone",
+    "kind": "stone"
+  },
+  {
+    "source": "biomeswevegone:overgrown_stone",
+    "kind": "surface",
+    "base": "minecraft:stone"
+  },
+  {
+    "source": "biomeswevegone:overgrown_dacite",
+    "kind": "surface",
+    "base": "biomeswevegone:dacite"
+  },
+  {
+    "source": "biomeswevegone:white_overgrown_dacite",
+    "kind": "surface",
+    "base": "biomeswevegone:white_dacite"
+  },
+  {
+    "source": "biomeswevegone:podzol_dacite",
+    "kind": "surface",
+    "base": "biomeswevegone:dacite"
+  },
+  {
+    "source": "biomeswevegone:white_podzol_dacite",
+    "kind": "surface",
+    "base": "biomeswevegone:white_dacite"
+  },
+  {
+    "source": "natures_spirit:kaolin",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:chert",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:travertine",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:white_kaolin",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:white_chalk",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:light_gray_kaolin",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:light_gray_chalk",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:gray_kaolin",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:gray_chalk",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:black_kaolin",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:black_chalk",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:brown_kaolin",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:brown_chalk",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:red_kaolin",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:red_chalk",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:orange_kaolin",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:orange_chalk",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:yellow_kaolin",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:yellow_chalk",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:lime_kaolin",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:lime_chalk",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:green_kaolin",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:green_chalk",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:cyan_kaolin",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:cyan_chalk",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:light_blue_kaolin",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:light_blue_chalk",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:blue_kaolin",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:blue_chalk",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:purple_kaolin",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:purple_chalk",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:magenta_kaolin",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:magenta_chalk",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:pink_kaolin",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:pink_chalk",
+    "kind": "stone"
+  },
+  {
+    "source": "natures_spirit:sandy_soil",
+    "kind": "soil"
+  },
+  {
+    "source": "natures_spirit:red_moss_block",
+    "kind": "soil"
+  },
+  {
+    "source": "natures_spirit:pink_sand",
+    "kind": "sand"
+  },
+  {
+    "source": "natures_spirit:pink_sandstone",
+    "kind": "stone"
+  },
+  {
+    "source": "aether:aether_dirt",
+    "kind": "soil"
+  },
+  {
+    "source": "aether:aether_grass_block",
+    "kind": "grass",
+    "base": "aether:aether_dirt"
+  },
+  {
+    "source": "aether:enchanted_aether_grass_block",
+    "kind": "grass",
+    "base": "aether:aether_dirt"
+  },
+  {
+    "source": "aether:aether_farmland",
+    "kind": "farmland",
+    "base": "aether:aether_dirt"
+  },
+  {
+    "source": "aether:aether_dirt_path",
+    "kind": "path",
+    "base": "aether:aether_dirt"
+  },
+  {
+    "source": "aether:holystone",
+    "kind": "stone"
+  },
+  {
+    "source": "aether:mossy_holystone",
+    "kind": "stone"
+  },
+  {
+    "source": "promenade:asphalt",
+    "kind": "stone"
+  },
+  {
+    "source": "promenade:blunite",
+    "kind": "stone"
+  },
+  {
+    "source": "promenade:dark_amaranth_nylium",
+    "kind": "surface",
+    "base": "minecraft:netherrack"
+  },
+  {
+    "source": "meadow:limestone",
+    "kind": "stone"
+  },
+  {
+    "source": "bloomingnature:laterit",
+    "kind": "stone"
+  },
+  {
+    "source": "bloomingnature:marlstone",
+    "kind": "stone"
+  },
+  {
+    "source": "bloomingnature:slate",
+    "kind": "stone"
+  },
+  {
+    "source": "bloomingnature:travertin",
+    "kind": "stone"
+  },
+  {
+    "source": "bloomingnature:forest_moss",
+    "kind": "soil"
+  },
+  {
+    "source": "bloomingnature:fen_moss",
+    "kind": "soil"
+  },
+  {
+    "source": "bloomingnature:marsh_block",
+    "kind": "soil"
+  },
+  {
+    "source": "alpinewhispers:alpine_gneiss",
+    "kind": "stone"
+  },
+  {
+    "source": "alpinewhispers:frozen_dirt",
+    "kind": "soil"
+  },
+  {
+    "source": "spawn:reefstone",
+    "kind": "stone"
+  },
+  {
+    "source": "spawn:blasted_sand",
+    "kind": "sand"
+  },
+  {
+    "source": "spawn:blasted_sandstone",
+    "kind": "stone"
+  },
+  {
+    "source": "minecraft:pale_moss_block",
+    "kind": "soil",
+    "modId": "vanillabackport"
   }
 ]

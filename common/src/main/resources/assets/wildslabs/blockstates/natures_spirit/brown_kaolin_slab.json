@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wildslabs:block/natures_spirit/brown_kaolin_slab_bottom"
+    },
+    "type=top": {
+      "model": "wildslabs:block/natures_spirit/brown_kaolin_slab_top"
+    },
+    "type=double": {
+      "model": "wildslabs:block/natures_spirit/brown_kaolin_slab_double"
+    }
+  }
+}

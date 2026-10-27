@@ -10,6 +10,10 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.SlabType;
 
 public class CustomSlab extends SlabBlock {
+    @Override
+    protected net.minecraft.world.ItemInteractionResult useItemOn(net.minecraft.world.item.ItemStack stack,BlockState state,net.minecraft.world.level.Level level,net.minecraft.core.BlockPos pos,net.minecraft.world.entity.player.Player player,net.minecraft.world.InteractionHand hand,net.minecraft.world.phys.BlockHitResult hit){
+        return net.countered.terrainslabs.platform.PlatformConfigHooks.useSourceItem(stack,state,level,pos,player,hand,hit);
+    }
     public static final BooleanProperty GENERATED;
 
     static {

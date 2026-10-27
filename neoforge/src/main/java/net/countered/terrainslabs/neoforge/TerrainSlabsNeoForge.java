@@ -23,6 +23,7 @@ public final class TerrainSlabsNeoForge {
 
         MidnightConfig.write(TerrainSlabs.MOD_ID);
         ModFeatures.FEATURES.register(modBus);
+        net.countered.terrainslabs.neoforge.feature.LateTerrainModifier.SERIALIZERS.register(modBus);
 
         modBus.addListener(this::setupServer);
         modBus.addListener(this::setupClient);
@@ -31,11 +32,15 @@ public final class TerrainSlabsNeoForge {
         TerrainSlabs.init();
         net.countered.terrainslabs.neoforge.compat.CompatSlabs.register(modBus);
         net.countered.terrainslabs.neoforge.test.WildSlabsGameTests.registerFixtures(modBus);
+        net.countered.terrainslabs.neoforge.test.WorldgenSmokeTests.register();
+        if(Boolean.getBoolean("wildslabs.integrationTests")&&net.neoforged.fml.loading.FMLEnvironment.production)
+            net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.tick.ServerTickEvent.Post event)->net.minecraft.gametest.framework.GameTestTicker.SINGLETON.tick());
     }
 
     private void setupServer(FMLCommonSetupEvent event) {
         event.enqueueWork(FlattenableBlockRegistry::apply);
         event.enqueueWork(net.countered.terrainslabs.neoforge.compat.CompatSlabs::setup);
+        if(Boolean.getBoolean("wildslabs.integrationTests"))event.enqueueWork(()->net.minecraft.gametest.framework.GameTestRegistry.register(net.countered.terrainslabs.neoforge.test.WildSlabsGameTests.class));
     }
 
     private void setupClient(FMLClientSetupEvent event) {

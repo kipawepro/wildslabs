@@ -11,7 +11,21 @@ const write = (base, name, data) => {
 };
 const read = (base, name) => JSON.parse(fs.readFileSync(path.join(base,name),'utf8'));
 const profiles = read(root, 'compat/profiles.json');
-write(resources, 'wildslabs-compat.json', profiles.map(({source,kind})=>({source,kind})));
+const previousProfiles=fs.existsSync(path.join(resources,'wildslabs-compat.json'))?read(resources,'wildslabs-compat.json'):[];
+const removedProfiles=previousProfiles.filter(p=>!profiles.some(n=>n.source===p.source));
+const removedIds=new Set(removedProfiles.map(p=>`wildslabs:${p.source.replace(':','/')}_slab`));
+for(const profile of removedProfiles){
+  const id=profile.source.replace(':','/')+'_slab';
+  const paths=[`assets/wildslabs/blockstates/${id}.json`,`assets/wildslabs/models/item/${id}.json`];
+  for(const type of ['bottom','top','double'])for(const suffix of ['','_wet','_snow']){
+    paths.push(`assets/wildslabs/models/block/${id}_${type}${suffix}.json`);
+    paths.push(`resourcepacks/better_grass_slabs/assets/wildslabs/models/block/${id}_${type}${suffix}.json`);
+  }
+  for(const file of paths){const target=path.join(resources,file);if(fs.existsSync(target))fs.unlinkSync(target);}
+  for(const kind of ['recipe','loot_table/blocks']){const target=path.join(generated,`data/wildslabs/${kind}/${id}.json`);if(fs.existsSync(target))fs.unlinkSync(target);}
+}
+write(generated,'data/wildslabs/tags/block/preserved_blocks.json',{replace:false,values:read(root,'compat/preserved-blocks.json').map(id=>({id,required:false}))});
+write(resources, 'wildslabs-compat.json', profiles.map(({source,kind,modId,base})=>({source,kind,modId,base})));
 const slabIds = ['wildslabs:farmland_slab'];
 const soilIds = [];
 const tillableIds = [];
@@ -44,23 +58,35 @@ for (const profile of profiles) {
   if (['soil','grass'].includes(profile.kind)) soilIds.push(fullId);
   if (profile.kind === 'grass') tillableIds.push(fullId);
   const tex = profile.textures;
+  const variants={};
   for (const [type,y0,y1] of [['bottom',0,8],['top',8,16],['double',0,16]]) {
-    write(resources, `assets/wildslabs/models/block/${id}_${type}.json`, model(tex,y0,y1,false,profile.tinted));
+    const upper=['farmland','path'].includes(profile.kind)?y1-1:y1;
+    write(resources, `assets/wildslabs/models/block/${id}_${type}.json`, model(tex,y0,upper,false,profile.tinted));
     if (profile.kind === 'grass' || profile.betterGrass) write(resources, `resourcepacks/better_grass_slabs/assets/wildslabs/models/block/${id}_${type}.json`,model(tex,y0,y1,true,profile.tinted));
+    if(profile.kind==='farmland'){
+      write(resources,`assets/wildslabs/models/block/${id}_${type}_wet.json`,model({...tex,top:profile.wetTop??tex.top},y0,upper));
+      for(let moisture=0;moisture<8;moisture++)variants[`type=${type},moisture=${moisture}`]={model:`wildslabs:block/${id}_${type}${moisture?'_wet':''}`};
+    }else if(profile.kind==='grass'){
+      write(resources,`assets/wildslabs/models/block/${id}_${type}_snow.json`,model(profile.snowTextures??{bottom:tex.bottom,side:'minecraft:block/grass_block_snow',top:'minecraft:block/snow'},y0,y1));
+      variants[`type=${type},snowy=false`]={model:`wildslabs:block/${id}_${type}`};
+      variants[`type=${type},snowy=true`]={model:`wildslabs:block/${id}_${type}_snow`};
+    }else variants[`type=${type}`]={model:`wildslabs:block/${id}_${type}`};
   }
-  write(resources,`assets/wildslabs/blockstates/${id}.json`,{variants:Object.fromEntries(['bottom','top','double'].map(type=>[`type=${type}`,{model:`wildslabs:block/${id}_${type}`}]))});
+  write(resources,`assets/wildslabs/blockstates/${id}.json`,{variants});
   write(resources,`assets/wildslabs/models/item/${id}.json`,{parent:`wildslabs:block/${id}_bottom`});
-  const condition = [{'type':'neoforge:mod_loaded',modid:mod}];
+  const condition = [{'type':'neoforge:mod_loaded',modid:profile.modId??mod}];
+  const dropSource=profile.kind==='farmland'?profile.base:profile.source;
+  const dropSlab=profile.kind==='farmland'?(profile.base==='minecraft:dirt'?'wildslabs:dirt_slab':`wildslabs:${profile.base.replace(':','/')}_slab`):fullId;
   const doubleCount = {function:'minecraft:set_count',count:2,conditions:[{condition:'minecraft:block_state_property',block:fullId,properties:{type:'double'}}]};
   write(generated,`data/wildslabs/loot_table/blocks/${id}.json`,{
     'neoforge:conditions':condition, type:'minecraft:block',pools:[{rolls:1,conditions:[{condition:'minecraft:survives_explosion'}],entries:[{
       type:'minecraft:alternatives',children:[
-        {type:'minecraft:item',name:profile.source,conditions:[{condition:'minecraft:block_state_property',block:fullId,properties:{generated:'true'}}]},
-        {type:'minecraft:item',name:fullId,functions:[doubleCount]}
+        {type:'minecraft:item',name:dropSource,conditions:[{condition:'minecraft:block_state_property',block:fullId,properties:{generated:'true'}}]},
+        {type:'minecraft:item',name:dropSlab,functions:[doubleCount]}
       ]
     }]}]
   });
-  write(generated,`data/wildslabs/recipe/${id}.json`,{
+  if(!['farmland','path'].includes(profile.kind))write(generated,`data/wildslabs/recipe/${id}.json`,{
     'neoforge:conditions':condition,type:'minecraft:crafting_shaped',category:'building',pattern:['###'],key:{'#':{item:profile.source}},result:{id:fullId,count:6}
   });
   lang[`block.wildslabs.${id.replaceAll('/','.')}`] = profile.name;
@@ -68,14 +94,14 @@ for (const profile of profiles) {
 
 for (const [name,values] of [
   ['minecraft/slabs',slabIds],['wildslabs/dirt_slabs',soilIds],['wildslabs/tillable_slabs',tillableIds],
-  ['minecraft/mineable/shovel', profiles.filter(p=>['sand','soil','grass'].includes(p.kind)).map(p=>`wildslabs:${p.source.replace(':','/')}_slab`).concat('wildslabs:farmland_slab')],
-  ['minecraft/mineable/pickaxe',profiles.filter(p=>p.kind==='stone').map(p=>`wildslabs:${p.source.replace(':','/')}_slab`)]
+  ['minecraft/mineable/shovel', profiles.filter(p=>['sand','soil','grass','farmland','path'].includes(p.kind)||p.kind==='surface'&&profiles.some(b=>b.source===p.base&&b.kind==='soil')).map(p=>`wildslabs:${p.source.replace(':','/')}_slab`).concat('wildslabs:farmland_slab')],
+  ['minecraft/mineable/pickaxe',profiles.filter(p=>p.kind==='stone'||p.kind==='surface'&&!profiles.some(b=>b.source===p.base&&b.kind==='soil')).map(p=>`wildslabs:${p.source.replace(':','/')}_slab`)]
 ]) {
   const slash = name.indexOf('/');
   const file = `data/${name.slice(0,slash)}/tags/block/${name.slice(slash+1)}.json`;
-  const existing = fs.existsSync(path.join(generated,file)) ? read(generated,file).values : [];
+  const existing = (fs.existsSync(path.join(generated,file)) ? read(generated,file).values : []).filter(v=>!removedIds.has(typeof v==='string'?v:v.id));
   const unique = new Map(existing.map(v=>[typeof v==='string'?v:v.id,v]));
-  for (const id of values) unique.set(id,id.includes('wildslabs:biomesoplenty/') ? {id,required:false} : id);
+  for (const id of values) unique.set(id,id.includes('/') ? {id,required:false} : id);
   write(generated,file,{replace:false,values:[...unique.values()]});
 }
 
@@ -92,6 +118,7 @@ for (const localeFile of fs.readdirSync(path.join(resources,'assets/wildslabs/la
   if (!localeFile.endsWith('.json')) continue;
   const file=`assets/wildslabs/lang/${localeFile}`;
   const data=read(resources,file);
+  for(const id of removedIds)delete data[`block.${id.replace(':','.').replaceAll('/','.')}`];
   data['itemGroup.wildslabs']='WildSlabs';
   data['wildslabs.midnightconfig.title']='WildSlabs';
   write(resources,file,data);

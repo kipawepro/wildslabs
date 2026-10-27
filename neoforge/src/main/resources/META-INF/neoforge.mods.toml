@@ -17,7 +17,7 @@ Standalone terrain smoothing with plantable slabs, hydrated farmland and optiona
 [[dependencies.wildslabs]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21.1.215,21.2)"
+versionRange = "[21.1.265,21.2)"
 ordering = "NONE"
 side = "BOTH"
 
@@ -39,3 +39,249 @@ side = "BOTH"
 config = "wildslabs.mixins.json"
 [[mixins]]
 config = "wildslabs.neoforge.mixins.json"
+
+[[dependencies.wildslabs]]
+modId = "promenade"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "biomesoplenty"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "teallib"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "natures_spirit"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "camping"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "brewery"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "beachparty"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "ecologics"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "terralith"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "biolith"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "vinery"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "smoker"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "aether"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "bakery"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "twilightforest"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "lilis_pottery"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "glitchcore"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "owo"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "geckolib"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "platform"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "legacy"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "bloomingnature"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "ohthetreesyoullgrow"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "furniture"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "candlelight"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "regions_unexplored"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "lilis_lucky_lures"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "herbalbrews"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "biomeswevegone"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "tectonic"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "spawn"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "corgilib"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "vanillabackport"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "hearth_and_timber"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "terrablender"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "lithostitched"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "alpinewhispers"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "meadow"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "farm_and_charm"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "wildernature"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "curios"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"

@@ -44,6 +44,194 @@
       "id": "wildslabs:biomesoplenty/glowing_moss_block_slab",
       "required": false
     },
-    "wildslabs:farmland_slab"
+    "wildslabs:farmland_slab",
+    {
+      "id": "wildslabs:regions_unexplored/peat_dirt_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/peat_coarse_dirt_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/peat_mud_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/peat_grass_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/silt_dirt_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/silt_coarse_dirt_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/silt_mud_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/silt_grass_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/ash_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/volcanic_ash_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/alpha_grass_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/lush_dirt_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/sandy_dirt_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/pale_mud_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/packed_pale_mud_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/peat_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/lush_grass_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/black_sand_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/blue_sand_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/pink_sand_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/purple_sand_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/white_sand_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/windswept_sand_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/sandy_soil_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/red_moss_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/pink_sand_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:aether/aether_dirt_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:aether/aether_grass_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:aether/enchanted_aether_grass_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:bloomingnature/forest_moss_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:bloomingnature/fen_moss_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:bloomingnature/marsh_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:alpinewhispers/frozen_dirt_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:spawn/blasted_sand_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:minecraft/pale_moss_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/peat_podzol_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/peat_farmland_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/peat_dirt_path_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/silt_podzol_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/silt_farmland_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/silt_dirt_path_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/lush_farmland_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/lush_dirt_path_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/sandy_farmland_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/sandy_dirt_path_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:aether/aether_farmland_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:aether/aether_dirt_path_slab",
+      "required": false
+    }
   ]
 }

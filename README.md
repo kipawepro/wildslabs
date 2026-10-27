@@ -13,7 +13,8 @@ WildSlabs brings more natural terrain transitions, plantable terrain slabs, and 
 - Preservation of flower-patch quantities, orientations, and plant states
 - Tillable soil slabs with moisture, drying, and support for compatible crops
 - Grass spreading, bone meal, and shovel-created paths
-- Optional Biomes O' Plenty integration with 13 terrain materials
+- 140 optional terrain profiles for Biomes O' Plenty, Regions Unexplored, Oh The Biomes We've Gone, Nature's Spirit, The Aether, and other biome mods
+- Compatibility with Terralith, Tectonic, Lithostitched, Twilight Forest, Vanilla Backport, Let's Do, Spawn, Promenade, and Ecologics
 - Automatic compatibility with modded plants using standard placement rules
 - A built-in Better Grass resource pack for grassy slab sides
 - Configurable generation density, seed offset, vegetation, snow, and rendering
@@ -25,11 +26,12 @@ WildSlabs brings more natural terrain transitions, plantable terrain slabs, and 
 ## Requirements
 
 - Minecraft 1.21.1
-- NeoForge 21.1.215 or newer within the 21.1 branch
+- NeoForge 21.1.265 or newer within the 21.1 branch
 - Java 21
 - WildSlabs installed on both client and server
 
-Architectury and MidnightLib are bundled. Biomes O' Plenty is optional and requires its own dependencies.
+Architectury and MidnightLib are bundled. Biome mods are optional and require their own dependencies.
+See the [compatibility details and tested versions](docs/COMPATIBILITY.md).
 
 ## Installation
 

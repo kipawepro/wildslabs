@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wildslabs:block/regions_unexplored/stone_grass_block_slab_bottom"
+    },
+    "type=top": {
+      "model": "wildslabs:block/regions_unexplored/stone_grass_block_slab_top"
+    },
+    "type=double": {
+      "model": "wildslabs:block/regions_unexplored/stone_grass_block_slab_double"
+    }
+  }
+}

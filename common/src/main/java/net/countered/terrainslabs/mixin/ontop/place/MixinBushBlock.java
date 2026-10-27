@@ -18,7 +18,7 @@ public class MixinBushBlock {
 
     @Inject(method = "mayPlaceOn", at = @At("HEAD"), cancellable = true)
     private void wildslabs$mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        if (!(state.getBlock() instanceof net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab)) return;
+        if (!(state.getBlock() instanceof net.minecraft.world.level.block.SlabBlock)) return;
         if (!PlatformConfigHooks.isVegetationOnSlabsEnabled() || (Object)this instanceof SaplingBlock
                 || (Object)this instanceof net.minecraft.world.level.block.BambooSaplingBlock) return;
         var source = net.countered.terrainslabs.block.ModSlabsMap.getSourceForSlab(state.getBlock());

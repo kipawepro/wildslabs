@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wildslabs:block/natures_spirit/yellow_chalk_slab_bottom"
+    },
+    "type=top": {
+      "model": "wildslabs:block/natures_spirit/yellow_chalk_slab_top"
+    },
+    "type=double": {
+      "model": "wildslabs:block/natures_spirit/yellow_chalk_slab_double"
+    }
+  }
+}

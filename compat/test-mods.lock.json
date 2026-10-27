@@ -1,0 +1,653 @@
+{
+  "minecraft": "1.21.1",
+  "loader": "neoforge",
+  "roots": [
+    {
+      "slug": "biomes-o-plenty",
+      "projectId": "HXF82T3G"
+    },
+    {
+      "slug": "terralith",
+      "projectId": "8oi3bsk5"
+    },
+    {
+      "slug": "tectonic",
+      "projectId": "lWDHr9jE"
+    },
+    {
+      "slug": "regions-unexplored",
+      "projectId": "Tkikq67H"
+    },
+    {
+      "slug": "lithostitched",
+      "projectId": "XaDC71GB"
+    },
+    {
+      "slug": "oh-the-biomes-weve-gone",
+      "projectId": "NTi7d3Xc"
+    },
+    {
+      "slug": "vanillabackport",
+      "projectId": "6xwxDTgf"
+    },
+    {
+      "slug": "natures-spirit",
+      "projectId": "WBvnqHfV"
+    },
+    {
+      "slug": "aether",
+      "projectId": "YhmgMVyu"
+    },
+    {
+      "slug": "spawn-mod",
+      "projectId": "rex9wwpz"
+    },
+    {
+      "slug": "promenade",
+      "projectId": "GuE5FpvB"
+    },
+    {
+      "slug": "ecologics",
+      "projectId": "NCKpPR0Z"
+    },
+    {
+      "slug": "lets-do-vinery",
+      "projectId": "1DWmBJVA"
+    },
+    {
+      "slug": "lets-do-herbalbrews",
+      "projectId": "Eh11TaTm"
+    },
+    {
+      "slug": "lets-do-beachparty",
+      "projectId": "GyKzAh3l"
+    },
+    {
+      "slug": "lets-do-meadow",
+      "projectId": "ra7o6Sl7"
+    },
+    {
+      "slug": "lets-do-farm-charm",
+      "projectId": "HJetCzWo"
+    },
+    {
+      "slug": "lets-do-candlelight-farmcharm-compat",
+      "projectId": "qwbArkQk"
+    },
+    {
+      "slug": "lets-do-bakery-farmcharm-compat",
+      "projectId": "oNB5jhlA"
+    },
+    {
+      "slug": "lets-do-brewery-farmcharm-compat",
+      "projectId": "b7NV2plI"
+    },
+    {
+      "slug": "lets-do-bloomingnature",
+      "projectId": "4Vno77MY"
+    },
+    {
+      "slug": "lets-do-wildernature",
+      "projectId": "AAiRU4aQ"
+    },
+    {
+      "slug": "lets-do-furniture",
+      "projectId": "3JQDJrYW"
+    },
+    {
+      "slug": "lets-do-camping",
+      "projectId": "uJXTNuf0"
+    },
+    {
+      "slug": "lets-do-lilis-lucky-lures",
+      "projectId": "DMDVFZSF"
+    },
+    {
+      "slug": "lets-do-hearth-timber",
+      "projectId": "paO4gjmE"
+    },
+    {
+      "slug": "lets-do-lilis-pottery",
+      "projectId": "sHiqiJIU"
+    },
+    {
+      "slug": "lets-do-alpine-whispers",
+      "projectId": "SSPTBIrB"
+    },
+    {
+      "slug": "lets-do-smoker",
+      "projectId": "j6CTL5tN"
+    },
+    {
+      "slug": "lets-do-legacy",
+      "projectId": "DP7M2DdM"
+    }
+  ],
+  "mods": [
+    {
+      "projectId": "YhmgMVyu",
+      "slug": "aether",
+      "title": "The Aether",
+      "version": "1.21.1-1.5.10-neoforge",
+      "versionId": "K5X5qMwG",
+      "filename": "aether-1.21.1-1.5.10-neoforge.jar",
+      "url": "https://cdn.modrinth.com/data/YhmgMVyu/versions/K5X5qMwG/aether-1.21.1-1.5.10-neoforge.jar",
+      "sha512": "4b004daed6d09362646e204f068dee28e80523e705e862778036c492775672071ca9cc95f9574a842f34d2e058b46138c6154c6a2f251dcdad7a8803907dad46",
+      "dependencies": [
+        "ccKDOlHs"
+      ]
+    },
+    {
+      "projectId": "lhGA9TYQ",
+      "slug": "architectury-api",
+      "title": "Architectury API",
+      "version": "13.0.11+neoforge",
+      "versionId": "1IiqEQGl",
+      "filename": "architectury-13.0.11-neoforge.jar",
+      "url": "https://cdn.modrinth.com/data/lhGA9TYQ/versions/1IiqEQGl/architectury-13.0.11-neoforge.jar",
+      "sha512": "d9f7c3bb8162577dfb461ffdf04bd6a3563c7586934a0e2a744c14421beffb8286f0d88d4c758317003f20f99fe8072a39b9d675af061e036970d36db36027f0",
+      "dependencies": []
+    },
+    {
+      "projectId": "iGEl6Crx",
+      "slug": "biolith",
+      "title": "Biolith",
+      "version": "3.0.14",
+      "versionId": "EAjbdreT",
+      "filename": "biolith-neoforge-3.0.14.jar",
+      "url": "https://cdn.modrinth.com/data/iGEl6Crx/versions/EAjbdreT/biolith-neoforge-3.0.14.jar",
+      "sha512": "49d225425627eca3b52514752ad297d39c571853a72f4e539c6e233a1289126fbb50593b01af2a782369e1aca55654e225ae25d494c3885baf6ed9fe212887ad",
+      "dependencies": []
+    },
+    {
+      "projectId": "HXF82T3G",
+      "slug": "biomes-o-plenty",
+      "title": "Biomes O' Plenty",
+      "version": "21.1.0.14",
+      "versionId": "BtZKRp69",
+      "filename": "BiomesOPlenty-neoforge-1.21.1-21.1.0.14.jar",
+      "url": "https://cdn.modrinth.com/data/HXF82T3G/versions/BtZKRp69/BiomesOPlenty-neoforge-1.21.1-21.1.0.14.jar",
+      "sha512": "1569d9ed5b619f99d61a7cf1b2d886b278df2905b3ce9324f8e7a17c5c960312ec681cc06f1ad96644bde2cdc60440d8be9952f0ee0f84f7937210f46fbb21d7",
+      "dependencies": [
+        "s3dmwKy5",
+        "kkmrDlKT"
+      ]
+    },
+    {
+      "projectId": "ziOp6EO8",
+      "slug": "corgilib",
+      "title": "CorgiLib",
+      "version": "1.21.1-5.0.0.10-NeoForge",
+      "versionId": "Za7PInLk",
+      "filename": "Corgilib-NeoForge-1.21.1-5.0.0.10.jar",
+      "url": "https://cdn.modrinth.com/data/ziOp6EO8/versions/Za7PInLk/Corgilib-NeoForge-1.21.1-5.0.0.10.jar",
+      "sha512": "38107fc4823b54dee5107abb916231f2a9b18a1ae2947ed4c4d9e1af68e70cfa6d8a84019633074bcba478541b9723a9ed26abfb2e14b28b716180cf70efbca2",
+      "dependencies": []
+    },
+    {
+      "projectId": "vvuO3ImH",
+      "slug": "curios",
+      "title": "Curios API",
+      "version": "9.5.1+1.21.1",
+      "versionId": "yohfFbgD",
+      "filename": "curios-neoforge-9.5.1+1.21.1.jar",
+      "url": "https://cdn.modrinth.com/data/vvuO3ImH/versions/yohfFbgD/curios-neoforge-9.5.1%2B1.21.1.jar",
+      "sha512": "5981a267686b744e7e3c227f78cbcd5267c14ac6979a28e814695f4589273998563147207fef4a5cdb7cdbdc39797cd95d9e4abadb55869f18e02a38d0654ae5",
+      "dependencies": []
+    },
+    {
+      "projectId": "NCKpPR0Z",
+      "slug": "ecologics",
+      "title": "Ecologics",
+      "version": "2.3.8-NeoForge",
+      "versionId": "62SFTuDx",
+      "filename": "ecologics-1.21.1-2.3.8.jar",
+      "url": "https://cdn.modrinth.com/data/NCKpPR0Z/versions/62SFTuDx/ecologics-1.21.1-2.3.8.jar",
+      "sha512": "995d0a255b7882cf3288c1d174fde923bd88ef0ad02f750e0c2f1b88bae01f721c9a64a02b12b27ba23c4fe968a0297c8a926b2c5da4d69392987a41b686aacf",
+      "dependencies": []
+    },
+    {
+      "projectId": "8BmcQJ2H",
+      "slug": "geckolib",
+      "title": "Geckolib",
+      "version": "4.9.3",
+      "versionId": "Grwn5rUB",
+      "filename": "geckolib-neoforge-1.21.1-4.9.3.jar",
+      "url": "https://cdn.modrinth.com/data/8BmcQJ2H/versions/Grwn5rUB/geckolib-neoforge-1.21.1-4.9.3.jar",
+      "sha512": "8dfa5f8c57224a5e34e5098367ea9819ca6dc9c11357cd3062c16da3455c8bd1a483098af7383debc4b9ce8e4d7ab3fdc799b415644eb829da83eb72a7335dfd",
+      "dependencies": []
+    },
+    {
+      "projectId": "s3dmwKy5",
+      "slug": "glitchcore",
+      "title": "GlitchCore",
+      "version": "2.1.0.2",
+      "versionId": "S2TfWrZR",
+      "filename": "GlitchCore-neoforge-1.21.1-2.1.0.2.jar",
+      "url": "https://cdn.modrinth.com/data/s3dmwKy5/versions/S2TfWrZR/GlitchCore-neoforge-1.21.1-2.1.0.2.jar",
+      "sha512": "7a009ed163d03536fdfaee7b37cb1ec3073204dffcb06a683369aa88da8dbc3780b0ac69d466bb32a3ad9394c97b698d0fda676e1b4dd4edfc50ac5aa2283c32",
+      "dependencies": []
+    },
+    {
+      "projectId": "SSPTBIrB",
+      "slug": "lets-do-alpine-whispers",
+      "title": "[Let's Do] Alpine Whispers",
+      "version": "1.0.4",
+      "versionId": "2x7mdiTd",
+      "filename": "letsdo-alpinewhispers-neoforge-1.0.4.jar",
+      "url": "https://cdn.modrinth.com/data/SSPTBIrB/versions/2x7mdiTd/letsdo-alpinewhispers-neoforge-1.0.4.jar",
+      "sha512": "920e0b892bf43014267e3553ed67ead193ca1ce40df7834dcb1cee73178786bead20a77b6d504641b4d830a2052986cd40d35464e43cb25c1701917a485b2cab",
+      "dependencies": [
+        "lhGA9TYQ"
+      ]
+    },
+    {
+      "projectId": "oNB5jhlA",
+      "slug": "lets-do-bakery-farmcharm-compat",
+      "title": "[Let's Do] Bakery - Farm&Charm Compat",
+      "version": "2.1.11",
+      "versionId": "4pEnkp1M",
+      "filename": "letsdo-bakery-neoforge-2.1.11.jar",
+      "url": "https://cdn.modrinth.com/data/oNB5jhlA/versions/4pEnkp1M/letsdo-bakery-neoforge-2.1.11.jar",
+      "sha512": "ab849ab847e0eeb34002f6f2207f4898f43af29a2cc228443457d87c2a4625944241540783c038b70dab53ab8a08aecce2d3e0973d887688a87744748c581cb2",
+      "dependencies": [
+        "lhGA9TYQ",
+        "HJetCzWo"
+      ]
+    },
+    {
+      "projectId": "GyKzAh3l",
+      "slug": "lets-do-beachparty",
+      "title": "[Let's Do] Beachparty",
+      "version": "2.1.5",
+      "versionId": "HN4rzKRl",
+      "filename": "letsdo-beachparty-neoforge-2.1.5.jar",
+      "url": "https://cdn.modrinth.com/data/GyKzAh3l/versions/HN4rzKRl/letsdo-beachparty-neoforge-2.1.5.jar",
+      "sha512": "b992f87e638c3642816046b44bec1a3f41df01c61204bcedf3fee5ee7b229f64c0d327fcb3fbb758c7ded5b9d50da6b1a310ea23dcfbba8177022e8f9468ef36",
+      "dependencies": [
+        "lhGA9TYQ",
+        "vvuO3ImH"
+      ]
+    },
+    {
+      "projectId": "4Vno77MY",
+      "slug": "lets-do-bloomingnature",
+      "title": "[Let's Do] BloomingNature",
+      "version": "1.1.12",
+      "versionId": "EKgADGat",
+      "filename": "letsdo-bloomingnature-neoforge-1.1.12.jar",
+      "url": "https://cdn.modrinth.com/data/4Vno77MY/versions/EKgADGat/letsdo-bloomingnature-neoforge-1.1.12.jar",
+      "sha512": "769d21901af97fe8434ad2d5948e5d8c144141f80949542a77a2c327f77e6fe6a4547fa9dbb76bdb16d46073d65be618974a7f3fc8026b69021aefd695950c40",
+      "dependencies": [
+        "lhGA9TYQ",
+        "iGEl6Crx"
+      ]
+    },
+    {
+      "projectId": "b7NV2plI",
+      "slug": "lets-do-brewery-farmcharm-compat",
+      "title": "[Let's Do] Brewery - Farm&Charm Compat",
+      "version": "2.1.13",
+      "versionId": "ZhOX0GeI",
+      "filename": "letsdo-brewery-neoforge-2.1.13.jar",
+      "url": "https://cdn.modrinth.com/data/b7NV2plI/versions/ZhOX0GeI/letsdo-brewery-neoforge-2.1.13.jar",
+      "sha512": "ff771ae7a57d8e034944bfc1163301dda25c0545525f96c16ffa761d1143a21b4be4cec32fb96f8a04931032a0c87a7036dac9926f8c9b9ee44d9d997bf03164",
+      "dependencies": [
+        "HJetCzWo",
+        "lhGA9TYQ"
+      ]
+    },
+    {
+      "projectId": "uJXTNuf0",
+      "slug": "lets-do-camping",
+      "title": "[Let's Do] Camping",
+      "version": "2.1.6",
+      "versionId": "GdYcZwHn",
+      "filename": "letsdo-camping-neoforge-2.1.6.jar",
+      "url": "https://cdn.modrinth.com/data/uJXTNuf0/versions/GdYcZwHn/letsdo-camping-neoforge-2.1.6.jar",
+      "sha512": "f47a9dac957faea4793d285e45f4d0b5f38815d3049ce7bfd024b765ece4cb2825a303c1132e203db6060c49b5f1c36c85ba65ff0cd2f79d21d392634412e744",
+      "dependencies": [
+        "vvuO3ImH"
+      ]
+    },
+    {
+      "projectId": "qwbArkQk",
+      "slug": "lets-do-candlelight-farmcharm-compat",
+      "title": "[Let's Do] Candlelight - Farm&Charm compat",
+      "version": "2.1.15",
+      "versionId": "4QhmIK8c",
+      "filename": "letsdo-candlelight-neoforge-2.1.15.jar",
+      "url": "https://cdn.modrinth.com/data/qwbArkQk/versions/4QhmIK8c/letsdo-candlelight-neoforge-2.1.15.jar",
+      "sha512": "a0a596b445a46ea143205992ef8861ee6937ccdf38fcadcc1f2012c1145a99668870725406d2d3eb756b94766d89a960a2882670cc14a371ae9278777ccdf693",
+      "dependencies": [
+        "lhGA9TYQ",
+        "HJetCzWo"
+      ]
+    },
+    {
+      "projectId": "HJetCzWo",
+      "slug": "lets-do-farm-charm",
+      "title": "[Let's Do] Farm & Charm",
+      "version": "1.1.29",
+      "versionId": "2eW1JdC8",
+      "filename": "letsdo-farm_and_charm-neoforge-1.1.29.jar",
+      "url": "https://cdn.modrinth.com/data/HJetCzWo/versions/2eW1JdC8/letsdo-farm_and_charm-neoforge-1.1.29.jar",
+      "sha512": "b9ac57d7fd0056310603f926dcdf5dfe5821d6bd0a573ab7f626d57b32e273e5a24d30a789f028afe90674cee18107d7a99097871484f4d98f50bb54aa0e595c",
+      "dependencies": [
+        "lhGA9TYQ"
+      ]
+    },
+    {
+      "projectId": "3JQDJrYW",
+      "slug": "lets-do-furniture",
+      "title": "[Let's Do] Furniture",
+      "version": "1.1.10",
+      "versionId": "FxbGZtS6",
+      "filename": "letsdo-furniture-neoforge-1.1.10.jar",
+      "url": "https://cdn.modrinth.com/data/3JQDJrYW/versions/FxbGZtS6/letsdo-furniture-neoforge-1.1.10.jar",
+      "sha512": "8dee0bb12bdccef1dbabff2c3106abfaedd7ae4f469e89a24f99327c3ac366c1f104ea3a8971be5f3929bd97246b00634abb156c6d41d54c00aaca6ac34a1a32",
+      "dependencies": [
+        "lhGA9TYQ"
+      ]
+    },
+    {
+      "projectId": "paO4gjmE",
+      "slug": "lets-do-hearth-timber",
+      "title": "[Let's Do] Hearth & Timber",
+      "version": "1.0.5",
+      "versionId": "g9yHj7BB",
+      "filename": "letsdo-hearth_and_timber-neoforge-1.0.5.jar",
+      "url": "https://cdn.modrinth.com/data/paO4gjmE/versions/g9yHj7BB/letsdo-hearth_and_timber-neoforge-1.0.5.jar",
+      "sha512": "db56ccfbeee47019ee769f4973d18cee1f6ed866cc5d91222c16b20465981834091b160e29b8397bc4ee6ca8f6846106495236584aa651f7fac0aeb5f566b4b1",
+      "dependencies": [
+        "lhGA9TYQ"
+      ]
+    },
+    {
+      "projectId": "Eh11TaTm",
+      "slug": "lets-do-herbalbrews",
+      "title": "[Let's Do] HerbalBrews",
+      "version": "1.1.4",
+      "versionId": "kGYbyn9P",
+      "filename": "letsdo-herbalbrews-neoforge-1.1.4.jar",
+      "url": "https://cdn.modrinth.com/data/Eh11TaTm/versions/kGYbyn9P/letsdo-herbalbrews-neoforge-1.1.4.jar",
+      "sha512": "281bac102511bf7753371ab7ed488d6990dfb0caae0f216b931d3a05c74adfbe28330910e76d7eea0268f0a7d64997a7c0d7d9b3fc9efb43d9711487f36b4989",
+      "dependencies": [
+        "lhGA9TYQ"
+      ]
+    },
+    {
+      "projectId": "DP7M2DdM",
+      "slug": "lets-do-legacy",
+      "title": "[Let's Do] Legacy",
+      "version": "1.0.3",
+      "versionId": "ZZe7oMAD",
+      "filename": "legacy-neoforge-1.0.3.jar",
+      "url": "https://cdn.modrinth.com/data/DP7M2DdM/versions/ZZe7oMAD/legacy-neoforge-1.0.3.jar",
+      "sha512": "025600d1d2f2ca6dc2e9f90423fdba417dc89cedc2ec9729a2d026e6977054ba99524a1eec1ac6c09e4a14f5ec68da1082813e8a43bafff3641224daa7f2dc84",
+      "dependencies": [
+        "lhGA9TYQ"
+      ]
+    },
+    {
+      "projectId": "DMDVFZSF",
+      "slug": "lets-do-lilis-lucky-lures",
+      "title": "[Let's Do] Lili's Lucky Lures",
+      "version": "1.1.5",
+      "versionId": "RTFJOHAV",
+      "filename": "letsdo-lilis_lucky_lures-neoforge-1.1.5.jar",
+      "url": "https://cdn.modrinth.com/data/DMDVFZSF/versions/RTFJOHAV/letsdo-lilis_lucky_lures-neoforge-1.1.5.jar",
+      "sha512": "8efab457454060db90ff37daa35986a0567927d8b93e365302098329f155736176690d4099e07ab57c85175f31ef808f52fed610edd7e66779d1b77ea40958fa",
+      "dependencies": [
+        "lhGA9TYQ"
+      ]
+    },
+    {
+      "projectId": "sHiqiJIU",
+      "slug": "lets-do-lilis-pottery",
+      "title": "[Let's Do] Lili's Pottery",
+      "version": "1.0.3",
+      "versionId": "vNj8tYW6",
+      "filename": "letsdo-lilis_pottery-neoforge-1.0.3.jar",
+      "url": "https://cdn.modrinth.com/data/sHiqiJIU/versions/vNj8tYW6/letsdo-lilis_pottery-neoforge-1.0.3.jar",
+      "sha512": "b0ad98fb0039f0d4b8b97f2d0e86c5cd99a82af224c63d9732bf0ffeba89c48ddf8189f25d87a33eb472090afe1d37654dc098d55a2baa0f6492adf5bbf193d5",
+      "dependencies": [
+        "lhGA9TYQ"
+      ]
+    },
+    {
+      "projectId": "ra7o6Sl7",
+      "slug": "lets-do-meadow",
+      "title": "[Let's Do] Meadow",
+      "version": "1.4.10",
+      "versionId": "7lmxOKYR",
+      "filename": "letsdo-meadow-neoforge-1.4.10.jar",
+      "url": "https://cdn.modrinth.com/data/ra7o6Sl7/versions/7lmxOKYR/letsdo-meadow-neoforge-1.4.10.jar",
+      "sha512": "6f13b65eb9b1305c376af1409466946972830210a591f074d82c858d112de8c0f6fd420727f23b7c3c388b2192d90cd88c343e60e33403846f56e6309b50e40d",
+      "dependencies": [
+        "lhGA9TYQ"
+      ]
+    },
+    {
+      "projectId": "j6CTL5tN",
+      "slug": "lets-do-smoker",
+      "title": "[Let's Do] Smoker",
+      "version": "1.0.3",
+      "versionId": "xhiNRgdc",
+      "filename": "smoker-1.0.3.jar",
+      "url": "https://cdn.modrinth.com/data/j6CTL5tN/versions/xhiNRgdc/smoker-1.0.3.jar",
+      "sha512": "270c7d31ea3841f197337312086c7c60c5e6633afc51c165f3e86fe532dfcbe919a6d79d90ed2dc0e2329a953d0a5297c756398edc0ef832b18f965a626e5d5e",
+      "dependencies": [
+        "lhGA9TYQ"
+      ]
+    },
+    {
+      "projectId": "1DWmBJVA",
+      "slug": "lets-do-vinery",
+      "title": "[Let's Do] Vinery",
+      "version": "1.5.6",
+      "versionId": "NmoLFrhq",
+      "filename": "letsdo-vinery-neoforge-1.5.6.jar",
+      "url": "https://cdn.modrinth.com/data/1DWmBJVA/versions/NmoLFrhq/letsdo-vinery-neoforge-1.5.6.jar",
+      "sha512": "51c31c756de0f54a91f28c4d072925e0793ae70aefde2d23ea7ca3c5b7050ce04cc1885531ea459d1ea6adefb05d7c37616e3c9102f0fea50234f04043f6b970",
+      "dependencies": [
+        "lhGA9TYQ"
+      ]
+    },
+    {
+      "projectId": "AAiRU4aQ",
+      "slug": "lets-do-wildernature",
+      "title": "[Let's Do] WilderNature",
+      "version": "1.1.8",
+      "versionId": "iwC56pNh",
+      "filename": "letsdo-wildernature-neoforge-1.1.8.jar",
+      "url": "https://cdn.modrinth.com/data/AAiRU4aQ/versions/iwC56pNh/letsdo-wildernature-neoforge-1.1.8.jar",
+      "sha512": "f66976e2d7d971dead821384d686f2a6fac0765400a8ea60a226f25bfccc3460d32356b79bb1c8fc4b39f48d768ceb2212019f77bc344d9f9b023277a1cdde80",
+      "dependencies": [
+        "lhGA9TYQ"
+      ]
+    },
+    {
+      "projectId": "XaDC71GB",
+      "slug": "lithostitched",
+      "title": "Lithostitched",
+      "version": "1.8.1-neoforge-21.1",
+      "versionId": "cZu4cHY3",
+      "filename": "lithostitched-1.8.1-neoforge-21.1.jar",
+      "url": "https://cdn.modrinth.com/data/XaDC71GB/versions/cZu4cHY3/lithostitched-1.8.1-neoforge-21.1.jar",
+      "sha512": "6c02b8b269269d5aa84cb03bf824a1b5d52838e806c2fec8727eb4049925592dac9bb65c996858751fbb722f22ac59c4be09860e1f01e8f7b97c95be3faf7a57",
+      "dependencies": []
+    },
+    {
+      "projectId": "WBvnqHfV",
+      "slug": "natures-spirit",
+      "title": "Nature's Spirit",
+      "version": "2.3.2-1.21.1",
+      "versionId": "EQReaqUo",
+      "filename": "natures_spirit-2.3.2-1.21.1.jar",
+      "url": "https://cdn.modrinth.com/data/WBvnqHfV/versions/EQReaqUo/natures_spirit-2.3.2-1.21.1.jar",
+      "sha512": "31227b3bb608a2805c625e7bb0f6b1780c66530424c05f389cffa48c32fa2df090c794feb3fa0dc571a00e335843f5545a3ae1e0e0316e51c2f655a74c66a9bf",
+      "dependencies": [
+        "XaDC71GB"
+      ]
+    },
+    {
+      "projectId": "NTi7d3Xc",
+      "slug": "oh-the-biomes-weve-gone",
+      "title": "Oh The Biomes We've Gone",
+      "version": "2.6.3-NeoForge",
+      "versionId": "gAxM0bHs",
+      "filename": "Oh-The-Biomes-Weve-Gone-NeoForge-2.6.3.jar",
+      "url": "https://cdn.modrinth.com/data/NTi7d3Xc/versions/gAxM0bHs/Oh-The-Biomes-Weve-Gone-NeoForge-2.6.3.jar",
+      "sha512": "6b6ec749feb595e8d01b2328a0f630a1e4280bdb804dc1e3bcb29c2ca3fd60911eb27a64cdda7ee0a4719192f154677f07bd261c605791c759ffb73799eeef02",
+      "dependencies": [
+        "g8NOG5OR",
+        "ziOp6EO8",
+        "kkmrDlKT",
+        "8BmcQJ2H"
+      ]
+    },
+    {
+      "projectId": "g8NOG5OR",
+      "slug": "oh-the-trees-youll-grow",
+      "title": "Oh The Trees You'll Grow",
+      "version": "1.21.1-5.3.5-NeoForge",
+      "versionId": "ZTJAJGUE",
+      "filename": "Oh-The-Trees-Youll-Grow-neoforge-1.21.1-5.3.5.jar",
+      "url": "https://cdn.modrinth.com/data/g8NOG5OR/versions/ZTJAJGUE/Oh-The-Trees-Youll-Grow-neoforge-1.21.1-5.3.5.jar",
+      "sha512": "412fd13201280c1b1fed8195a9ba1d07467c912c4d480c0d35b866307e9d6ab35d4f4bf35927ccc3eb775bef67fc214b7df30ca05308fcb0bdbb3ee763776bed",
+      "dependencies": []
+    },
+    {
+      "projectId": "ccKDOlHs",
+      "slug": "owo-lib",
+      "title": "oωo (owo-lib)",
+      "version": "0.12.15.6-beta.1+1.21",
+      "versionId": "wbdHEItB",
+      "filename": "owo-lib-neoforge-0.12.15.6-beta.1+1.21.jar",
+      "url": "https://cdn.modrinth.com/data/ccKDOlHs/versions/wbdHEItB/owo-lib-neoforge-0.12.15.6-beta.1%2B1.21.jar",
+      "sha512": "fc843ef350c4af6748d9fd6ecd3c28f96262cf46d46a8329029f49ea4f9eb87238113a8a415e8bba2c4f346c718bf450194f6f5823dfbf1ae7312529a81c3e5c",
+      "dependencies": []
+    },
+    {
+      "projectId": "i6fiqm5y",
+      "slug": "platform",
+      "title": "Platform",
+      "version": "1.4.2",
+      "versionId": "rh4p4ixM",
+      "filename": "Platform-neoforge-1.21.1-1.4.2.jar",
+      "url": "https://cdn.modrinth.com/data/i6fiqm5y/versions/rh4p4ixM/Platform-neoforge-1.21.1-1.4.2.jar",
+      "sha512": "24f9640cc830ffc9b921f89187aaa2ee41aeb9949b36a9ab11b94313c9f4eebb94e5aa7ee3089237f677d3c72aa860bb2bf332c900030c8f7dd5bbcc25ece73a",
+      "dependencies": []
+    },
+    {
+      "projectId": "GuE5FpvB",
+      "slug": "promenade",
+      "title": "Promenade",
+      "version": "6.0.1+neoforge",
+      "versionId": "giEoCx7h",
+      "filename": "promenade-neoforge-6.0.1.jar",
+      "url": "https://cdn.modrinth.com/data/GuE5FpvB/versions/giEoCx7h/promenade-neoforge-6.0.1.jar",
+      "sha512": "3f09439ca5b5a72f37e8301e042672c019104d96dc6e79635bb6420da50dd9d9844df9bd23e90edcab8d7657065631f7c320eb4e31af2a376e7e283ef40d5a86",
+      "dependencies": []
+    },
+    {
+      "projectId": "Tkikq67H",
+      "slug": "regions-unexplored",
+      "title": "Regions Unexplored",
+      "version": "0.6.3-neoforge-21.1",
+      "versionId": "M9SMxdTX",
+      "filename": "regions-unexplored-0.6.3-neoforge-21.1.jar",
+      "url": "https://cdn.modrinth.com/data/Tkikq67H/versions/M9SMxdTX/regions-unexplored-0.6.3-neoforge-21.1.jar",
+      "sha512": "744b7c37cfc7613c0c5f8507a309f61adcb117ab4ac1c572ea7b167fa7bc64d6ab0096ef7a1f0be7d33c0614cf01f76b88f25cf35936040938930c82c8f42501",
+      "dependencies": [
+        "XaDC71GB"
+      ]
+    },
+    {
+      "projectId": "rex9wwpz",
+      "slug": "spawn-mod",
+      "title": "Spawn",
+      "version": "4.0.8",
+      "versionId": "OgmUYgeL",
+      "filename": "spawn-4.0.8-1.21.1.jar",
+      "url": "https://cdn.modrinth.com/data/rex9wwpz/versions/OgmUYgeL/spawn-4.0.8-1.21.1.jar",
+      "sha512": "f6db8f8a11d90d973ad4e7041816793a70e298949c4d378cb08a2b78937327c8f2d5c75d1f938a0493adad1a5a1c6fda67949867b7c7b1c56c5d58eda8ae8204",
+      "dependencies": [
+        "rLJ1qF79"
+      ]
+    },
+    {
+      "projectId": "rLJ1qF79",
+      "slug": "teallib",
+      "title": "Teal Lib",
+      "version": "1.3.teal",
+      "versionId": "lZTBRemW",
+      "filename": "teallib-1.3.teal.jar",
+      "url": "https://cdn.modrinth.com/data/rLJ1qF79/versions/lZTBRemW/teallib-1.3.teal.jar",
+      "sha512": "11060adb8aae151879e8e4db4ad5409df1044784fe9e6d6a5f4750ea778317bd37ca9129f39d23e18988b912ab036a9fb3a128761726f927ac23797dd02ed381",
+      "dependencies": []
+    },
+    {
+      "projectId": "lWDHr9jE",
+      "slug": "tectonic",
+      "title": "Tectonic",
+      "version": "3.0.28-neoforge-21.1",
+      "versionId": "n4iyW7aB",
+      "filename": "tectonic-3.0.28-neoforge-21.1.jar",
+      "url": "https://cdn.modrinth.com/data/lWDHr9jE/versions/n4iyW7aB/tectonic-3.0.28-neoforge-21.1.jar",
+      "sha512": "e07b9cb54f078b7bf74c925c5cebd6643f0b4c210b8f94474e68659b69468ece7d61432f70eafe7abaa1dfa798e4638aad297987c121dc127588c2623b7f7a81",
+      "dependencies": [
+        "XaDC71GB"
+      ]
+    },
+    {
+      "projectId": "kkmrDlKT",
+      "slug": "terrablender",
+      "title": "TerraBlender",
+      "version": "4.1.0.8",
+      "versionId": "6e8GCrLb",
+      "filename": "TerraBlender-neoforge-1.21.1-4.1.0.8.jar",
+      "url": "https://cdn.modrinth.com/data/kkmrDlKT/versions/6e8GCrLb/TerraBlender-neoforge-1.21.1-4.1.0.8.jar",
+      "sha512": "9d4b2a1be5139c0fb2fad92ed21805b17d9e83b6ea48e637e018bb14063c1823a206390755dbfe8d025c20fd62ac11cdd84db53ddb956dabaeda01bff57bac50",
+      "dependencies": []
+    },
+    {
+      "projectId": "8oi3bsk5",
+      "slug": "terralith",
+      "title": "Terralith",
+      "version": "2.6.2",
+      "versionId": "IY93YaEe",
+      "filename": "Terralith_1.21.1_v2.6.2_Neoforge.jar",
+      "url": "https://cdn.modrinth.com/data/8oi3bsk5/versions/IY93YaEe/Terralith_1.21.1_v2.6.2_Neoforge.jar",
+      "sha512": "35298f1682567f63dc16658b04cee5498b30819f1c05f9712b4480d7f5eb17059db3b13ab14f81a05fe257149d11ced2cce2030d3727c1747edd8657c53e2a85",
+      "dependencies": [
+        "XaDC71GB"
+      ]
+    },
+    {
+      "projectId": "6xwxDTgf",
+      "slug": "vanillabackport",
+      "title": "Vanilla Backport",
+      "version": "1.2.2",
+      "versionId": "mGS7BxD4",
+      "filename": "VanillaBackport-neoforge-1.21.1-1.2.2.jar",
+      "url": "https://cdn.modrinth.com/data/6xwxDTgf/versions/mGS7BxD4/VanillaBackport-neoforge-1.21.1-1.2.2.jar",
+      "sha512": "89b0fbe66fb26cbc74d8ba55d2e6c76ea9652a0812582a955b1f32604a1d033f2be59f06df7cd4232520b8edba6074ac724525136d5ceaa1cfce88a53ab7d9a0",
+      "dependencies": [
+        "i6fiqm5y"
+      ]
+    }
+  ],
+  "extraArtifacts": [
+    {
+      "slug": "twilight-forest",
+      "title": "The Twilight Forest",
+      "version": "4.8.3345",
+      "filename": "twilightforest-1.21.1-4.8.3345-universal.jar",
+      "url": "https://mediafilez.forgecdn.net/files/7797/302/twilightforest-1.21.1-4.8.3345-universal.jar",
+      "sha512": "371dd7079b174091363327df70ed64c84e8e36fcab49b4c33bbcbe39650f6bccc12d3e14818cdfbbaa519a999f64a0a92c03ec981f55a315b044dc7cb5c27ef4",
+      "source": "https://www.curseforge.com/minecraft/mc-mods/the-twilight-forest/files/7797302"
+    }
+  ]
+}

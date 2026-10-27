@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "promenade"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "promenade:blunite"
+    }
+  },
+  "result": {
+    "id": "wildslabs:promenade/blunite_slab",
+    "count": 6
+  }
+}

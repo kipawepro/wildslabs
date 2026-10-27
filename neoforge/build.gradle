@@ -15,6 +15,7 @@ loom {
             vmArg '-Dneoforge.enableGameTest=true'
             vmArg '-Dneoforge.gameTestServer=true'
             vmArg '-Dneoforge.enabledGameTestNamespaces=wildslabs'
+            vmArg '-Xmx4G'
             runDir 'run-gametest'
         }
     }

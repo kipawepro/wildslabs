@@ -145,6 +145,7 @@ public class SlabFeature extends Feature<NoneFeatureConfiguration> {
 
     private static boolean isPosUpDownValid(WorldGenLevel level, BlockPos currentPos) {
         BlockState currentBlockState = level.getBlockState(currentPos);
+        if(currentBlockState.is(net.countered.terrainslabs.block.ModBlockTags.PRESERVED_BLOCKS))return false;
         if (!VegetationTransfer.canMove(currentBlockState, level, currentPos)
                 && !currentBlockState.getCollisionShape(level, currentPos).isEmpty()
                 && !(currentBlockState.getBlock() instanceof SlabBlock)) return false;
@@ -227,6 +228,8 @@ public class SlabFeature extends Feature<NoneFeatureConfiguration> {
         BlockPos blockBelowPos = currentPos.below();
         BlockState currentBlockState = level.getBlockState(currentPos);
 
+        if(ModSlabsMap.getSlabForBlock(currentBlockState.getBlock())==null
+                ||currentBlockState.is(net.countered.terrainslabs.block.ModBlockTags.PRESERVED_BLOCKS))return false;
         if (!currentBlockState.isCollisionShapeFullBlock(EmptyBlockGetter.INSTANCE, BlockPos.ZERO)) return false;
 
         BlockState blockBelowState = level.getBlockState(blockBelowPos);
@@ -276,9 +279,10 @@ public class SlabFeature extends Feature<NoneFeatureConfiguration> {
     private void placeTopSlab(WorldGenLevel level, BlockPos pos) {
         if (PlatformConfigHooks.isWaterwayProtectionEnabled() && WaterwayProtection.touchesFluid(level, pos)) return;
         Boolean waterlogged = isTopStateWaterlogged(level, pos);
-        BlockState blockAboveState = level.getBlockState(pos.above());
-
-        BlockState slabState = Objects.requireNonNull(ModSlabsMap.getSlabForBlock(blockAboveState.getBlock())).defaultBlockState();
+        BlockState original = level.getBlockState(pos);
+        Block material = ModSlabsMap.getSlabForBlock(original.getBlock());
+        if(material==null||original.is(net.countered.terrainslabs.block.ModBlockTags.PRESERVED_BLOCKS))return;
+        BlockState slabState = material.defaultBlockState();
 
         if (slabState.getBlock().equals(Blocks.AIR)) {
             return;

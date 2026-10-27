@@ -29,7 +29,7 @@ public class SlabHelper {
         if (state.hasProperty(net.minecraft.world.level.block.DoublePlantBlock.HALF)
                 && state.getValue(net.minecraft.world.level.block.DoublePlantBlock.HALF) == net.minecraft.world.level.block.state.properties.DoubleBlockHalf.UPPER) soilPos = pos.below(2);
         BlockState soil = level.getBlockState(soilPos);
-        if (!(soil.getBlock() instanceof net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab)) return false;
+        if (!(soil.getBlock() instanceof SlabBlock)) return false;
         var source = net.countered.terrainslabs.block.ModSlabsMap.getSourceForSlab(soil.getBlock());
         if (source == null) return false;
         boolean aquatic = state.getFluidState().is(net.minecraft.tags.FluidTags.WATER);
@@ -49,7 +49,7 @@ public class SlabHelper {
     }
 
     public static boolean isOffsetBase( BlockState state, BlockState belowState ) {
-        if ( !belowState.is( BlockTags.SLABS )
+        if ( !belowState.is( BlockTags.SLABS ) && !(belowState.getBlock() instanceof SlabBlock)
                 || !belowState.hasProperty( SlabBlock.TYPE )
                 || belowState.getValue( SlabBlock.TYPE ) != SlabType.BOTTOM ) {
             return false;

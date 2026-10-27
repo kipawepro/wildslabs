@@ -12,6 +12,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BlockBehaviour.BlockStateBase.class)
 public abstract class MixinPlantSurvival {
+    @Inject(method="updateShape",at=@At("HEAD"),cancellable=true)
+    private void wildslabs$nativeNeighborSoil(net.minecraft.core.Direction direction,BlockState neighbor,net.minecraft.world.level.LevelAccessor level,BlockPos pos,BlockPos neighborPos,CallbackInfoReturnable<BlockState> result){
+        BlockState state=(BlockState)(Object)this;
+        if(!VegetationSupport.canProbePlant(state,level,pos))return;
+        BlockState replacement=direction==net.minecraft.core.Direction.DOWN?VegetationSupport.sourceStateForSlab(neighbor):null;
+        result.setReturnValue(VegetationSupport.withPlantSoil(state,level,pos,()->state.updateShape(direction,replacement==null?neighbor:replacement,level,pos,neighborPos)));
+    }
     @Inject(method = "canSurvive", at = @At("RETURN"), cancellable = true)
     private void wildslabs$originalSoilRules(LevelReader level, BlockPos pos, CallbackInfoReturnable<Boolean> result) {
         if (!result.getReturnValue() && VegetationSupport.canSurviveOnSource((BlockState)(Object)this, level, pos)) {

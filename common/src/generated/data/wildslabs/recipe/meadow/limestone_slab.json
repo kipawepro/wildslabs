@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "meadow"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "meadow:limestone"
+    }
+  },
+  "result": {
+    "id": "wildslabs:meadow/limestone_slab",
+    "count": 6
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wildslabs:block/bloomingnature/marlstone_slab_bottom"
+    },
+    "type=top": {
+      "model": "wildslabs:block/bloomingnature/marlstone_slab_top"
+    },
+    "type=double": {
+      "model": "wildslabs:block/bloomingnature/marlstone_slab_double"
+    }
+  }
+}

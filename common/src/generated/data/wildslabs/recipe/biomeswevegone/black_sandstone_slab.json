@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "biomeswevegone"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "biomeswevegone:black_sandstone"
+    }
+  },
+  "result": {
+    "id": "wildslabs:biomeswevegone/black_sandstone_slab",
+    "count": 6
+  }
+}

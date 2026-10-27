@@ -29,13 +29,13 @@ public abstract class MixinHoeItem {
         if (context.getClickedFace() == Direction.DOWN || !level.isEmptyBlock(pos.above())
                 || !(state.getBlock() instanceof CustomSlab) || state.getValue(CustomSlab.WATERLOGGED)) return;
 
-        Block target;
-        if (state.is(ModBlocksRegistry.COARSE_SLAB.get()) || state.is(ModBlocksRegistry.ROOTED_DIRT_SLAB.get())) {
+        Block target=net.countered.terrainslabs.platform.PlatformConfigHooks.getToolTarget(state,context,true);
+        if (target==null && (state.is(ModBlocksRegistry.COARSE_SLAB.get()) || state.is(ModBlocksRegistry.ROOTED_DIRT_SLAB.get()))) {
             target = ModBlocksRegistry.DIRT_SLAB.get();
-        } else if (state.is(ModBlocksRegistry.DIRT_SLAB.get()) || state.is(ModBlocksRegistry.GRASS_SLAB.get())
-                || state.is(ModBlocksRegistry.PATH_SLAB.get()) || state.is(net.countered.terrainslabs.block.ModBlockTags.TILLABLE_SLABS)) {
+        } else if (target==null && (state.is(ModBlocksRegistry.DIRT_SLAB.get()) || state.is(ModBlocksRegistry.GRASS_SLAB.get())
+                || state.is(ModBlocksRegistry.PATH_SLAB.get()) || state.is(net.countered.terrainslabs.block.ModBlockTags.TILLABLE_SLABS))) {
             target = ModBlocksRegistry.FARMLAND_SLAB.get();
-        } else return;
+        } else if(target==null) return;
 
         level.playSound(context.getPlayer(), pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1, 1);
         if (!level.isClientSide) {

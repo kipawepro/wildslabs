@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wildslabs:block/meadow/limestone_slab_bottom"
+    },
+    "type=top": {
+      "model": "wildslabs:block/meadow/limestone_slab_top"
+    },
+    "type=double": {
+      "model": "wildslabs:block/meadow/limestone_slab_double"
+    }
+  }
+}

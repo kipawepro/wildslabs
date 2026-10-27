@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "bloomingnature"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "bloomingnature:laterit"
+    }
+  },
+  "result": {
+    "id": "wildslabs:bloomingnature/laterit_slab",
+    "count": 6
+  }
+}

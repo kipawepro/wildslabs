@@ -1,13 +1,22 @@
 {
   "variants": {
-    "type=bottom": {
+    "type=bottom,snowy=false": {
       "model": "wildslabs:block/biomesoplenty/origin_grass_block_slab_bottom"
     },
-    "type=top": {
+    "type=bottom,snowy=true": {
+      "model": "wildslabs:block/biomesoplenty/origin_grass_block_slab_bottom_snow"
+    },
+    "type=top,snowy=false": {
       "model": "wildslabs:block/biomesoplenty/origin_grass_block_slab_top"
     },
-    "type=double": {
+    "type=top,snowy=true": {
+      "model": "wildslabs:block/biomesoplenty/origin_grass_block_slab_top_snow"
+    },
+    "type=double,snowy=false": {
       "model": "wildslabs:block/biomesoplenty/origin_grass_block_slab_double"
+    },
+    "type=double,snowy=true": {
+      "model": "wildslabs:block/biomesoplenty/origin_grass_block_slab_double_snow"
     }
   }
 }

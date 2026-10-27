@@ -23,6 +23,179 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 @GameTestHolder("wildslabs")
 @PrefixGameTestTemplate(false)
 public final class WildSlabsGameTests {
+    @GameTest(template="test_empty")
+    public static void moddedCultivatedSoilsRetainTheirBase(GameTestHelper helper){
+        var level=helper.getLevel();
+        var pos=helper.absolutePos(new BlockPos(2,2,2));
+        level.setWeatherParameters(10000,0,false,false);
+        for(var entry:net.countered.terrainslabs.neoforge.compat.CompatSlabs.entries()){
+            if(!java.util.List.of("path","farmland").contains(entry.kind()))continue;
+            var state=entry.slab().get().defaultBlockState().setValue(CustomSlab.TYPE,SlabType.TOP).setValue(CustomSlab.GENERATED,true);
+            level.setBlock(pos.above(),Blocks.AIR.defaultBlockState(),18);
+            level.setBlock(pos,state,18);
+            var profile=net.countered.terrainslabs.neoforge.compat.CompatSlabs.profile(entry.source());
+            var expected=net.countered.terrainslabs.neoforge.compat.CompatSlabs.baseSlab(profile);
+            if(entry.kind().equals("path"))state.tick(level,pos,RandomSource.create(1));
+            else state.randomTick(level,pos,RandomSource.create(1));
+            var after=level.getBlockState(pos);
+            helper.assertTrue(after.is(expected)&&after.getValue(CustomSlab.TYPE)==SlabType.TOP&&after.getValue(CustomSlab.GENERATED),"Cultivated soil lost its base material: "+entry.source());
+        }
+        helper.succeed();
+    }
+
+    @GameTest(template="test_empty",batch="wildslabs_mod_flora")
+    public static void nativeModPlantsRetainTheirStates(GameTestHelper helper){
+        var level=helper.getLevel();
+        var pos=helper.absolutePos(new BlockPos(2,2,2));
+        var soils=new java.util.LinkedHashMap<net.minecraft.world.level.block.Block,net.minecraft.world.level.block.Block>();
+        for(var source:new net.minecraft.world.level.block.Block[]{Blocks.GRASS_BLOCK,Blocks.DIRT,Blocks.MYCELIUM,Blocks.FARMLAND}){
+            var slab=net.countered.terrainslabs.block.ModSlabsMap.getInteractionSlab(source);
+            if(slab!=null)soils.put(source,slab);
+        }
+        for(var id:java.util.List.of("regions_unexplored:peat_grass_block","regions_unexplored:silt_grass_block","biomeswevegone:lush_grass_block","aether:aether_grass_block","aether:aether_dirt","aether:aether_farmland","regions_unexplored:peat_farmland","regions_unexplored:silt_farmland","biomeswevegone:lush_farmland","biomeswevegone:sandy_farmland")){
+            var key=net.minecraft.resources.ResourceLocation.parse(id);
+            if(!net.minecraft.core.registries.BuiltInRegistries.BLOCK.containsKey(key))continue;
+            var source=net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(key);
+            var slab=net.countered.terrainslabs.block.ModSlabsMap.getInteractionSlab(source);
+            if(slab!=null)soils.put(source,slab);
+        }
+        var counts=new java.util.TreeMap<String,Integer>();
+        for(var block:net.minecraft.core.registries.BuiltInRegistries.BLOCK){
+            var id=net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(block);
+            if(block instanceof net.minecraft.world.level.block.DoublePlantBlock)continue;
+            var states=block.getStateDefinition().getPossibleStates();
+            for(var state:java.util.List.of(states.get(0),states.get(states.size()-1))){
+                if(!net.countered.terrainslabs.generation.VegetationSupport.isCandidate(state))continue;
+                for(var soil:soils.entrySet()){
+                    level.setBlock(pos.above(),Blocks.AIR.defaultBlockState(),18);
+                    level.setBlock(pos,Blocks.AIR.defaultBlockState(),18);
+                    level.setBlock(pos.below(),soil.getKey().defaultBlockState(),18);
+                    if(!state.getCollisionShape(level,pos).isEmpty()||!state.canSurvive(level,pos))continue;
+                    level.setBlock(pos,state,18);
+                    var expected=state.updateShape(Direction.DOWN,soil.getKey().defaultBlockState(),level,pos,pos.below());
+                    if(!expected.is(block))continue;
+                    level.setBlock(pos,expected,18);
+                    boolean moved=net.countered.terrainslabs.generation.VegetationTransfer.placeSlab(level,pos,soil.getValue().defaultBlockState());
+                    helper.assertTrue(moved&&level.getBlockState(pos.above()).equals(expected),"Mod vegetation did not retain its native state on "+soil.getKey()+": "+expected);
+                    counts.merge(id.getNamespace(),1,Integer::sum);
+                    break;
+                }
+            }
+        }
+        org.slf4j.LoggerFactory.getLogger("WildSlabsTests").info("Verified native plant states by namespace: {}",counts);
+        helper.assertTrue(!counts.isEmpty(),"No vegetation states exercised");
+        helper.succeed();
+    }
+
+    @GameTest(template="test_empty")
+    public static void foreignSoilSlabsSupportVegetation(GameTestHelper helper){
+        var id=net.minecraft.resources.ResourceLocation.parse("vinery:dirt_slab");
+        if(!net.minecraft.core.registries.BuiltInRegistries.BLOCK.containsKey(id)){helper.succeed();return;}
+        var level=helper.getLevel();
+        var pos=helper.absolutePos(new BlockPos(2,2,2));
+        var slab=net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(id);
+        var flower=Blocks.POPPY.defaultBlockState();
+        level.setBlock(pos,slab.defaultBlockState(),18);
+        helper.assertTrue(flower.canSurvive(level,pos.above()),"Foreign dirt slabs must retain flower support");
+        helper.assertTrue(flower.getOffset(renderingView(level),pos.above()).y==-0.5,"Foreign dirt slab foliage must not float");
+        helper.succeed();
+    }
+
+    @GameTest(template="test_empty",batch="wildslabs_native_growth")
+    public static void nativeBonemealPreservesSlabGeometry(GameTestHelper helper){
+        var level=helper.getLevel();
+        var pos=helper.absolutePos(new BlockPos(2,2,2));
+        int count=0;
+        for(var entry:net.countered.terrainslabs.neoforge.compat.CompatSlabs.entries()){
+            if(!(entry.slab().get() instanceof net.minecraft.world.level.block.BonemealableBlock growth))continue;
+            level.setBlock(pos.above(),Blocks.AIR.defaultBlockState(),18);
+            var before=entry.slab().get().defaultBlockState().setValue(CustomSlab.GENERATED,true);
+            level.setBlock(pos,before,18);
+            if(!growth.isValidBonemealTarget(level,pos,before))continue;
+            growth.performBonemeal(level,RandomSource.create(123),pos,before);
+            var after=level.getBlockState(pos);
+            helper.assertTrue(after.getBlock() instanceof net.minecraft.world.level.block.SlabBlock&&after.getValue(CustomSlab.TYPE)==SlabType.BOTTOM
+                    &&after.hasProperty(CustomSlab.GENERATED)&&after.getValue(CustomSlab.GENERATED),"Native bonemeal lost slab geometry or origin: "+entry.source());
+            count++;
+        }
+        org.slf4j.LoggerFactory.getLogger("WildSlabsTests").info("Verified {} native bonemeal handlers",count);
+        helper.succeed();
+    }
+
+    @GameTest(template = "test_empty")
+    public static void optionalProfilesRetainSourceMaterials(GameTestHelper helper) {
+        int count=0;
+        for(var entry:net.countered.terrainslabs.neoforge.compat.CompatSlabs.entries()){
+            var source=net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(entry.source());
+            helper.assertTrue(source!=Blocks.AIR,"Compatibility source is missing: "+entry.source());
+            var slab=entry.slab().get();
+            helper.assertTrue(net.countered.terrainslabs.block.ModSlabsMap.getInteractionSlab(source)==slab,"Missing interaction mapping: "+entry.source());
+            var pos=helper.absolutePos(new BlockPos(2,2,2));
+            helper.assertTrue(slab.defaultBlockState().getDestroySpeed(helper.getLevel(),pos)==source.defaultBlockState().getDestroySpeed(helper.getLevel(),pos),"Source hardness was lost: "+entry.source());
+            helper.assertTrue(slab.getLootTable().toString().contains("wildslabs"),"Slab inherited the full block loot table: "+entry.source());
+            if(slab instanceof net.countered.terrainslabs.block.customslabs.soilslabs.ISoilSlab soil){
+                var base=soil.baseFullBlock().getBlock();
+                helper.assertTrue(net.countered.terrainslabs.block.ModSlabsMap.getInteractionSlab(base)==soil.baseSlabBlock().getBlock(),"Surface lost its own base material: "+entry.source());
+            }
+            if(entry.kind().equals("farmland")||entry.kind().equals("path"))helper.assertTrue(net.countered.terrainslabs.block.ModSlabsMap.getSlabForBlock(source)==null,"Cultivated soil must not become a terrain-generation target");
+            count++;
+        }
+        org.slf4j.LoggerFactory.getLogger("WildSlabsTests").info("Verified {} loaded terrain compatibility profiles",count);
+        helper.succeed();
+    }
+
+    @GameTest(template = "test_empty")
+    public static void allBiomeFeaturesAreAppliedOnceAndLast(GameTestHelper helper) {
+        int count=0;
+        var registry=helper.getLevel().registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.BIOME);
+        int stage=net.minecraft.world.level.levelgen.GenerationStep.Decoration.TOP_LAYER_MODIFICATION.ordinal();
+        for(var biome:registry){
+            var id=registry.getKey(biome);
+            if(id.toString().equals("minecraft:the_void"))continue;
+            var stages=biome.getGenerationSettings().features();
+            helper.assertTrue(stages.size()>stage,"Biome has no final terrain stage: "+id);
+            var features=stages.get(stage).stream().toList();
+            var matching=features.stream().filter(f->f.unwrapKey().map(k->k.location().toString().equals("wildslabs:slab_feature_placed")).orElse(false)).toList();
+            helper.assertTrue(matching.size()==1 && features.get(features.size()-1).equals(matching.get(0)),"Terrain smoothing must be applied once and last: "+id);
+            count++;
+        }
+        org.slf4j.LoggerFactory.getLogger("WildSlabsTests").info("Verified final terrain feature in {} registered biomes",count);
+        helper.succeed();
+    }
+
+    @GameTest(template = "test_empty")
+    public static void moddedHoeTargetsKeepTheirOwnFarmland(GameTestHelper helper) {
+        var level=helper.getLevel();
+        var pos=helper.absolutePos(new BlockPos(2,2,2));
+        var player=FakePlayerFactory.getMinecraft(level);
+        int count=0;
+        for(var entry:net.countered.terrainslabs.neoforge.compat.CompatSlabs.entries()){
+            if(entry.kind().equals("farmland")||entry.kind().equals("path"))continue;
+            var source=net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(entry.source());
+            var stack=new ItemStack(Items.IRON_HOE);
+            player.setItemInHand(InteractionHand.MAIN_HAND,stack);
+            level.setBlock(pos.above(),Blocks.AIR.defaultBlockState(),18);
+            var state=entry.slab().get().defaultBlockState().setValue(CustomSlab.TYPE,SlabType.TOP).setValue(CustomSlab.GENERATED,true);
+            level.setBlock(pos,state,18);
+            var context=new UseOnContext(level,player,InteractionHand.MAIN_HAND,stack,new BlockHitResult(Vec3.atCenterOf(pos),Direction.UP,pos,false));
+            level.setBlock(pos,source.defaultBlockState(),18);
+            var nativeInteraction=source.defaultBlockState().useItemOn(stack,level,player,InteractionHand.MAIN_HAND,new BlockHitResult(Vec3.atCenterOf(pos),Direction.UP,pos,false));
+            if(!nativeInteraction.consumesAction())Items.IRON_HOE.useOn(context);
+            var nativeTarget=level.getBlockState(pos);
+            level.setBlock(pos,state,18);
+            if(nativeTarget.is(source))continue;
+            var expected=net.countered.terrainslabs.block.ModSlabsMap.getInteractionSlab(nativeTarget.getBlock());
+            if(expected==null)continue;
+            var slabInteraction=state.useItemOn(stack,level,player,InteractionHand.MAIN_HAND,new BlockHitResult(Vec3.atCenterOf(pos),Direction.UP,pos,false));
+            if(!slabInteraction.consumesAction())Items.IRON_HOE.useOn(context);
+            var result=level.getBlockState(pos);
+            helper.assertTrue(result.is(expected)&&result.getValue(CustomSlab.TYPE)==SlabType.TOP&&result.getValue(CustomSlab.GENERATED),"Native soil conversion lost material or slab state: "+entry.source());
+            count++;
+        }
+        org.slf4j.LoggerFactory.getLogger("WildSlabsTests").info("Verified {} native modded hoe conversions",count);
+        helper.succeed();
+    }
+
     private static net.minecraft.world.level.BlockGetter renderingView(net.minecraft.server.level.ServerLevel level) {
         return new net.minecraft.world.level.BlockGetter() {
             public net.minecraft.world.level.block.entity.BlockEntity getBlockEntity(BlockPos pos) { return level.getBlockEntity(pos); }

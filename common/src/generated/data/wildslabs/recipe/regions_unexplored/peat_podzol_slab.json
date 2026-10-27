@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "regions_unexplored"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "regions_unexplored:peat_podzol"
+    }
+  },
+  "result": {
+    "id": "wildslabs:regions_unexplored/peat_podzol_slab",
+    "count": 6
+  }
+}

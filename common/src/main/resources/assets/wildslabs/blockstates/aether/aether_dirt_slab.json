@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wildslabs:block/aether/aether_dirt_slab_bottom"
+    },
+    "type=top": {
+      "model": "wildslabs:block/aether/aether_dirt_slab_top"
+    },
+    "type=double": {
+      "model": "wildslabs:block/aether/aether_dirt_slab_double"
+    }
+  }
+}

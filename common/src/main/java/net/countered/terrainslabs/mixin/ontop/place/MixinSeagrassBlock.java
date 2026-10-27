@@ -15,7 +15,7 @@ public class MixinSeagrassBlock {
 
     @Inject(method = "mayPlaceOn", at = @At("HEAD"), cancellable = true)
     private void allowPlacementOnSlabs(BlockState state, BlockGetter level, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        if (!(state.getBlock() instanceof net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab)) return;
+        if (!(state.getBlock() instanceof net.minecraft.world.level.block.SlabBlock)) return;
         if (!net.countered.terrainslabs.platform.PlatformConfigHooks.isVegetationOnSlabsEnabled()) return;
         var source = net.countered.terrainslabs.block.ModSlabsMap.getSourceForSlab(state.getBlock());
         if (source == null) return;

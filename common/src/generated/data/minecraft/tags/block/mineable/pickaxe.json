@@ -58,6 +58,326 @@
     {
       "id": "wildslabs:biomesoplenty/algal_end_stone_slab",
       "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/chalk_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/argillite_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/mossy_stone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/dacite_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/white_dacite_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/red_rock_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/rocky_stone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/mossy_stone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/black_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/blue_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/pink_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/purple_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/white_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/windswept_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/kaolin_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/chert_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/travertine_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/white_kaolin_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/white_chalk_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/light_gray_kaolin_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/light_gray_chalk_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/gray_kaolin_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/gray_chalk_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/black_kaolin_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/black_chalk_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/brown_kaolin_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/brown_chalk_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/red_kaolin_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/red_chalk_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/orange_kaolin_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/orange_chalk_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/yellow_kaolin_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/yellow_chalk_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/lime_kaolin_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/lime_chalk_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/green_kaolin_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/green_chalk_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/cyan_kaolin_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/cyan_chalk_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/light_blue_kaolin_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/light_blue_chalk_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/blue_kaolin_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/blue_chalk_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/purple_kaolin_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/purple_chalk_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/magenta_kaolin_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/magenta_chalk_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/pink_kaolin_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/pink_chalk_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:natures_spirit/pink_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:aether/holystone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:aether/mossy_holystone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:promenade/asphalt_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:promenade/blunite_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:meadow/limestone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:bloomingnature/laterit_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:bloomingnature/marlstone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:bloomingnature/slate_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:bloomingnature/travertin_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:alpinewhispers/alpine_gneiss_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:spawn/reefstone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:spawn/blasted_sandstone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/stone_grass_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/deepslate_grass_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/argillite_grass_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/chalk_grass_block_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/prismoss_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/deepslate_prismoss_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/viridescent_nylium_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/deepslate_viridescent_nylium_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/glistering_nylium_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/brimsprout_nylium_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/mycotoxic_nylium_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:regions_unexplored/cobalt_nylium_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/overgrown_stone_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/overgrown_dacite_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/white_overgrown_dacite_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/podzol_dacite_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:biomeswevegone/white_podzol_dacite_slab",
+      "required": false
+    },
+    {
+      "id": "wildslabs:promenade/dark_amaranth_nylium_slab",
+      "required": false
     }
   ]
 }

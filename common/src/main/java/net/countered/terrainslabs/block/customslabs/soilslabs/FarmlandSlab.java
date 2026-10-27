@@ -18,6 +18,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class FarmlandSlab extends CustomSlab {
+    protected Block dirtSlab() { return ModBlocksRegistry.DIRT_SLAB.get(); }
     public static final IntegerProperty MOISTURE = BlockStateProperties.MOISTURE;
     private static final VoxelShape BOTTOM = Block.box(0, 0, 0, 16, 7, 16);
     private static final VoxelShape TOP = Block.box(0, 8, 0, 16, 15, 16);
@@ -60,7 +61,7 @@ public class FarmlandSlab extends CustomSlab {
         } else if (!wet && moisture > 0) {
             level.setBlock(pos, state.setValue(MOISTURE, moisture - 1), 2);
         } else if (!wet && !level.getBlockState(pos.above()).is(BlockTags.CROPS)) {
-            level.setBlockAndUpdate(pos, MixinHelper.withCopiedSlabProperties(state, ModBlocksRegistry.DIRT_SLAB.get()));
+            level.setBlockAndUpdate(pos, MixinHelper.withCopiedSlabProperties(state, dirtSlab()));
         }
     }
 }
