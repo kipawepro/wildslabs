@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "hexabiomes:seashells",
+      "required": false
+    },
+    {
+      "id": "hexabiomes:pebbles",
+      "required": false
+    },
+    {
+      "id": "hexabiomes:starfish",
+      "required": false
+    },
+    {
+      "id": "hexabiomes:washed_up_kelp",
+      "required": false
+    },
+    {
+      "id": "hexabiomes:mossy_pebbles",
+      "required": false
+    },
+    {
+      "id": "hexabiomes:mussels",
+      "required": false
+    }
+  ]
+}

@@ -31,7 +31,7 @@ const soilIds = [];
 const tillableIds = [];
 const lang = {};
 
-function model(textures, y0, y1, grassy = false, tinted = false) {
+function model(textures, y0, y1, grassy = false, tinted = false, tintAll = false) {
   const faces = {};
   for (const direction of ['down','up','north','south','west','east']) {
     const horizontal = !['down','up'].includes(direction);
@@ -39,7 +39,7 @@ function model(textures, y0, y1, grassy = false, tinted = false) {
       uv: horizontal ? [0,0,16,y1-y0] : [0,0,16,16],
       texture: direction === 'down' ? '#bottom' : direction === 'up' || grassy ? '#top' : '#side'
     };
-    if (tinted && (direction === 'up' || horizontal && grassy)) faces[direction].tintindex = 0;
+    if (tintAll || tinted && (direction === 'up' || horizontal && grassy)) faces[direction].tintindex = 0;
     if (horizontal || direction === 'down' && y0 === 0 || direction === 'up' && y1 === 16) faces[direction].cullface = direction;
   }
   const elements=[{from:[0,y0,0],to:[16,y1,16],faces}];
@@ -61,7 +61,7 @@ for (const profile of profiles) {
   const variants={};
   for (const [type,y0,y1] of [['bottom',0,8],['top',8,16],['double',0,16]]) {
     const upper=['farmland','path'].includes(profile.kind)?y1-1:y1;
-    write(resources, `assets/wildslabs/models/block/${id}_${type}.json`, model(tex,y0,upper,false,profile.tinted));
+    write(resources, `assets/wildslabs/models/block/${id}_${type}.json`, model(tex,y0,upper,false,profile.tinted,profile.tintAll));
     if (profile.kind === 'grass' || profile.betterGrass) write(resources, `resourcepacks/better_grass_slabs/assets/wildslabs/models/block/${id}_${type}.json`,model(tex,y0,y1,true,profile.tinted));
     if(profile.kind==='farmland'){
       write(resources,`assets/wildslabs/models/block/${id}_${type}_wet.json`,model({...tex,top:profile.wetTop??tex.top},y0,upper));

@@ -25,7 +25,11 @@ for(const p of profiles) {
     const data=JSON.parse(fs.readFileSync(path.join(generated,`data/wildslabs/${kind}/${id}.json`),'utf8'));
     assert.equal(data['neoforge:conditions'][0].modid,p.modId??p.source.split(':')[0],'Optional data needs a mod load condition');
   }
-  for(const type of ['bottom','top','double']) assert(fs.existsSync(path.join(dirs[0],`assets/wildslabs/models/block/${id}_${type}.json`)));
+  for(const type of ['bottom','top','double']) {
+    const modelFile=path.join(dirs[0],`assets/wildslabs/models/block/${id}_${type}.json`);
+    assert(fs.existsSync(modelFile));
+    if(p.tintAll)for(const element of JSON.parse(fs.readFileSync(modelFile,'utf8')).elements)for(const face of Object.values(element.faces))assert.equal(face.tintindex,0,'Every face must retain the native tint');
+  }
 }
 const farmland=JSON.parse(fs.readFileSync(path.join(dirs[0],'assets/wildslabs/blockstates/farmland_slab.json'),'utf8'));
 assert.equal(Object.keys(farmland.variants).length,24,'Every orientation/moisture state needs a model');

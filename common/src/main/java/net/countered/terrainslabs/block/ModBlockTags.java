@@ -7,6 +7,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 
 public class ModBlockTags {
+    public static final TagKey<Block> SURFACE_ATTACHMENTS = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(TerrainSlabs.MOD_ID, "surface_attachments"));
     public static final TagKey<Block> PRESERVED_BLOCKS = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(TerrainSlabs.MOD_ID, "preserved_blocks"));
     public static final TagKey<Block> TILLABLE_SLABS = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(TerrainSlabs.MOD_ID, "tillable_slabs"));
 

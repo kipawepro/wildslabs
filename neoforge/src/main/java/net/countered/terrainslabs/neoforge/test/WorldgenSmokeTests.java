@@ -47,7 +47,7 @@ public final class WorldgenSmokeTests {
                         }
                     }
                 }
-                report.put(level.dimension().location().toString(), java.util.Map.of("chunks", 2, "generatedSlabs", slabs, "fluidBlocks", fluids, "plantBlocks", plants, "materials", materials, "biomes", biomes));
+                report.put(level.dimension().location().toString(), java.util.Map.of("generator",level.getChunkSource().getGenerator().getClass().getName(),"seed",level.getSeed(),"chunks", 2, "generatedSlabs", slabs, "fluidBlocks", fluids, "plantBlocks", plants, "materials", materials, "biomes", biomes));
                 org.slf4j.LoggerFactory.getLogger("WildSlabsTests").info("Worldgen smoke {}: {} slabs, {} fluid blocks, {} plant blocks", level.dimension().location(), slabs, fluids, plants);
             }
             for (var dimension : java.util.Map.of("aether", "aether:the_aether", "twilightforest", "twilightforest:twilight_forest").entrySet()) {

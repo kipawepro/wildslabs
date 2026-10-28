@@ -232,6 +232,10 @@
     {
       "id": "wildslabs:aether/aether_dirt_path_slab",
       "required": false
+    },
+    {
+      "id": "wildslabs:hexabiomes/wet_sand_slab",
+      "required": false
     }
   ]
 }

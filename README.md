@@ -15,7 +15,7 @@ WildSlabs brings more natural terrain transitions, plantable terrain slabs, and 
 - Grass spreading, bone meal, and shovel-created paths
 - Native block drops when terrain slabs are mined, including soil drops, Silk Touch, and Fortune
 - Torches and lanterns placed on slabs, with hanging lanterns supported beneath upper slabs
-- 140 optional terrain profiles for Biomes O' Plenty, Regions Unexplored, Oh The Biomes We've Gone, Nature's Spirit, The Aether, and other biome mods
+- 141 optional terrain profiles for Hexa Biomes, Biomes O' Plenty, Regions Unexplored, Oh The Biomes We've Gone, Nature's Spirit, The Aether, and other biome mods
 - Compatibility with Terralith, Tectonic, Lithostitched, Twilight Forest, Vanilla Backport, Let's Do, Spawn, Promenade, and Ecologics
 - Automatic compatibility with modded plants using standard placement rules
 - A built-in Better Grass resource pack for grassy slab sides

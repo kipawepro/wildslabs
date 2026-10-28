@@ -69,7 +69,7 @@ public final class CompatSlabs {
             case "surface" -> new CompatSurfaceSlab(properties, profile);
             case "farmland" -> new CompatFarmlandSlab(properties, profile);
             case "path" -> new CompatPathSlab(properties.noOcclusion(), profile);
-            case "sand" -> new GravityAffectedSlab(properties);
+            case "sand" -> new CustomSlab(properties);
             case "soil" -> source instanceof net.minecraft.world.level.block.MudBlock
                     ? new net.countered.terrainslabs.block.customslabs.specialslabs.MudSlab(properties.noOcclusion()) : new CompatDirtSlab(properties,profile);
             default -> source instanceof net.minecraft.world.level.block.MudBlock
@@ -118,6 +118,7 @@ public final class CompatSlabs {
                 break;
             }
         }
+        HexaBiomesCompat.register();
     }
 
     private static void creativeTab(BuildCreativeModeTabContentsEvent event) {

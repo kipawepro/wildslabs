@@ -611,6 +611,10 @@
     {
       "id": "wildslabs:minecraft/pale_moss_block_slab",
       "required": false
+    },
+    {
+      "id": "wildslabs:hexabiomes/wet_sand_slab",
+      "required": false
     }
   ]
 }

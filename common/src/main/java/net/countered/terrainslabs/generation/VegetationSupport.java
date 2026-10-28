@@ -30,7 +30,7 @@ public final class VegetationSupport {
                 || state.is(BlockTags.FIRE) || state.getBlock() instanceof SaplingBlock
                 || state.getBlock() instanceof net.minecraft.world.level.block.MultifaceBlock
                 || state.getBlock() instanceof SnowLayerBlock) return false;
-        return state.getBlock() instanceof BushBlock || state.is(BlockTags.FLOWERS)
+        return state.getBlock() instanceof BushBlock || state.is(BlockTags.FLOWERS) || state.is(ModBlockTags.SURFACE_ATTACHMENTS)
                 || state.is(ModBlockTags.ON_TOP_BLOCKS) || state.canBeReplaced();
     }
 

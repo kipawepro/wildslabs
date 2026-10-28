@@ -1,10 +1,10 @@
 # Compatibility
 
-WildSlabs 0.1.0-alpha.5 targets Minecraft 1.21.1, NeoForge 21.1.265 or newer in the 21.1 branch, and Java 21. All integrations are optional.
+WildSlabs 0.1.0-alpha.6 targets Minecraft 1.21.1, NeoForge 21.1.265 or newer in the 21.1 branch, and Java 21. All integrations are optional.
 
 ## Supported behavior
 
-- 140 explicit terrain material profiles, including native soil, grass, rock, sand, farmland, and path variants.
+- 141 explicit terrain material profiles, including native soil, grass, rock, sand, farmland, and path variants.
 - Source-soil checks for eligible modded plants, preservation of flower counts and facing, and vegetation offsets on recognized soil slabs.
 - Native bone meal and block interactions where the source provides them, with slab geometry retained during mapped soil conversions.
 - Terrain generation runs once at the end of every registered biome except the void, including modded dimensions.
@@ -17,6 +17,12 @@ WildSlabs 0.1.0-alpha.5 targets Minecraft 1.21.1, NeoForge 21.1.265 or newer in 
 Terralith, Tectonic, and Lithostitched integration uses their generated terrain and biome settings; they do not need duplicate terrain blocks. Twilight Forest, Ecologics, and several Let's Do modules likewise use existing materials and plant compatibility rather than receiving a slab for every decorative block.
 
 ## Version snapshot
+
+Hexa Biomes 0.1.0 is supported using its local development build. Its `hexabiomes:wet_sand` slab retains the source's
+non-falling behavior, hardness, native drops, and tint on all six faces. Dry sand slabs touching water become wet sand
+slabs while retaining orientation, waterlogging, and generation state. Seashells, pebbles, starfish, washed-up kelp,
+mossy pebbles, and mussels can follow suitable terrain slabs; marram grass retains its native sand restriction and both halves.
+The custom Hexa terrain generator uses the existing final biome decoration integration.
 
 These are the latest matching NeoForge 1.21.1 builds resolved for this compatibility pass. Exact download URLs, dependencies, and SHA-512 hashes are recorded in [the test lock](../compat/test-mods.lock.json). Later upstream updates require another verification pass.
 
@@ -69,6 +75,13 @@ Alpha.5 adds regression checks for absent optional registries and commands, nati
 neighbor updates, and hanging lantern targeting. All 27 tests also passed without optional mods installed;
 the absent-mod registry and command checks cover all 140 optional profiles in that configuration.
 The development client reached the title screen and completed resource loading with the lighting mixins enabled.
+
+Alpha.6 passed all 29 required tests with Hexa Biomes 0.1.0, including wet sand conversion, native drops,
+non-falling wet sand, beach decoration offsets, and two-block marram grass. Its development client completed resource loading.
+All 29 tests also passed with Hexa Biomes and the complete compatibility snapshot together (141 active profiles),
+and with all optional mods absent (141 profiles excluded from registries and commands).
+With seed `9247205`, a normal world using `fr.hexa.biomes.HexaChunkGenerator` generated 18 terrain slabs in two sampled
+Overworld chunks across `hexabiomes:plains` and `hexabiomes:tall_grass_plains`. Nether and End smoke checks also completed.
 
 A normal dedicated server running alpha.4 also generated and inspected two chunks per dimension with seed `9247205`.
 

@@ -1523,5 +1523,16 @@
       "bottom": "minecraft:block/pale_moss_block"
     },
     "modId": "vanillabackport"
+  },
+  {
+    "source": "hexabiomes:wet_sand",
+    "kind": "sand",
+    "name": "Wet Sand Slab",
+    "tintAll": true,
+    "textures": {
+      "top": "minecraft:block/sand",
+      "side": "minecraft:block/sand",
+      "bottom": "minecraft:block/sand"
+    }
   }
 ]

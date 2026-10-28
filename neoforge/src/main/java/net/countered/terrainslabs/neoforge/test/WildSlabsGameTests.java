@@ -24,6 +24,51 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 @PrefixGameTestTemplate(false)
 public final class WildSlabsGameTests {
     @GameTest(template="test_empty")
+    public static void hexaWetSandRetainsNativeRules(GameTestHelper helper){
+        if(!net.neoforged.fml.ModList.get().isLoaded("hexabiomes")){helper.succeed();return;}
+        var level=helper.getLevel();
+        var pos=helper.absolutePos(new BlockPos(2,2,2));
+        var wet=net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(net.minecraft.resources.ResourceLocation.parse("hexabiomes:wet_sand"));
+        var wetSlab=net.countered.terrainslabs.block.ModSlabsMap.getInteractionSlab(wet);
+        helper.assertTrue(wetSlab!=null&&!(wetSlab instanceof net.minecraft.world.level.block.Fallable),"Hexa wet sand must retain its non-falling material");
+        level.setBlock(pos.below(),Blocks.STONE.defaultBlockState(),18);
+        for(var type:SlabType.values())for(boolean generated:new boolean[]{false,true}){
+            level.setBlock(pos,ModBlocksRegistry.SAND_SLAB.get().defaultBlockState().setValue(CustomSlab.TYPE,type).setValue(CustomSlab.GENERATED,generated),18);
+            level.setBlock(pos.east(),Blocks.WATER.defaultBlockState(),18);
+            net.neoforged.neoforge.common.NeoForge.EVENT_BUS.post(new net.neoforged.neoforge.event.level.BlockEvent.NeighborNotifyEvent(level,pos.east(),Blocks.WATER.defaultBlockState(),java.util.EnumSet.allOf(Direction.class),false));
+            var after=level.getBlockState(pos);
+            helper.assertTrue(after.is(wetSlab)&&after.getValue(CustomSlab.TYPE)==type&&after.getValue(CustomSlab.GENERATED)==generated,"Wetting sand lost slab geometry or origin");
+            helper.assertTrue(dropCounts(net.minecraft.world.level.block.Block.getDrops(after,level,pos,null)).equals(java.util.Map.of("hexabiomes:wet_sand",1)),"Wet sand slab must drop native wet sand");
+        }
+        helper.succeed();
+    }
+
+    @GameTest(template="test_empty")
+    public static void hexaBeachDecorationsFollowSlabs(GameTestHelper helper){
+        if(!net.neoforged.fml.ModList.get().isLoaded("hexabiomes")){helper.succeed();return;}
+        var level=helper.getLevel();
+        var pos=helper.absolutePos(new BlockPos(2,2,2));
+        var wet=net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(net.minecraft.resources.ResourceLocation.parse("hexabiomes:wet_sand"));
+        var wetSlab=net.countered.terrainslabs.block.ModSlabsMap.getInteractionSlab(wet);
+        for(var name:java.util.List.of("seashells","pebbles","starfish","washed_up_kelp","mossy_pebbles","mussels")){
+            var decoration=net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(net.minecraft.resources.ResourceLocation.parse("hexabiomes:"+name)).defaultBlockState();
+            level.setBlock(pos.above(),Blocks.AIR.defaultBlockState(),18);
+            level.setBlock(pos.below(),wet.defaultBlockState(),18);
+            level.setBlock(pos,decoration,18);
+            helper.assertTrue(net.countered.terrainslabs.generation.VegetationTransfer.placeSlab(level,pos,wetSlab.defaultBlockState()),"Hexa decoration could not follow wet sand slab: "+name);
+            helper.assertTrue(level.getBlockState(pos.above()).equals(decoration),"Hexa decoration changed state: "+name);
+            helper.assertTrue(decoration.getOffset(renderingView(level),pos.above()).y==-0.5,"Hexa decoration floats on wet sand: "+name);
+        }
+        var marram=net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(net.minecraft.resources.ResourceLocation.parse("hexabiomes:marram_grass")).defaultBlockState();
+        level.setBlock(pos.below(),Blocks.SAND.defaultBlockState(),18);
+        level.setBlock(pos,marram,18);
+        level.setBlock(pos.above(),marram.setValue(net.minecraft.world.level.block.DoublePlantBlock.HALF,net.minecraft.world.level.block.state.properties.DoubleBlockHalf.UPPER),18);
+        level.setBlock(pos.above(2),Blocks.AIR.defaultBlockState(),18);
+        helper.assertTrue(net.countered.terrainslabs.generation.VegetationTransfer.placeSlab(level,pos,ModBlocksRegistry.SAND_SLAB.get().defaultBlockState()),"Marram grass must retain both halves on sand slabs");
+        helper.succeed();
+    }
+
+    @GameTest(template="test_empty")
     public static void optionalSlabsRequireTheirMods(GameTestHelper helper) throws java.io.IOException {
         try(var stream=WildSlabsGameTests.class.getResourceAsStream("/wildslabs-compat.json")){
             var profiles=new com.google.gson.Gson().fromJson(new java.io.InputStreamReader(stream,java.nio.charset.StandardCharsets.UTF_8),net.countered.terrainslabs.neoforge.compat.CompatSlabs.Profile[].class);

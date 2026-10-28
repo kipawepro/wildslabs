@@ -595,5 +595,9 @@
     "source": "minecraft:pale_moss_block",
     "kind": "soil",
     "modId": "vanillabackport"
+  },
+  {
+    "source": "hexabiomes:wet_sand",
+    "kind": "sand"
   }
 ]

@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.1.0-alpha.6
+
+- Add optional Hexa Biomes wet sand slabs with native tint, non-falling behavior, and drops.
+- Keep slab geometry when Hexa Biomes wets sand beside water.
+- Support Hexa beach decorations and marram grass on suitable terrain slabs.
+- Verify generation with the Hexa terrain generator.
+
+## 0.1.0-alpha.5
+
+- Use native full-block drops for mined terrain slabs.
+- Support torches and lanterns on slabs, including hanging lanterns under upper slabs.
+- Verify absent optional slabs are excluded from registries and commands.
+
+## 0.1.0-alpha.4
+
+- Extend optional terrain profiles and native soil interactions across biome mods.
+- Apply final terrain decoration across registered biomes and dimensions.
+
 ## 0.1.0-alpha.3
 
 - Preserve rivers, flowing water, riverbeds, and aquatic vegetation during smoothing.

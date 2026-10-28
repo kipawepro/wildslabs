@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "hexabiomes"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "hexabiomes:wet_sand"
+    }
+  },
+  "result": {
+    "id": "wildslabs:hexabiomes/wet_sand_slab",
+    "count": 6
+  }
+}

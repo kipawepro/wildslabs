@@ -35,6 +35,7 @@ public class SlabHelper {
         boolean aquatic = state.getFluidState().is(net.minecraft.tags.FluidTags.WATER);
         boolean wetSlab = soil.hasProperty(SlabBlock.WATERLOGGED) && soil.getValue(SlabBlock.WATERLOGGED);
         if (wetSlab != aquatic && !state.is(ModBlockTags.WATER_OFFSET_BLOCKS)) return false;
+        if (state.is(ModBlockTags.SURFACE_ATTACHMENTS)) return source.defaultBlockState().isFaceSturdy(level,soilPos,net.minecraft.core.Direction.UP);
         if (state.getBlock() instanceof net.minecraft.world.level.block.BushBlock) {
             return ((net.countered.terrainslabs.mixin.ontop.place.BushBlockAccessor)state.getBlock())
                     .wildslabs$mayPlaceOn(source.defaultBlockState(), level, soilPos);

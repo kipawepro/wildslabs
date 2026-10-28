@@ -285,3 +285,9 @@ modId = "curios"
 type = "optional"
 ordering = "AFTER"
 side = "BOTH"
+
+[[dependencies.wildslabs]]
+modId = "hexabiomes"
+type = "optional"
+ordering = "AFTER"
+side = "BOTH"

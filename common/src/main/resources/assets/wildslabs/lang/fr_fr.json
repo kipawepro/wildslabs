@@ -196,5 +196,6 @@
   "block.wildslabs.spawn.reefstone_slab": "Reefstone Slab",
   "block.wildslabs.spawn.blasted_sand_slab": "Blasted Sand Slab",
   "block.wildslabs.spawn.blasted_sandstone_slab": "Blasted Sandstone Slab",
-  "block.wildslabs.minecraft.pale_moss_block_slab": "Pale Moss Block Slab"
+  "block.wildslabs.minecraft.pale_moss_block_slab": "Pale Moss Block Slab",
+  "block.wildslabs.hexabiomes.wet_sand_slab": "Wet Sand Slab"
 }
