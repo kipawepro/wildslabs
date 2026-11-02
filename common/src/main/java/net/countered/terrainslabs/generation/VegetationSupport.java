@@ -34,6 +34,12 @@ public final class VegetationSupport {
                 || state.is(ModBlockTags.ON_TOP_BLOCKS) || state.canBeReplaced();
     }
 
+    public static boolean usesGroundSupport(BlockState state,LevelReader level,BlockPos pos){
+        if(PROBE.get()!=null||!state.canSurvive(level,pos))return false;
+        PROBE.set(new Probe(level,pos.below().immutable(),net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),false));
+        try{return !state.canSurvive(level,pos);}finally{PROBE.remove();}
+    }
+
     public static BlockState sourceDuringProbe(BlockGetter level, BlockPos pos) {
         Probe probe = PROBE.get();
         if(probe==null||probe.level()!=level||Boolean.TRUE.equals(READING.get()))return null;

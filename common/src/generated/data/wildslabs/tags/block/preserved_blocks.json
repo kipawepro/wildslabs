@@ -60,6 +60,38 @@
     {
       "id": "farm_and_charm:fertilized_farmland",
       "required": false
+    },
+    {
+      "id": "hexabiomes:ancient_golem",
+      "required": false
+    },
+    {
+      "id": "hexabiomes:ancient_golem_hitbox",
+      "required": false
+    },
+    {
+      "id": "hexabiomes:dead_copper_golem",
+      "required": false
+    },
+    {
+      "id": "hexabiomes:ancient_cut_copper",
+      "required": false
+    },
+    {
+      "id": "hexabiomes:ancient_oxidized_copper",
+      "required": false
+    },
+    {
+      "id": "hexabiomes:ancient_chiseled_copper",
+      "required": false
+    },
+    {
+      "id": "hexabiomes:ancient_copper_bricks",
+      "required": false
+    },
+    {
+      "id": "hexabiomes:ancient_copper_grate",
+      "required": false
     }
   ]
 }

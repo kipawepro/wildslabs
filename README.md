@@ -9,6 +9,8 @@ WildSlabs brings more natural terrain transitions, plantable terrain slabs, and 
 - Natural terrain slabs across surface landscapes and caves
 - Partial, seed-based smoothing that leaves gaps and keeps the terrain varied
 - Protection for rivers, shorelines, riverbeds, and aquatic vegetation
+- Full-cube checks for terrain geometry, preserving small rocks, plants, decorations, and fixed attachments
+- Protection for steep cliff faces and registered structure footprints, including modded boss arenas
 - Flowers, grass, and tall plants on compatible terrain slabs
 - Preservation of flower-patch quantities, orientations, and plant states
 - Tillable soil slabs with moisture, drying, and support for compatible crops

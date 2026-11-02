@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.7
+
+- Require full outline and collision cubes when identifying terrain steps across mods.
+- Preserve fixed decorations and determine movable foliage through its native ground support.
+- Exclude registered structure footprints, including the full Hexa golem arena across chunk boundaries.
+- Preserve steep cliff bands, waterways, ocean beds, and aquatic vegetation.
+- Extend shifted-shape targeting after native ray tracing for compatibility with Sable.
+
 ## 0.1.0-alpha.6
 
 - Add optional Hexa Biomes wet sand slabs with native tint, non-falling behavior, and drops.

@@ -1,8 +1,20 @@
 # Compatibility
 
-WildSlabs 0.1.0-alpha.6 targets Minecraft 1.21.1, NeoForge 21.1.265 or newer in the 21.1 branch, and Java 21. All integrations are optional.
+WildSlabs 0.1.0-alpha.7 targets Minecraft 1.21.1, NeoForge 21.1.265 or newer in the 21.1 branch, and Java 21. All integrations are optional.
 
 ## Supported behavior
+
+Generation geometry uses the same conservative checks for every mod: both the outline and collision must fill a cube,
+the block must be a mapped terrain material, and it must have no fluid or block entity. A plant, rock, stick, mushroom,
+wall, fence, or unrelated partial block cannot act as a raised terrain step. Unknown obstacles are left on their full supports.
+Movable foliage must depend on the ground below; wall-mounted decorations keep their original attachments.
+
+Registered structure bounding boxes are excluded automatically, with a two-block safety margin and cross-chunk references.
+Each feature pass writes only inside its own chunk, preventing neighbor passes from bypassing those exclusions.
+This protects the full Hexa ancient golem arena even where its floor uses vanilla grass, dirt, moss, or stone.
+A data pack can opt individual natural structures back in through the `wildslabs:allow_terrain_smoothing` structure tag.
+Steep surface height changes and exposed drops are preserved to retain cliff bands and recesses.
+Material profiles still define which full blocks have slab models; these safety checks do not require a profile for each plant.
 
 - 141 explicit terrain material profiles, including native soil, grass, rock, sand, farmland, and path variants.
 - Source-soil checks for eligible modded plants, preservation of flower counts and facing, and vegetation offsets on recognized soil slabs.
@@ -68,6 +80,17 @@ Special full blocks retain their native behavior instead of being replaced by or
 
 ## Verification
 
+Alpha.7 passed all 35 required GameTests on NeoForge 21.1.265 in three production configurations: current Hexa Biomes
+with Sable 2.0.6, that combination plus the pinned compatibility pack, and WildSlabs without optional mods.
+New regression cases cover full collisions with partial outlines, flat terrain decorated with rocks/plants/golem blocks,
+layered cliffs and recesses, narrow flowing rivers, ocean beds, aquatic plants, referenced arena footprints away from
+the center chunk, and chunk-boundary writes. Positive controls verify that gentle terrain still receives slabs.
+The client also completed startup and resource loading with current Hexa Biomes and Sable.
+
+A normal Hexa world using seed `9247205` completed generation in all three dimensions. Two sampled Overworld chunks
+using `fr.hexa.biomes.HexaChunkGenerator` contained 11 terrain slabs and 300 plant blocks across Hexa plains,
+tall grass plains, and copper plains. These samples establish startup and terrain integration rather than exhaustive biome coverage.
+
 The alpha.5 production pack passed all 27 required GameTests on NeoForge 21.1.265. Tests exercised all 140 active profiles,
 the final terrain feature in 488 biomes, 14 native hoe conversions, 27 native bone meal handlers, native vegetation
 states from the installed plant mods, flower quantities, waterway protection, and geometry offsets.
@@ -97,6 +120,8 @@ The Overworld samples were ocean biomes, so waterway protection left the underwa
 These are generation smoke checks, not exhaustive exploration of every biome or a client rendering assessment.
 
 ## Limits
+
+Generation corrections apply to newly generated chunks. They do not automatically remove slabs placed by an older build.
 
 This is an alpha compatibility implementation. Server tests cannot establish correct rendering with every shader, resource pack, or custom plant renderer. The built-in Better Grass pack supplies grassy slab sides; unrelated Better Grass implementations may need their own rules. Unusual plant generators, native entity abilities, block events, and special mechanics can still need dedicated integration.
 

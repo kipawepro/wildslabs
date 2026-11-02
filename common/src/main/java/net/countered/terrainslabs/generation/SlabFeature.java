@@ -38,7 +38,7 @@ public class SlabFeature extends Feature<NoneFeatureConfiguration> {
         if (PlatformConfigHooks.isSlabGenerationEnabled()) {
             WorldGenLevel level = context.level();
             BlockPos origin = context.origin();
-            generateSlabs(level, origin);
+            try(var protection=TerrainProtection.begin(level,origin)){generateSlabs(level, origin);}
             return true;
         }
         return false;
@@ -130,9 +130,12 @@ public class SlabFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     private boolean shouldPlaceBottomSlab(WorldGenLevel level, BlockPos currentPos, boolean isMaxY, boolean neighbourCanBeSlab) {
+        if(TerrainProtection.isProtected(level,currentPos))return false;
         if (!TerrainRandom.accepts(level.getSeed(), PlatformConfigHooks.getTerrainSeedOffset(), currentPos,
                 PlatformConfigHooks.getSlabPlacementChance())) return false;
         if (!isPosUpDownValid(level, currentPos)) return false;
+        if(TerrainProtection.hasFixedAttachment(level,currentPos))return false;
+        if(TerrainProtection.hasSteepDrop(level,currentPos))return false;
         if (PlatformConfigHooks.isWaterwayProtectionEnabled() && WaterwayProtection.touchesFluid(level, currentPos)) return false;
 
         Biome biome = level.getBiome(currentPos).value();
@@ -146,13 +149,11 @@ public class SlabFeature extends Feature<NoneFeatureConfiguration> {
     private static boolean isPosUpDownValid(WorldGenLevel level, BlockPos currentPos) {
         BlockState currentBlockState = level.getBlockState(currentPos);
         if(currentBlockState.is(net.countered.terrainslabs.block.ModBlockTags.PRESERVED_BLOCKS))return false;
-        if (!VegetationTransfer.canMove(currentBlockState, level, currentPos)
-                && !currentBlockState.getCollisionShape(level, currentPos).isEmpty()
-                && !(currentBlockState.getBlock() instanceof SlabBlock)) return false;
+        if (!currentBlockState.isAir()&&!VegetationTransfer.canMove(currentBlockState, level, currentPos)) return false;
         BlockState blockAboveState = level.getBlockState(currentPos.above());
         if (!blockAboveState.getCollisionShape(level, currentPos.above()).isEmpty()) return false;
         BlockState blockBelowState = level.getBlockState(currentPos.below());
-        if (ModSlabsMap.getSlabForBlock(blockBelowState.getBlock()) == null) return false;
+        if (!TerrainProtection.isFullTerrain(level,currentPos.below())) return false;
         return true;
     }
 
@@ -164,15 +165,15 @@ public class SlabFeature extends Feature<NoneFeatureConfiguration> {
             BlockPos oppositePos = currentPos.relative(direction.getOpposite());
             BlockPos belowOppositePos = oppositePos.below();
             BlockState neighborState = level.getBlockState(neighborPos);
-            BlockState oppositeState = level.getBlockState(belowOppositePos);
+            BlockState oppositeState = level.getBlockState(oppositePos);
             BlockState belowOppositeState = level.getBlockState(belowOppositePos);
 
             if (neighborState.is(Blocks.LAVA)) return false;
 
-            if (((!neighborState.getCollisionShape(EmptyBlockGetter.INSTANCE, BlockPos.ZERO).isEmpty() && !(neighborState.getBlock() instanceof SlabBlock))
-                    || ((neighborState.getBlock() instanceof SlabBlock) && neighbourCanBeSlab))
-                    && !(oppositeState.getBlock() instanceof SlabBlock)
-                    && !belowOppositeState.getCollisionShape(EmptyBlockGetter.INSTANCE, BlockPos.ZERO).isEmpty() && !(belowOppositeState.getBlock() instanceof SlabBlock)
+            if (((TerrainProtection.isFullTerrain(level,neighborPos))
+                    || (neighborState.hasProperty(CustomSlab.GENERATED)&&neighborState.getValue(CustomSlab.GENERATED)&&neighbourCanBeSlab))
+                    && TerrainProtection.isOpen(level,oppositePos)
+                    && TerrainProtection.isFullTerrain(level,belowOppositePos)
                     && (level.getBlockState(neighborPos.above()).getCollisionShape(EmptyBlockGetter.INSTANCE, BlockPos.ZERO).isEmpty()))
             {
                 validNeighbors = true;
@@ -182,6 +183,7 @@ public class SlabFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     private void placeBottomSlab(WorldGenLevel level, BlockPos pos) {
+        if(TerrainProtection.isProtected(level,pos)||!isPosUpDownValid(level,pos)||TerrainProtection.hasFixedAttachment(level,pos)||TerrainProtection.hasSteepDrop(level,pos))return;
         if (PlatformConfigHooks.isWaterwayProtectionEnabled() && WaterwayProtection.touchesFluid(level, pos)) return;
         BlockPos blockBelowPos = pos.below();
         BlockPos blockAbovePos = pos.above();
@@ -222,6 +224,7 @@ public class SlabFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     private boolean shouldPlaceTopSlab(WorldGenLevel level, BlockPos currentPos) {
+        if(TerrainProtection.isProtected(level,currentPos))return false;
         if (!TerrainRandom.accepts(level.getSeed(), PlatformConfigHooks.getTerrainSeedOffset(), currentPos,
                 PlatformConfigHooks.getSlabPlacementChance())) return false;
         BlockPos blockAbovePos = currentPos.above();
@@ -230,13 +233,14 @@ public class SlabFeature extends Feature<NoneFeatureConfiguration> {
 
         if(ModSlabsMap.getSlabForBlock(currentBlockState.getBlock())==null
                 ||currentBlockState.is(net.countered.terrainslabs.block.ModBlockTags.PRESERVED_BLOCKS))return false;
-        if (!currentBlockState.isCollisionShapeFullBlock(EmptyBlockGetter.INSTANCE, BlockPos.ZERO)) return false;
+        if (!TerrainProtection.isFullTerrain(level,currentPos)) return false;
 
         BlockState blockBelowState = level.getBlockState(blockBelowPos);
-        if(blockBelowState.isCollisionShapeFullBlock(EmptyBlockGetter.INSTANCE, BlockPos.ZERO)) return false;
+        if(!TerrainProtection.isOpen(level,blockBelowPos)) return false;
 
         BlockState blockAboveState = level.getBlockState(blockAbovePos);
         if (ModSlabsMap.getSlabForBlock(blockAboveState.getBlock()) == null) return false;
+        if(TerrainProtection.hasFixedAttachment(level,currentPos)||TerrainProtection.hasSteepDrop(level,currentPos))return false;
         if (PlatformConfigHooks.isWaterwayProtectionEnabled() && WaterwayProtection.touchesFluid(level, currentPos)) return false;
 
         if (!validSurroundingTop(level, currentPos)) return false;
@@ -265,10 +269,10 @@ public class SlabFeature extends Feature<NoneFeatureConfiguration> {
                 hasAirNeighbor = true;
             }
 
-            if ((neighborState.isCollisionShapeFullBlock(EmptyBlockGetter.INSTANCE, BlockPos.ZERO) || neighborState.getBlock() instanceof SlabBlock) &&
-                    aboveOppositeState.isCollisionShapeFullBlock(EmptyBlockGetter.INSTANCE, BlockPos.ZERO) &&
-                    !oppositeState.isCollisionShapeFullBlock(EmptyBlockGetter.INSTANCE, BlockPos.ZERO) && !(oppositeState.getBlock() instanceof SlabBlock) &&
-                    !level.getBlockState(neighborPos.below()).isCollisionShapeFullBlock(EmptyBlockGetter.INSTANCE, BlockPos.ZERO)
+            if (TerrainProtection.isFullTerrain(level,neighborPos) &&
+                    TerrainProtection.isFullTerrain(level,aboveOppositePos) &&
+                    TerrainProtection.isOpen(level,oppositePos) &&
+                    TerrainProtection.isOpen(level,neighborPos.below())
             ) {
                 validNeighbors = true;
             }
@@ -277,6 +281,7 @@ public class SlabFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     private void placeTopSlab(WorldGenLevel level, BlockPos pos) {
+        if(TerrainProtection.isProtected(level,pos)||TerrainProtection.hasFixedAttachment(level,pos)||TerrainProtection.hasSteepDrop(level,pos))return;
         if (PlatformConfigHooks.isWaterwayProtectionEnabled() && WaterwayProtection.touchesFluid(level, pos)) return;
         Boolean waterlogged = isTopStateWaterlogged(level, pos);
         BlockState original = level.getBlockState(pos);

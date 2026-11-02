@@ -41,6 +41,7 @@ public final class TerrainSlabsNeoForge {
         event.enqueueWork(FlattenableBlockRegistry::apply);
         event.enqueueWork(net.countered.terrainslabs.neoforge.compat.CompatSlabs::setup);
         if(Boolean.getBoolean("wildslabs.integrationTests"))event.enqueueWork(()->net.minecraft.gametest.framework.GameTestRegistry.register(net.countered.terrainslabs.neoforge.test.WildSlabsGameTests.class));
+        if(Boolean.getBoolean("wildslabs.integrationTests"))event.enqueueWork(()->net.minecraft.gametest.framework.GameTestRegistry.register(net.countered.terrainslabs.neoforge.test.TerrainSafetyGameTests.class));
     }
 
     private void setupClient(FMLClientSetupEvent event) {

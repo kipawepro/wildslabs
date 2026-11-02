@@ -24,6 +24,14 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 @PrefixGameTestTemplate(false)
 public final class WildSlabsGameTests {
     @GameTest(template="test_empty")
+    public static void genericPartialShapesNeverQualifyAsFullTerrain(GameTestHelper helper){
+        var level=helper.getLevel();var pos=helper.absolutePos(new BlockPos(2,2,2));
+        helper.assertTrue(net.countered.terrainslabs.generation.TerrainProtection.isFullBlock(Blocks.STONE.defaultBlockState(),level,pos),"A real terrain cube must remain eligible");
+        helper.assertTrue(!net.countered.terrainslabs.generation.TerrainProtection.isFullBlock(PARTIAL_COLLISION_CUBE.get().defaultBlockState(),level,pos),"A partial model with a full collision box must not qualify as terrain");
+        for(var block:new net.minecraft.world.level.block.Block[]{Blocks.POPPY,Blocks.BROWN_MUSHROOM,Blocks.OAK_FENCE,Blocks.COBBLESTONE_WALL,Blocks.OAK_STAIRS,Blocks.OAK_SLAB})helper.assertTrue(!net.countered.terrainslabs.generation.TerrainProtection.isFullBlock(block.defaultBlockState(),level,pos),"A partial block qualified as full terrain: "+block);
+        helper.succeed();
+    }
+    @GameTest(template="test_empty")
     public static void hexaWetSandRetainsNativeRules(GameTestHelper helper){
         if(!net.neoforged.fml.ModList.get().isLoaded("hexabiomes")){helper.succeed();return;}
         var level=helper.getLevel();
@@ -224,7 +232,7 @@ public final class WildSlabsGameTests {
                     level.setBlock(pos.above(),Blocks.AIR.defaultBlockState(),18);
                     level.setBlock(pos,Blocks.AIR.defaultBlockState(),18);
                     level.setBlock(pos.below(),soil.getKey().defaultBlockState(),18);
-                    if(!state.getCollisionShape(level,pos).isEmpty()||!state.canSurvive(level,pos))continue;
+                    if(!state.getCollisionShape(level,pos).isEmpty()||!net.countered.terrainslabs.generation.VegetationSupport.usesGroundSupport(state,level,pos))continue;
                     level.setBlock(pos,state,18);
                     var expected=state.updateShape(Direction.DOWN,soil.getKey().defaultBlockState(),level,pos,pos.below());
                     if(!expected.is(block))continue;
@@ -527,6 +535,12 @@ public final class WildSlabsGameTests {
 
     private static final net.neoforged.neoforge.registries.DeferredRegister.Blocks FIXTURES =
             net.neoforged.neoforge.registries.DeferredRegister.createBlocks("wildslabs");
+    private static final java.util.function.Supplier<net.minecraft.world.level.block.Block> PARTIAL_COLLISION_CUBE=FIXTURES.register("test/partial_collision_cube",()->new net.minecraft.world.level.block.Block(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of()){
+        @Override
+        protected net.minecraft.world.phys.shapes.VoxelShape getShape(net.minecraft.world.level.block.state.BlockState state,net.minecraft.world.level.BlockGetter level,BlockPos pos,net.minecraft.world.phys.shapes.CollisionContext context){return net.minecraft.world.level.block.Block.box(2,0,2,14,2,14);}
+        @Override
+        protected net.minecraft.world.phys.shapes.VoxelShape getCollisionShape(net.minecraft.world.level.block.state.BlockState state,net.minecraft.world.level.BlockGetter level,BlockPos pos,net.minecraft.world.phys.shapes.CollisionContext context){return net.minecraft.world.phys.shapes.Shapes.block();}
+    });
     private static final java.util.function.Supplier<net.minecraft.world.level.block.Block> STRICT_FLOWER = FIXTURES.register("test/strict_source_flower", () ->
             new net.minecraft.world.level.block.Block(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of().noCollission().replaceable()) {
                 @Override

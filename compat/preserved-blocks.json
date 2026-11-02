@@ -13,5 +13,13 @@
   "twilightforest:uberous_soil",
   "spawn:unstable_heliostone",
   "farm_and_charm:fertilized_soil",
-  "farm_and_charm:fertilized_farmland"
+  "farm_and_charm:fertilized_farmland",
+  "hexabiomes:ancient_golem",
+  "hexabiomes:ancient_golem_hitbox",
+  "hexabiomes:dead_copper_golem",
+  "hexabiomes:ancient_cut_copper",
+  "hexabiomes:ancient_oxidized_copper",
+  "hexabiomes:ancient_chiseled_copper",
+  "hexabiomes:ancient_copper_bricks",
+  "hexabiomes:ancient_copper_grate"
 ]
