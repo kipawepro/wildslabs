@@ -9,6 +9,10 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public final class CompatPathSlab extends PathSlab {
     private final CompatSlabs.Profile profile;
+    @Override
+    public BlockState baseFullBlock(){return CompatSlabs.baseBlock(profile).defaultBlockState();}
+    @Override
+    public BlockState baseSlabBlock(){return CompatSlabs.baseSlab(profile).defaultBlockState();}
     public CompatPathSlab(Properties properties, CompatSlabs.Profile profile) {
         super(properties);
         this.profile = profile;

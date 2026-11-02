@@ -23,6 +23,30 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 @GameTestHolder("wildslabs")
 @PrefixGameTestTemplate(false)
 public final class TerrainSafetyGameTests {
+    @GameTest(template="test_empty",batch="wildslabs_soil_exceptions")
+    public static void cultivatedAndSoftTerrainGeneratesNativeSlabs(GameTestHelper helper){
+        var level=helper.getLevel();var base=base(helper);
+        var sources=new java.util.ArrayList<net.minecraft.world.level.block.Block>(java.util.List.of(Blocks.FARMLAND,Blocks.DIRT_PATH,Blocks.SOUL_SAND,Blocks.MUD));
+        for(var entry:net.countered.terrainslabs.neoforge.compat.CompatSlabs.entries())if(java.util.List.of("farmland","path").contains(entry.kind()))sources.add(BuiltInRegistries.BLOCK.get(entry.source()));
+        for(var source:sources){
+            terrain(level,base,true);
+            var state=source.defaultBlockState();
+            if(state.hasProperty(net.minecraft.world.level.block.state.properties.BlockStateProperties.MOISTURE))state=state.setValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.MOISTURE,5);
+            for(int x=-2;x<=17;x++)for(int z=-2;z<=17;z++)level.setBlock(base.offset(x,x>=8?0:-1,z),state,18);
+            smooth(level,base);
+            var expected=net.countered.terrainslabs.block.ModSlabsMap.getSlabForBlock(source);
+            int generated=0;
+            for(var pos:BlockPos.betweenClosed(base,base.offset(15,1,15))){
+                var actual=level.getBlockState(pos);
+                if(!actual.is(expected)||!actual.getValue(CustomSlab.GENERATED))continue;
+                generated++;
+                if(state.hasProperty(net.minecraft.world.level.block.state.properties.BlockStateProperties.MOISTURE))helper.assertTrue(actual.getValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.MOISTURE)==5,"Generation lost native farmland moisture");
+                if(expected instanceof net.countered.terrainslabs.block.customslabs.soilslabs.ISoilSlab soil)helper.assertTrue(level.getBlockState(pos.below()).is(soil.baseFullBlock().getBlock()),"Cultivated slab lost its native base dirt");
+            }
+            helper.assertTrue(generated>0,"Terrain exception produced no slabs: "+source);
+        }
+        helper.succeed();
+    }
     private static BlockPos base(GameTestHelper helper){
         var pos=helper.absolutePos(new BlockPos(2,5,2));
         return new BlockPos(pos.getX()&~15,pos.getY(),pos.getZ()&~15);

@@ -17,7 +17,11 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class FarmlandSlab extends CustomSlab {
+public class FarmlandSlab extends CustomSlab implements ISoilSlab {
+    @Override
+    public BlockState baseFullBlock(){return net.minecraft.world.level.block.Blocks.DIRT.defaultBlockState();}
+    @Override
+    public BlockState baseSlabBlock(){return dirtSlab().defaultBlockState();}
     protected Block dirtSlab() { return ModBlocksRegistry.DIRT_SLAB.get(); }
     public static final IntegerProperty MOISTURE = BlockStateProperties.MOISTURE;
     private static final VoxelShape BOTTOM = Block.box(0, 0, 0, 16, 7, 16);

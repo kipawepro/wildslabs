@@ -76,6 +76,8 @@ public class ModSlabsMap {
         SLAB_MAP.put(Blocks.END_STONE, ModBlocksRegistry.ENDSTONE_SLAB.get());
         SLAB_MAP.forEach((source, slab) -> SOURCE_MAP.put(slab, source));
         SOURCE_MAP.put(ModBlocksRegistry.FARMLAND_SLAB.get(), Blocks.FARMLAND);
+        SLAB_MAP.put(Blocks.FARMLAND,ModBlocksRegistry.FARMLAND_SLAB.get());
+        ADDON_SOIL_SLABS.add(ModBlocksRegistry.FARMLAND_SLAB.get());
         INTERACTION_MAP.putAll(SLAB_MAP);
         INTERACTION_MAP.put(Blocks.FARMLAND, ModBlocksRegistry.FARMLAND_SLAB.get());
     }

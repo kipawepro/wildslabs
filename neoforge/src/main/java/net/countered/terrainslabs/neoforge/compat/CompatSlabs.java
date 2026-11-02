@@ -98,7 +98,7 @@ public final class CompatSlabs {
                 continue;
             }
             Block source = BuiltInRegistries.BLOCK.get(entry.source());
-            if (entry.kind().equals("farmland") || entry.kind().equals("path")) ModSlabsMap.registerInteraction(source, entry.slab().get());
+            if (entry.kind().equals("farmland") || entry.kind().equals("path")) ModSlabsMap.registerSoilSlab(source, entry.slab().get());
             else if (entry.kind().equals("grass") || entry.kind().equals("surface")) ModSlabsMap.registerSoilSlab(source, entry.slab().get());
             else ModSlabsMap.register(source, entry.slab().get());
         }

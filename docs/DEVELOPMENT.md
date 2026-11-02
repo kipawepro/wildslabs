@@ -81,7 +81,9 @@ Changing generation settings affects new chunks. A probability of `1.0` smooths 
 The old `1.0` default is migrated once to `0.65`; existing probabilities below 1 are preserved.
 Restart the client after changing the Better Grass setting.
 
-Terrain geometry requires both a full collision cube and a full outline cube from a mapped material. Foliage transfer
+Terrain geometry normally requires both a full collision cube and a full outline cube from a mapped material. Farmland,
+paths, soul sand, and mud permit solid rectangular shapes at least 14/16 block high. Native subclasses, soil tags, and
+the `wildslabs:terrain_shape_exceptions` block tag provide the exceptions; fluids, block entities, and preserved materials stay excluded. Foliage transfer
 checks native survival with and without the ground below, so wall attachments remain fixed. Unrecognized obstacles
 retain their original supports. Registered structures are excluded by their complete bounding boxes plus a two-block margin.
 Add a structure ID to the `wildslabs:allow_terrain_smoothing` worldgen structure tag only when that structure should permit smoothing.

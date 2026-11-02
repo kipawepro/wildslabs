@@ -1,6 +1,6 @@
 # Compatibility
 
-WildSlabs 0.1.0-alpha.7 targets Minecraft 1.21.1, NeoForge 21.1.265 or newer in the 21.1 branch, and Java 21. All integrations are optional.
+WildSlabs 0.1.0-alpha.8 targets Minecraft 1.21.1, NeoForge 21.1.265 or newer in the 21.1 branch, and Java 21. All integrations are optional.
 
 ## Supported behavior
 
@@ -8,6 +8,12 @@ Generation geometry uses the same conservative checks for every mod: both the ou
 the block must be a mapped terrain material, and it must have no fluid or block entity. A plant, rock, stick, mushroom,
 wall, fence, or unrelated partial block cannot act as a raised terrain step. Unknown obstacles are left on their full supports.
 Movable foliage must depend on the ground below; wall-mounted decorations keep their original attachments.
+
+Farmland, dirt paths, soul sand, and mud are intentional exceptions to the full-cube requirement. Their native classes,
+soil/soul-fire-base tags, and the `wildslabs:terrain_shape_exceptions` block tag identify compatible variants.
+Exceptions must still have solid rectangular shapes covering the full horizontal footprint, at least 14/16 block high,
+with no fluids or block entities. Registered material mappings are required; the exception tag does not create new slab models.
+Generated farmland retains moisture, and cultivated slabs use the native underlying dirt material.
 
 Registered structure bounding boxes are excluded automatically, with a two-block safety margin and cross-chunk references.
 Each feature pass writes only inside its own chunk, preventing neighbor passes from bypassing those exclusions.
@@ -76,9 +82,14 @@ Old Let's Do modules without a matching NeoForge 1.21.1 release, including Nethe
 
 ## Deliberately preserved blocks
 
-Special full blocks retain their native behavior instead of being replaced by ordinary slabs. These include smoking ash soil, layered sand and quicksand, Aether clouds and freezing ice, Twilight Forest uberous soil, and fertilized Farm & Charm soil. The optional list is in [preserved-blocks.json](../compat/preserved-blocks.json). Cultivated farmland and paths are interaction targets, not terrain-generation targets.
+Special full blocks retain their native behavior instead of being replaced by ordinary slabs. These include smoking ash soil, layered sand and quicksand, Aether clouds and freezing ice, Twilight Forest uberous soil, and fertilized Farm & Charm soil. The optional list is in [preserved-blocks.json](../compat/preserved-blocks.json). Compatible farmland and paths are generation and interaction targets.
 
 ## Verification
+
+Alpha.8 passed all 37 required production GameTests with the full compatibility pack, Hexa Biomes, and Sable.
+All 37 tests also passed without optional mods installed.
+The added cases exercise vanilla and inherited modded terrain classes, actual generation for supported modded farmland
+and paths, native base soil, and moisture preservation. Partial-block, cliff, waterway, arena, and chunk-boundary checks remain in the suite.
 
 Alpha.7 passed all 35 required GameTests on NeoForge 21.1.265 in three production configurations: current Hexa Biomes
 with Sable 2.0.6, that combination plus the pinned compatibility pack, and WildSlabs without optional mods.

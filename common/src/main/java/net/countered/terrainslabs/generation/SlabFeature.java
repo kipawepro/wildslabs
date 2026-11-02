@@ -197,6 +197,7 @@ public class SlabFeature extends Feature<NoneFeatureConfiguration> {
         if (slab == null) return;
 
         BlockState slabState = slab.defaultBlockState();
+        for(var property:blockBelowState.getProperties())slabState=copySourceProperty(blockBelowState,slabState,property);
 
         slabState = updateBottomWaterloggedState(currentBlockState, blockAboveState, slabState)
                 .setValue(CustomSlab.GENERATED, true);
@@ -221,6 +222,10 @@ public class SlabFeature extends Feature<NoneFeatureConfiguration> {
             }
         }
         return slabState;
+    }
+
+    private static <T extends Comparable<T>> BlockState copySourceProperty(BlockState source,BlockState slab,net.minecraft.world.level.block.state.properties.Property<T> property){
+        return slab.hasProperty(property)?slab.setValue(property,source.getValue(property)):slab;
     }
 
     private boolean shouldPlaceTopSlab(WorldGenLevel level, BlockPos currentPos) {

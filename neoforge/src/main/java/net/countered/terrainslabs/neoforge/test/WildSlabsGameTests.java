@@ -24,6 +24,17 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 @PrefixGameTestTemplate(false)
 public final class WildSlabsGameTests {
     @GameTest(template="test_empty")
+    public static void terrainExceptionsRecognizeModdedFamilies(GameTestHelper helper){
+        var level=helper.getLevel();var pos=helper.absolutePos(new BlockPos(2,2,2));
+        for(var block:java.util.List.of(Blocks.FARMLAND,Blocks.DIRT_PATH,Blocks.SOUL_SAND,Blocks.MUD,MODDED_FARMLAND.get(),MODDED_PATH.get(),MODDED_SOUL_SAND.get()))helper.assertTrue(net.countered.terrainslabs.generation.TerrainProtection.isTerrainShape(block.defaultBlockState(),level,pos),"Native terrain family exception was rejected: "+block);
+        helper.assertTrue(!net.countered.terrainslabs.generation.TerrainProtection.isTerrainShape(PARTIAL_COLLISION_CUBE.get().defaultBlockState(),level,pos),"Exceptions admitted an unrelated partial decoration");
+        for(var entry:net.countered.terrainslabs.neoforge.compat.CompatSlabs.entries())if(java.util.List.of("farmland","path").contains(entry.kind())){
+            var source=net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(entry.source());
+            helper.assertTrue(net.countered.terrainslabs.generation.TerrainProtection.isTerrainShape(source.defaultBlockState(),level,pos),"Modded cultivated soil exception was rejected: "+entry.source());
+        }
+        helper.succeed();
+    }
+    @GameTest(template="test_empty")
     public static void genericPartialShapesNeverQualifyAsFullTerrain(GameTestHelper helper){
         var level=helper.getLevel();var pos=helper.absolutePos(new BlockPos(2,2,2));
         helper.assertTrue(net.countered.terrainslabs.generation.TerrainProtection.isFullBlock(Blocks.STONE.defaultBlockState(),level,pos),"A real terrain cube must remain eligible");
@@ -299,7 +310,7 @@ public final class WildSlabsGameTests {
                 var base=soil.baseFullBlock().getBlock();
                 helper.assertTrue(net.countered.terrainslabs.block.ModSlabsMap.getInteractionSlab(base)==soil.baseSlabBlock().getBlock(),"Surface lost its own base material: "+entry.source());
             }
-            if(entry.kind().equals("farmland")||entry.kind().equals("path"))helper.assertTrue(net.countered.terrainslabs.block.ModSlabsMap.getSlabForBlock(source)==null,"Cultivated soil must not become a terrain-generation target");
+            if(entry.kind().equals("farmland")||entry.kind().equals("path"))helper.assertTrue(net.countered.terrainslabs.block.ModSlabsMap.getSlabForBlock(source)==slab,"Cultivated terrain exception lacks its native slab mapping");
             count++;
         }
         org.slf4j.LoggerFactory.getLogger("WildSlabsTests").info("Verified {} loaded terrain compatibility profiles",count);
@@ -535,6 +546,9 @@ public final class WildSlabsGameTests {
 
     private static final net.neoforged.neoforge.registries.DeferredRegister.Blocks FIXTURES =
             net.neoforged.neoforge.registries.DeferredRegister.createBlocks("wildslabs");
+    private static final java.util.function.Supplier<net.minecraft.world.level.block.Block> MODDED_FARMLAND=FIXTURES.register("test/modded_farmland",()->new net.minecraft.world.level.block.FarmBlock(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of()){});
+    private static final java.util.function.Supplier<net.minecraft.world.level.block.Block> MODDED_PATH=FIXTURES.register("test/modded_path",()->new net.minecraft.world.level.block.DirtPathBlock(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of()){});
+    private static final java.util.function.Supplier<net.minecraft.world.level.block.Block> MODDED_SOUL_SAND=FIXTURES.register("test/modded_soul_sand",()->new net.minecraft.world.level.block.SoulSandBlock(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of()){});
     private static final java.util.function.Supplier<net.minecraft.world.level.block.Block> PARTIAL_COLLISION_CUBE=FIXTURES.register("test/partial_collision_cube",()->new net.minecraft.world.level.block.Block(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of()){
         @Override
         protected net.minecraft.world.phys.shapes.VoxelShape getShape(net.minecraft.world.level.block.state.BlockState state,net.minecraft.world.level.BlockGetter level,BlockPos pos,net.minecraft.world.phys.shapes.CollisionContext context){return net.minecraft.world.level.block.Block.box(2,0,2,14,2,14);}

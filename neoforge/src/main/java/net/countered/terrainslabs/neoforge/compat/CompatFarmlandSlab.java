@@ -5,6 +5,8 @@ import net.minecraft.world.level.block.Block;
 public final class CompatFarmlandSlab extends NeoForgeFarmlandSlab {
 
     private final CompatSlabs.Profile profile;
+    @Override
+    public net.minecraft.world.level.block.state.BlockState baseFullBlock(){return CompatSlabs.baseBlock(profile).defaultBlockState();}
     public CompatFarmlandSlab(Properties properties, CompatSlabs.Profile profile) { super(properties); this.profile = profile; }
     @Override
     protected Block dirtSlab() { return CompatSlabs.baseSlab(profile); }

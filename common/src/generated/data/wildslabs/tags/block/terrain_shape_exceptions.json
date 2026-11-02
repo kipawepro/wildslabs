@@ -1,0 +1,49 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:farmland",
+    "minecraft:dirt_path",
+    "minecraft:soul_sand",
+    "minecraft:mud",
+    {
+      "id": "regions_unexplored:peat_farmland",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:peat_dirt_path",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:silt_farmland",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:silt_dirt_path",
+      "required": false
+    },
+    {
+      "id": "biomeswevegone:lush_farmland",
+      "required": false
+    },
+    {
+      "id": "biomeswevegone:lush_dirt_path",
+      "required": false
+    },
+    {
+      "id": "biomeswevegone:sandy_farmland",
+      "required": false
+    },
+    {
+      "id": "biomeswevegone:sandy_dirt_path",
+      "required": false
+    },
+    {
+      "id": "aether:aether_farmland",
+      "required": false
+    },
+    {
+      "id": "aether:aether_dirt_path",
+      "required": false
+    }
+  ]
+}

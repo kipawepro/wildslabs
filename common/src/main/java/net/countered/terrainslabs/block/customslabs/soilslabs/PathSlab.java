@@ -16,7 +16,11 @@ import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class PathSlab extends CustomSlab {
+public class PathSlab extends CustomSlab implements ISoilSlab {
+    @Override
+    public BlockState baseFullBlock(){return net.minecraft.world.level.block.Blocks.DIRT.defaultBlockState();}
+    @Override
+    public BlockState baseSlabBlock(){return ModBlocksRegistry.DIRT_SLAB.get().defaultBlockState();}
 
     public PathSlab(BlockBehaviour.Properties properties) {
         super(properties);

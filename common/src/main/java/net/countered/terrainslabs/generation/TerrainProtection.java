@@ -15,6 +15,7 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 
 public final class TerrainProtection implements AutoCloseable {
     public static final TagKey<Structure> ALLOW_SMOOTHING=TagKey.create(Registries.STRUCTURE,ResourceLocation.fromNamespaceAndPath("wildslabs","allow_terrain_smoothing"));
+    public static final net.minecraft.tags.TagKey<net.minecraft.world.level.block.Block> SHAPE_EXCEPTIONS=net.minecraft.tags.TagKey.create(Registries.BLOCK,ResourceLocation.fromNamespaceAndPath("wildslabs","terrain_shape_exceptions"));
     private static final ThreadLocal<TerrainProtection> CURRENT=new ThreadLocal<>();
     private final TerrainProtection previous;
     private final WorldGenLevel level;
@@ -45,7 +46,23 @@ public final class TerrainProtection implements AutoCloseable {
 
     public static boolean isFullTerrain(WorldGenLevel level,BlockPos pos){
         BlockState state=level.getBlockState(pos);
-        return ModSlabsMap.getSlabForBlock(state.getBlock())!=null&&isFullBlock(state,level,pos);
+        return ModSlabsMap.getSlabForBlock(state.getBlock())!=null&&isTerrainShape(state,level,pos);
+    }
+
+    public static boolean isTerrainShape(BlockState state,net.minecraft.world.level.BlockGetter level,BlockPos pos){
+        if(isFullBlock(state,level,pos))return true;
+        if(state.hasBlockEntity()||!state.getFluidState().isEmpty()||state.is(ModBlockTags.PRESERVED_BLOCKS))return false;
+        boolean exception=state.getBlock() instanceof net.minecraft.world.level.block.FarmBlock
+                ||state.getBlock() instanceof net.minecraft.world.level.block.DirtPathBlock
+                ||state.getBlock() instanceof net.minecraft.world.level.block.SoulSandBlock
+                ||state.getBlock() instanceof net.minecraft.world.level.block.MudBlock
+                ||state.is(net.minecraft.tags.BlockTags.DIRT)||state.is(SHAPE_EXCEPTIONS)||state.is(net.minecraft.tags.BlockTags.SOUL_FIRE_BASE_BLOCKS);
+        return exception&&isLowCube(state.getShape(level,pos))&&isLowCube(state.getCollisionShape(level,pos));
+    }
+
+    private static boolean isLowCube(net.minecraft.world.phys.shapes.VoxelShape shape){
+        var boxes=shape.toAabbs();if(boxes.size()!=1)return false;var box=boxes.get(0);
+        return box.minX==0&&box.minY==0&&box.minZ==0&&box.maxX==1&&box.maxZ==1&&box.maxY>=0.875&&box.maxY<=1;
     }
 
     public static boolean isFullBlock(BlockState state,net.minecraft.world.level.BlockGetter level,BlockPos pos){
@@ -62,6 +79,7 @@ public final class TerrainProtection implements AutoCloseable {
         for(var direction:Direction.values()){
             var nearby=pos.relative(direction);var state=level.getBlockState(nearby);
             if(state.hasBlockEntity()||state.is(ModBlockTags.PRESERVED_BLOCKS))return true;
+            if(isFullTerrain(level,nearby))continue;
             if(state.hasProperty(net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab.GENERATED)
                     &&state.getValue(net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab.GENERATED))continue;
             if(!state.isAir()&&state.getFluidState().isEmpty()&&!state.isCollisionShapeFullBlock(level,nearby)

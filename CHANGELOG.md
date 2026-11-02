@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.0-alpha.8
+
+- Allow native and modded farmland, paths, soul sand, and mud as nearly full terrain exceptions.
+- Enable generation mappings for compatible cultivated soils.
+- Preserve farmland moisture and native base dirt during generation.
+- Add the extensible terrain_shape_exceptions block tag while retaining structure and decoration protection.
+
 ## 0.1.0-alpha.7
 
 - Require full outline and collision cubes when identifying terrain steps across mods.

@@ -11,6 +11,7 @@ const write = (base, name, data) => {
 };
 const read = (base, name) => JSON.parse(fs.readFileSync(path.join(base,name),'utf8'));
 const profiles = read(root, 'compat/profiles.json');
+write(generated,'data/wildslabs/tags/block/terrain_shape_exceptions.json',{replace:false,values:['minecraft:farmland','minecraft:dirt_path','minecraft:soul_sand','minecraft:mud',...profiles.filter(p=>['farmland','path'].includes(p.kind)).map(p=>({id:p.source,required:false}))]});
 const previousProfiles=fs.existsSync(path.join(resources,'wildslabs-compat.json'))?read(resources,'wildslabs-compat.json'):[];
 const removedProfiles=previousProfiles.filter(p=>!profiles.some(n=>n.source===p.source));
 const removedIds=new Set(removedProfiles.map(p=>`wildslabs:${p.source.replace(':','/')}_slab`));
