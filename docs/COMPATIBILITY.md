@@ -1,6 +1,6 @@
 # Compatibility
 
-WildSlabs 0.1.0-alpha.8 targets Minecraft 1.21.1, NeoForge 21.1.265 or newer in the 21.1 branch, and Java 21. All integrations are optional.
+WildSlabs 0.1.0-alpha.9 targets Minecraft 1.21.1, NeoForge 21.1.265 or newer in the 21.1 branch, and Java 21. All integrations are optional.
 
 ## Supported behavior
 
@@ -8,6 +8,11 @@ Generation geometry uses the same conservative checks for every mod: both the ou
 the block must be a mapped terrain material, and it must have no fluid or block entity. A plant, rock, stick, mushroom,
 wall, fence, or unrelated partial block cannot act as a raised terrain step. Unknown obstacles are left on their full supports.
 Movable foliage must depend on the ground below; wall-mounted decorations keep their original attachments.
+
+The default probability is 80 percent of eligible positions. Neighboring collision-free decorations are treated as open
+space for slope calculations, while their occupied cells remain protected. Fixed decorations block a slope only when
+their native survival depends on the block being changed. Logs, planks, wooden stairs/slabs, fences, gates, doors,
+and trapdoors are never terrain materials and prevent slab generation directly beside them.
 
 Farmland, dirt paths, soul sand, and mud are intentional exceptions to the full-cube requirement. Their native classes,
 soil/soul-fire-base tags, and the `wildslabs:terrain_shape_exceptions` block tag identify compatible variants.
@@ -85,6 +90,13 @@ Old Let's Do modules without a matching NeoForge 1.21.1 release, including Nethe
 Special full blocks retain their native behavior instead of being replaced by ordinary slabs. These include smoking ash soil, layered sand and quicksand, Aether clouds and freezing ice, Twilight Forest uberous soil, and fertilized Farm & Charm soil. The optional list is in [preserved-blocks.json](../compat/preserved-blocks.json). Compatible farmland and paths are generation and interaction targets.
 
 ## Verification
+
+Alpha.9 passed all 39 required production tests with the compatibility pack, Hexa Biomes, and Sable.
+All 39 tests also passed without optional mods installed.
+With the full compatibility pack, the controlled slope produced seven sampled slabs at 65 percent and nine at 80 percent.
+Without optional mods, it produced eight at 65 percent and nine at 80 percent.
+In both configurations, the same nine remained with adjacent unknown ground decorations, while neighboring wood prevented placement.
+Migration checks preserve custom densities and allow later manual changes after the one-time default upgrade.
 
 Alpha.8 passed all 37 required production GameTests with the full compatibility pack, Hexa Biomes, and Sable.
 All 37 tests also passed without optional mods installed.

@@ -40,6 +40,12 @@ public final class VegetationSupport {
         try{return !state.canSurvive(level,pos);}finally{PROBE.remove();}
     }
 
+    public static boolean dependsOnSupport(BlockState state,LevelReader level,BlockPos pos,BlockPos support){
+        if(PROBE.get()!=null||!state.canSurvive(level,pos))return true;
+        PROBE.set(new Probe(level,support.immutable(),net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),false));
+        try{return !state.canSurvive(level,pos);}finally{PROBE.remove();}
+    }
+
     public static BlockState sourceDuringProbe(BlockGetter level, BlockPos pos) {
         Probe probe = PROBE.get();
         if(probe==null||probe.level()!=level||Boolean.TRUE.equals(READING.get()))return null;

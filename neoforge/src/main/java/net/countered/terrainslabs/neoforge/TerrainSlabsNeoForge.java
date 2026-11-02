@@ -19,7 +19,8 @@ public final class TerrainSlabsNeoForge {
     public TerrainSlabsNeoForge(IEventBus modBus) {
         boolean migrateFullDensity = ConfigMigration.hasOldFullDensityDefault();
         MidnightConfig.init(TerrainSlabs.MOD_ID, PlatformConfigHooksImpl.class);
-        if (migrateFullDensity) PlatformConfigHooksImpl.slabPlacementChance = 0.65;
+        if (migrateFullDensity) PlatformConfigHooksImpl.slabPlacementChance = 0.8;
+        PlatformConfigHooksImpl.terrainDensityVersion=1;
 
         MidnightConfig.write(TerrainSlabs.MOD_ID);
         ModFeatures.FEATURES.register(modBus);

@@ -46,7 +46,7 @@ public final class TerrainProtection implements AutoCloseable {
 
     public static boolean isFullTerrain(WorldGenLevel level,BlockPos pos){
         BlockState state=level.getBlockState(pos);
-        return ModSlabsMap.getSlabForBlock(state.getBlock())!=null&&isTerrainShape(state,level,pos);
+        return !isWood(state)&&ModSlabsMap.getSlabForBlock(state.getBlock())!=null&&isTerrainShape(state,level,pos);
     }
 
     public static boolean isTerrainShape(BlockState state,net.minecraft.world.level.BlockGetter level,BlockPos pos){
@@ -72,18 +72,26 @@ public final class TerrainProtection implements AutoCloseable {
 
     public static boolean isOpen(WorldGenLevel level,BlockPos pos){
         var state=level.getBlockState(pos);
-        return state.isAir()||VegetationTransfer.canMove(state,level,pos);
+        return state.isAir()||!state.hasBlockEntity()&&state.getFluidState().isEmpty()&&!state.is(ModBlockTags.PRESERVED_BLOCKS)&&state.getCollisionShape(level,pos).isEmpty();
+    }
+
+    public static boolean isWood(BlockState state){
+        return state.is(net.minecraft.tags.BlockTags.LOGS)||state.is(net.minecraft.tags.BlockTags.PLANKS)
+                ||state.is(net.minecraft.tags.BlockTags.WOODEN_STAIRS)||state.is(net.minecraft.tags.BlockTags.WOODEN_SLABS)
+                ||state.is(net.minecraft.tags.BlockTags.WOODEN_FENCES)||state.is(net.minecraft.tags.BlockTags.FENCE_GATES)
+                ||state.is(net.minecraft.tags.BlockTags.WOODEN_DOORS)||state.is(net.minecraft.tags.BlockTags.WOODEN_TRAPDOORS);
     }
 
     public static boolean hasFixedAttachment(WorldGenLevel level,BlockPos pos){
         for(var direction:Direction.values()){
             var nearby=pos.relative(direction);var state=level.getBlockState(nearby);
-            if(state.hasBlockEntity()||state.is(ModBlockTags.PRESERVED_BLOCKS))return true;
+            if(state.hasBlockEntity()||state.is(ModBlockTags.PRESERVED_BLOCKS)||isWood(state))return true;
             if(isFullTerrain(level,nearby))continue;
             if(state.hasProperty(net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab.GENERATED)
                     &&state.getValue(net.countered.terrainslabs.block.customslabs.specialslabs.CustomSlab.GENERATED))continue;
             if(!state.isAir()&&state.getFluidState().isEmpty()&&!state.isCollisionShapeFullBlock(level,nearby)
-                    &&!state.getShape(level,nearby).isEmpty()&&!VegetationTransfer.canMove(state,level,nearby))return true;
+                    &&!state.getShape(level,nearby).isEmpty()&&!VegetationTransfer.canMove(state,level,nearby)
+                    &&VegetationSupport.dependsOnSupport(state,level,nearby,pos))return true;
         }
         return false;
     }

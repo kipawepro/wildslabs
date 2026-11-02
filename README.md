@@ -49,7 +49,8 @@ WildSlabs is currently in alpha; custom plant generators and unusual rendering s
 ## Configuration
 
 Settings are stored in `config/wildslabs.json`. Terrain smoothing uses the world seed and a configurable seed offset.
-The default placement probability is `0.65`, and waterway protection is enabled by default.
+The default placement probability is `0.8`, and waterway protection is enabled by default.
+Nearby ground decorations do not block unrelated slopes. Logs, planks, and wooden construction blocks retain a clear boundary.
 
 See [Development](docs/DEVELOPMENT.md) for building, testing, and adding compatibility profiles.
 

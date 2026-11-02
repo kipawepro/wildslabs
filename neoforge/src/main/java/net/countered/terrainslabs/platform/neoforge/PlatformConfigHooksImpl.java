@@ -26,7 +26,10 @@ public class PlatformConfigHooksImpl extends MidnightConfig {
     public static long getTerrainSeedOffset() { return terrainSeedOffset; }
 
     @Entry(category = GENERATION, min = 0, max = 1)
-    public static double slabPlacementChance = 0.65;
+    public static double slabPlacementChance = 0.8;
+    @Entry(category = GENERATION)
+    @Hidden
+    public static int terrainDensityVersion = 1;
     public static double getSlabPlacementChance() { return slabPlacementChance; }
 
     @Entry(category = GENERATION)

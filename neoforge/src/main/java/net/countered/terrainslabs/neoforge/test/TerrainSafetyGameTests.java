@@ -23,6 +23,33 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 @GameTestHolder("wildslabs")
 @PrefixGameTestTemplate(false)
 public final class TerrainSafetyGameTests {
+    @GameTest(template="test_empty",batch="wildslabs_natural_density")
+    public static void strongerTerrainDensityIgnoresUnrelatedDecorationsButAvoidsWood(GameTestHelper helper){
+        var level=helper.getLevel();var base=base(helper);
+        terrain(level,base,true);smooth(level,base,0.65);
+        int previous=stripSlabs(level,base);
+        terrain(level,base,true);smooth(level,base,0.8);
+        int stronger=stripSlabs(level,base);
+        helper.assertTrue(stronger>=previous&&stronger>0,"Stronger density reduced natural terrain slabs");
+        terrain(level,base,true);
+        var decor=BuiltInRegistries.BLOCK.get(ResourceLocation.parse("wildslabs:test/ground_decoration")).defaultBlockState();
+        for(int z=1;z<15;z++)level.setBlock(base.offset(6,0,z),decor,18);
+        smooth(level,base,0.8);
+        helper.assertTrue(stripSlabs(level,base)==stronger,"Unrelated neighboring ground decorations reduced slope density");
+        for(int z=1;z<15;z++)helper.assertTrue(level.getBlockState(base.offset(6,0,z)).equals(decor),"An unknown decoration was moved or replaced");
+        for(var wood:java.util.List.of(Blocks.OAK_LOG,Blocks.SPRUCE_PLANKS,Blocks.OAK_STAIRS,Blocks.OAK_FENCE)){
+            terrain(level,base,true);
+            for(int z=-2;z<=17;z++)level.setBlock(base.offset(6,0,z),wood.defaultBlockState(),18);
+            smooth(level,base,0.8);
+            helper.assertTrue(stripSlabs(level,base)==0,"Terrain slabs appeared directly against wood: "+wood);
+        }
+        org.slf4j.LoggerFactory.getLogger("WildSlabsTests").info("Natural slope density: previous={}, stronger={}, decorated={}",previous,stronger,stronger);
+        helper.succeed();
+    }
+
+    private static int stripSlabs(ServerLevel level,BlockPos base){
+        int count=0;for(int z=2;z<14;z++){var state=level.getBlockState(base.offset(7,0,z));if(state.hasProperty(CustomSlab.GENERATED)&&state.getValue(CustomSlab.GENERATED))count++;}return count;
+    }
     @GameTest(template="test_empty",batch="wildslabs_soil_exceptions")
     public static void cultivatedAndSoftTerrainGeneratesNativeSlabs(GameTestHelper helper){
         var level=helper.getLevel();var base=base(helper);
@@ -61,10 +88,14 @@ public final class TerrainSafetyGameTests {
     }
 
     private static void smooth(ServerLevel level,BlockPos base){
+        smooth(level,base,1);
+    }
+
+    private static void smooth(ServerLevel level,BlockPos base,double density){
         double chance=PlatformConfigHooksImpl.slabPlacementChance;
         boolean waterways=PlatformConfigHooksImpl.preserveWaterways;
         try{
-            PlatformConfigHooksImpl.slabPlacementChance=1;
+            PlatformConfigHooksImpl.slabPlacementChance=density;
             PlatformConfigHooksImpl.preserveWaterways=true;
             for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++)Heightmap.primeHeightmaps(level.getChunk(new ChunkPos(base).x+x,new ChunkPos(base).z+z),java.util.EnumSet.of(Heightmap.Types.WORLD_SURFACE_WG));
             new SlabFeature(NoneFeatureConfiguration.CODEC).place(new FeaturePlaceContext<>(java.util.Optional.empty(),level,level.getChunkSource().getGenerator(),RandomSource.create(4),base,NoneFeatureConfiguration.INSTANCE));

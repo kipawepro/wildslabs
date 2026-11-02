@@ -69,7 +69,7 @@ after reaching the title screen. It does not join a world or assess shaders and 
 | Setting | Default | Purpose |
 | --- | --- | --- |
 | `enableSlabGeneration` | `true` | Generate terrain slabs |
-| `slabPlacementChance` | `0.65` | Select eligible positions for smoothing |
+| `slabPlacementChance` | `0.8` | Select eligible positions for smoothing |
 | `terrainSeedOffset` | `0` | Add reproducible variation to the world seed |
 | `preserveWaterways` | `true` | Preserve fluids, aquatic plants, and nearby shores |
 | `enableVegetationOnSlabs` | `true` | Enable vegetation support and offsets |
@@ -78,7 +78,8 @@ after reaching the title screen. It does not join a world or assess shaders and 
 | `enableBetterGrassCompatibility` | `false` | Enable the bundled grassy-side resource pack |
 
 Changing generation settings affects new chunks. A probability of `1.0` smooths all eligible positions.
-The old `1.0` default is migrated once to `0.65`; existing probabilities below 1 are preserved.
+The previous `0.65` default and the legacy `1.0` default from before waterway protection migrate once to `0.8`.
+Other custom probabilities remain unchanged. A hidden configuration revision preserves later manual density choices.
 Restart the client after changing the Better Grass setting.
 
 Terrain geometry normally requires both a full collision cube and a full outline cube from a mapped material. Farmland,

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.0-alpha.9
+
+- Increase default terrain slab probability from 65 to 80 percent, with a one-time default migration.
+- Preserve custom density choices after migration.
+- Let unrelated neighboring ground decorations coexist with natural slope generation.
+- Keep logs, planks, and wooden construction blocks outside smoothing and retain their immediate boundaries.
+
 ## 0.1.0-alpha.8
 
 - Allow native and modded farmland, paths, soul sand, and mud as nearly full terrain exceptions.

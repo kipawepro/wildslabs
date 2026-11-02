@@ -24,6 +24,18 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 @PrefixGameTestTemplate(false)
 public final class WildSlabsGameTests {
     @GameTest(template="test_empty")
+    public static void densityMigrationPreservesCustomChoices(GameTestHelper helper){
+        var old=new com.google.gson.JsonObject();old.addProperty("slabPlacementChance",0.65);
+        helper.assertTrue(net.countered.terrainslabs.neoforge.ConfigMigration.shouldUpgradeDensity(old),"Previous default must upgrade once");
+        old.addProperty("terrainDensityVersion",1);
+        helper.assertTrue(!net.countered.terrainslabs.neoforge.ConfigMigration.shouldUpgradeDensity(old),"A later custom 65 percent choice must be respected");
+        var custom=new com.google.gson.JsonObject();custom.addProperty("slabPlacementChance",0.3);
+        helper.assertTrue(!net.countered.terrainslabs.neoforge.ConfigMigration.shouldUpgradeDensity(custom),"Custom density was overwritten");
+        custom.addProperty("slabPlacementChance",1);custom.addProperty("preserveWaterways",true);
+        helper.assertTrue(!net.countered.terrainslabs.neoforge.ConfigMigration.shouldUpgradeDensity(custom),"Explicit full density must be respected");
+        helper.succeed();
+    }
+    @GameTest(template="test_empty")
     public static void terrainExceptionsRecognizeModdedFamilies(GameTestHelper helper){
         var level=helper.getLevel();var pos=helper.absolutePos(new BlockPos(2,2,2));
         for(var block:java.util.List.of(Blocks.FARMLAND,Blocks.DIRT_PATH,Blocks.SOUL_SAND,Blocks.MUD,MODDED_FARMLAND.get(),MODDED_PATH.get(),MODDED_SOUL_SAND.get()))helper.assertTrue(net.countered.terrainslabs.generation.TerrainProtection.isTerrainShape(block.defaultBlockState(),level,pos),"Native terrain family exception was rejected: "+block);
@@ -546,6 +558,12 @@ public final class WildSlabsGameTests {
 
     private static final net.neoforged.neoforge.registries.DeferredRegister.Blocks FIXTURES =
             net.neoforged.neoforge.registries.DeferredRegister.createBlocks("wildslabs");
+    private static final java.util.function.Supplier<net.minecraft.world.level.block.Block> GROUND_DECORATION=FIXTURES.register("test/ground_decoration",()->new net.minecraft.world.level.block.Block(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of().noCollission()){
+        @Override
+        protected net.minecraft.world.phys.shapes.VoxelShape getShape(net.minecraft.world.level.block.state.BlockState state,net.minecraft.world.level.BlockGetter level,BlockPos pos,net.minecraft.world.phys.shapes.CollisionContext context){return net.minecraft.world.level.block.Block.box(2,0,2,14,2,14);}
+        @Override
+        protected boolean canSurvive(net.minecraft.world.level.block.state.BlockState state,net.minecraft.world.level.LevelReader level,BlockPos pos){return level.getBlockState(pos.below()).isFaceSturdy(level,pos.below(),Direction.UP);}
+    });
     private static final java.util.function.Supplier<net.minecraft.world.level.block.Block> MODDED_FARMLAND=FIXTURES.register("test/modded_farmland",()->new net.minecraft.world.level.block.FarmBlock(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of()){});
     private static final java.util.function.Supplier<net.minecraft.world.level.block.Block> MODDED_PATH=FIXTURES.register("test/modded_path",()->new net.minecraft.world.level.block.DirtPathBlock(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of()){});
     private static final java.util.function.Supplier<net.minecraft.world.level.block.Block> MODDED_SOUL_SAND=FIXTURES.register("test/modded_soul_sand",()->new net.minecraft.world.level.block.SoulSandBlock(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of()){});
